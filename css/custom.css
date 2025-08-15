@@ -1,4 +1,7 @@
 /*==================================================================================
     Custom Stylesheet (Any custom styling you want to apply should be defined here).
 ====================================================================================*/
-
+.text-green
+ {
+    color: #1b4945 !important;
+}
