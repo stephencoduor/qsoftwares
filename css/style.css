@@ -522,6 +522,13 @@ select.parsley-error {
 .section-title.text-white h2 {
     color: #ffffff;
 }
+
+.section-title.text-green h2:before {
+    background-color: #015055;
+}
+.section-title.text-green h2 {
+    color: #ffffff;
+}
 /* Light Version Section Title */
 .light-version .section-title h2 {
     color: #145af9;
