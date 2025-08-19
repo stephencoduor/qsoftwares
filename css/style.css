@@ -760,7 +760,7 @@ select.parsley-error {
     position: fixed;
     /* text-color: #fff; */
     top: 0;
-    background-color: #255e5a !important;
+    background-color: #015055 !important;
     box-shadow: 0 0 20px rgba(0,0,0,0.15);
     width: 100%;
 }
@@ -780,14 +780,14 @@ select.parsley-error {
 .sticking .header-menu > ul > li > a:after, 
 .sticking .header-menu > ul > li.active > a:after, 
 .sticking .header-menu > ul > li:hover > a:after {
-    background-color: #255e5a;
+    background-color: #015055;
 }
 .sticking .btn-transparent {
     color: #015055;
     border-color: #2e5ae8;
 }
 .sticking .btn-transparent:hover {
-    background: #255e5a;
+    background: #015055;
     color: #fff;
     border-color: #fff;
 }
@@ -796,7 +796,7 @@ select.parsley-error {
 } 
 /* 4.4 Header Version --2 */
 .main-header.sticking {
-    background-color: #255e5a !important;
+    background-color: #015055 !important;
 }
 .main-header.header--2 .header-menu > ul > li:hover > a, 
 .main-header.header--2 .header-menu > ul > li.active > a {
@@ -3599,7 +3599,7 @@ a.disabled:hover {
 */
 
 .section-gradient {
-    background: #255e5a; /* Fallback solid background from image */
+    background: #015055; /* Fallback solid background from image */
     background-image: 
         url(../img/home-3/section_pattern.png), 
         linear-gradient(to bottom, #f2fccd 0%, #e4f6ac 50%, #d2e8a6 100%);
