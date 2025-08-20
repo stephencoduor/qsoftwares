@@ -559,7 +559,7 @@ select.parsley-error {
     -webkit-transition: all .2s;
             transition: all .2s;
     padding: 15px;
-    background-color: transparent;
+    background-color: 005055;
 }
 .main-header.bg-secondary {
     background-color: #819fff !important;
@@ -804,17 +804,18 @@ select.parsley-error {
 /* 4.4 Header Version --2 */
 .main-header.sticking {
     background-color: #015055 !important;
+    color: #fff;
 }
 .main-header.header--2 .header-menu > ul > li:hover > a, 
 .main-header.header--2 .header-menu > ul > li.active > a {
-    color: #145af9 !important;
+    color: #fff !important;
 }
 .main-header.header--2 .header-menu > ul > li > a:after, 
 .main-header.header--2 .header-menu > ul > li.active > a:after, 
 .main-header.header--2 .header-menu > ul > li:hover > a:after {
     width: 4px;
     height: 18px;
-    background: #145af9;
+    background: #fff;
     left: -10px;
     top: 50%;
     -webkit-transform: translateY(-50%);
