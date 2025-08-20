@@ -559,7 +559,7 @@ select.parsley-error {
     -webkit-transition: all .2s;
             transition: all .2s;
     padding: 15px;
-    background-color: 005055;
+    background-color: #005055;
 }
 .main-header.bg-secondary {
     background-color: #819fff !important;
