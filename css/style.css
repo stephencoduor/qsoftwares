@@ -1465,7 +1465,7 @@ canvas#c {
 }
 .single_pricing_table .pt_header h2 {
     font-size: 30px;
-    color: #015055;
+    color: #005055;
     font-weight: 500;
     margin-bottom: 20px;
 }
@@ -2019,7 +2019,7 @@ canvas#c {
 
 /* Review--3 Dark */
 .review-slider--3.dark .single-review .single-review-inner  {
-    background-color: #0b3710;
+    background-color: #015055;
 }
 
 .review-slider--3.dark .single-review .review-info h4,
@@ -2040,7 +2040,7 @@ canvas#c {
 }
 .subscribe-form input:not([type=submit]) {
     height: 50px;
-    border: 1px solid #0063f8;
+    border: 1px solid #c0eabf;
     border-radius: 50px;
     background: transparent;
     padding: 0 30px;
@@ -2788,7 +2788,7 @@ a.disabled:hover {
     margin-right: 25px !important;
 }
 .footer-menu li a {
-    color: #9aa4c6;
+    color: #fff;
     font-size: 12px;
 }
 .footer-menu li a:hover {
@@ -2830,7 +2830,7 @@ a.disabled:hover {
     top: 0;
     height: 100%;
     width: 50px;
-    background-color: #145af9;
+    background-color: #fed966;
     border: none;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
@@ -3620,7 +3620,7 @@ a.disabled:hover {
 
 /* ---------------------------------------------------------- */
 .footer-gradient {
-    background: #0b3710;
+    background: #005055;
     /* background-image: url(../img/home-3/footer-pattern.png);
     background-image: url(../img/home-3/footer-pattern.png), -webkit-linear-gradient(top, #0816bf 0%,#050e7f 100%);
     background-image: url(../img/home-3/footer-pattern.png), -webkit-linear-gradient(top, #050e7f 0%,#050e7f, #0816bf 100%);
@@ -3899,7 +3899,7 @@ ligt-green:#056065
 }
 /* Service Dark */
 .single-service.dark .single-service-front {
-    background-color: #0b3710;
+    background-color: #005055;
 }
 .single-service.dark h3,
 .single-service.dark p,
