@@ -2813,7 +2813,7 @@ a.disabled:hover {
 .subscribe-form.form-style--2 input:not([type=submit]) {
     width: 100%;
     border-radius: 4px;
-    background-color: #0a26b0;
+    background-color: #0a26b0; /*#FF9B00 Bright Yellow*/
     border-color: transparent;
     -webkit-transition: .3s;
     transition: .3s;
