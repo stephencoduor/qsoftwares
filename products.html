@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Products | Q~Softwares Ltd</title>
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400%7CPoppins:400,400i,500,700">
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <style>
+        /* ── page hero ──────────────────── */
+        .page-hero {
+            padding: 90px 0 70px;
+            text-align: center;
+        }
+        .page-hero h1 { color: #fff; font-size: 44px; font-weight: 700; margin-bottom: 16px; }
+        .page-hero p  { color: rgba(255,255,255,0.8); font-size: 16px; max-width: 600px; margin: 0 auto 20px; line-height: 1.7; }
+        .breadcrumb { background: transparent; margin: 0; padding: 0; }
+        .breadcrumb-item a { color: rgba(255,255,255,0.65); }
+        .breadcrumb-item.active { color: #fff; }
+        .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,0.4); }
+
+        /* ── product cards ───────────────── */
+        .prod-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 18px;
+            padding: 40px 34px;
+            height: 100%;
+            transition: background 0.25s, transform 0.2s, border-color 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        .prod-card:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(126,205,200,0.35);
+            transform: translateY(-6px);
+        }
+        .prod-card.featured {
+            border-color: rgba(126,205,200,0.4);
+            background: rgba(126,205,200,0.06);
+        }
+        .prod-card.featured::before {
+            content: "Most Popular";
+            position: absolute;
+            top: 18px;
+            right: -28px;
+            background: #7ecdc8;
+            color: #1b4945;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            letter-spacing: 0.5px;
+        }
+        .prod-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: rgba(126,205,200,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+        }
+        .prod-icon i { color: #7ecdc8; font-size: 28px; }
+        .prod-card h3 { color: #fff; font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+        .prod-card .prod-sub { color: #7ecdc8; font-size: 12.5px; font-weight: 600; letter-spacing: 0.4px; text-transform: uppercase; margin-bottom: 16px; }
+        .prod-card p { color: rgba(255,255,255,0.72); font-size: 13.5px; line-height: 1.7; margin-bottom: 20px; }
+        .prod-features { list-style: none; padding: 0; margin: 0 0 28px; }
+        .prod-features li {
+            color: rgba(255,255,255,0.75);
+            font-size: 13px;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .prod-features li i { color: #7ecdc8; font-size: 12px; flex-shrink: 0; }
+        .prod-tech { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 24px; }
+        .prod-tech-tag {
+            background: rgba(126,205,200,0.12);
+            color: #7ecdc8;
+            border: 1px solid rgba(126,205,200,0.25);
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 11.5px;
+            font-weight: 600;
+        }
+
+        /* ── demo CTA strip ──────────────── */
+        .demo-strip {
+            background: #1b4945;
+            border-radius: 16px;
+            padding: 50px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .demo-strip h3 { color: #fff; font-size: 26px; font-weight: 700; margin: 0 0 10px; }
+        .demo-strip p  { color: rgba(255,255,255,0.75); margin: 0; font-size: 14px; }
+        .demo-strip .demo-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; flex-shrink: 0; }
+    </style>
+</head>
+
+<body>
+<div class="preLoader"><span class="spin"></span></div>
+
+<div class="wrapper body-gradient">
+
+    <!-- ── Header ─────────────────────────────── -->
+    <header class="header">
+        <div class="header-absoulate">
+            <div class="main-header header--2">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-2 col-md-3 col-sm-5 col-7">
+                            <div class="logo" data-animate="fadeInDown" data-delay=".5">
+                                <a href="index.html">
+                                    <img data-rjs="2" src="img/logo-white.png" alt="Qsoftwares Limited">
+                                    <img data-rjs="2" src="img/logo-white.png" alt="Qsoftwares Limited">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-lg-8 col-md-6 col-sm-3 col-2">
+                            <nav data-animate="fadeInDown" data-delay=".75">
+                                <div class="header-menu">
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li>
+                                            <a href="services.html">Services <i class="fas fa-caret-down"></i></a>
+                                            <ul>
+                                                <li><a href="services.html#n8n">n8n AI Automation</a></li>
+                                                <li><a href="services.html#devops">DevOps &amp; Cloud</a></li>
+                                                <li><a href="services.html#ai-mlops">AI / MLOps</a></li>
+                                                <li><a href="services.html#kobotoolbox">KoboToolbox</a></li>
+                                                <li><a href="services.html#erp">ERP Systems</a></li>
+                                                <li><a href="services.html#financial">Financial Systems</a></li>
+                                                <li><a href="services.html#custom">Custom Software</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="active">
+                                            <a href="products.html">Products <i class="fas fa-caret-down"></i></a>
+                                            <ul>
+                                                <li><a href="products.html#msacco">Msacco</a></li>
+                                                <li><a href="products.html#fpayroll">F-Payroll</a></li>
+                                                <li><a href="products.html#enterprise-rag">Enterprise-RAG</a></li>
+                                                <li><a href="products.html#kobo-automation">Kobo Automation Suite</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="training.html">Training</a></li>
+                                        <li><a href="#">About</a></li>
+                                        <li><a href="#">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-3">
+                            <div class="register-button" data-animate="fadeInDown" data-delay="1">
+                                <a class="btn btn-primary no-border btn-block btn-square" href="training.html">
+                                    <i class="fas fa-share"></i>
+                                    <span>Get started</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── Page hero ──────────────────────────── -->
+    <section class="main-banner banner--2 section-gradient position-relative page-hero">
+        <div class="banner-shape shape_1"></div>
+        <div class="banner-shape shape_2"></div>
+        <div class="container">
+            <h1 data-animate="fadeInUp">Our Products</h1>
+            <p data-animate="fadeInUp" data-delay=".2">Productized digital platforms built on proven open-source foundations — ready to deploy for your organisation, with full support and customisation.</p>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Products</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- ── Products grid ──────────────────────── -->
+    <section class="pt-120 pb-90 home4-section-dark">
+        <div class="container">
+            <div class="row g-4">
+
+                <!-- Msacco -->
+                <div class="col-lg-6" id="msacco" data-animate="fadeInUp" data-delay=".1">
+                    <div class="prod-card">
+                        <div class="prod-icon"><i class="fas fa-piggy-bank"></i></div>
+                        <h3>Msacco</h3>
+                        <p class="prod-sub">Digital Microfinance Platform</p>
+                        <p>A fully-featured digital microfinance platform built on Apache Fineract — designed for SACCOs, MFIs, and community finance organisations to digitise operations and reach more members.</p>
+                        <ul class="prod-features">
+                            <li><i class="fas fa-check-circle"></i> Loan origination, appraisal &amp; disbursement</li>
+                            <li><i class="fas fa-check-circle"></i> Savings &amp; fixed deposit accounts</li>
+                            <li><i class="fas fa-check-circle"></i> SACCO member management</li>
+                            <li><i class="fas fa-check-circle"></i> Mobile banking APIs</li>
+                            <li><i class="fas fa-check-circle"></i> Payment gateway integrations (M-Pesa, Airtel)</li>
+                            <li><i class="fas fa-check-circle"></i> Custom reporting &amp; dashboards</li>
+                        </ul>
+                        <div class="prod-tech">
+                            <span class="prod-tech-tag">Apache Fineract</span>
+                            <span class="prod-tech-tag">Payment Hub</span>
+                            <span class="prod-tech-tag">Docker / K8s</span>
+                            <span class="prod-tech-tag">REST API</span>
+                        </div>
+                        <a href="#" class="btn btn-gradient">Request Demo</a>
+                    </div>
+                </div>
+
+                <!-- F-Payroll -->
+                <div class="col-lg-6" id="fpayroll" data-animate="fadeInUp" data-delay=".2">
+                    <div class="prod-card featured">
+                        <div class="prod-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                        <h3>F-Payroll</h3>
+                        <p class="prod-sub">Enterprise Payroll System</p>
+                        <p>An enterprise payroll management system built on ERPNext / Frappe — covering full payroll automation, statutory compliance, HR management, and detailed reporting for organisations of any size.</p>
+                        <ul class="prod-features">
+                            <li><i class="fas fa-check-circle"></i> Automated monthly payroll processing</li>
+                            <li><i class="fas fa-check-circle"></i> Tax &amp; statutory compliance (PAYE, NHIF, NSSF)</li>
+                            <li><i class="fas fa-check-circle"></i> Employee self-service portal</li>
+                            <li><i class="fas fa-check-circle"></i> Leave &amp; attendance management</li>
+                            <li><i class="fas fa-check-circle"></i> Multi-company &amp; multi-currency support</li>
+                            <li><i class="fas fa-check-circle"></i> Financial reporting &amp; audit trails</li>
+                        </ul>
+                        <div class="prod-tech">
+                            <span class="prod-tech-tag">ERPNext</span>
+                            <span class="prod-tech-tag">Frappe HR</span>
+                            <span class="prod-tech-tag">Docker</span>
+                            <span class="prod-tech-tag">MariaDB</span>
+                        </div>
+                        <a href="#" class="btn btn-gradient">Request Demo</a>
+                    </div>
+                </div>
+
+                <!-- Enterprise-RAG -->
+                <div class="col-lg-6" id="enterprise-rag" data-animate="fadeInUp" data-delay=".1">
+                    <div class="prod-card">
+                        <div class="prod-icon"><i class="fas fa-brain"></i></div>
+                        <h3>Enterprise-RAG</h3>
+                        <p class="prod-sub">AI Knowledge Platform</p>
+                        <p>An enterprise AI platform that connects your organisation's documents, databases, and knowledge bases to a powerful AI search and assistant layer — enabling intelligent, context-aware answers across your entire knowledge base.</p>
+                        <ul class="prod-features">
+                            <li><i class="fas fa-check-circle"></i> Document ingestion &amp; intelligence</li>
+                            <li><i class="fas fa-check-circle"></i> AI-powered semantic search</li>
+                            <li><i class="fas fa-check-circle"></i> Custom knowledge assistant chatbots</li>
+                            <li><i class="fas fa-check-circle"></i> Enterprise AI workflow automation</li>
+                            <li><i class="fas fa-check-circle"></i> Multi-source knowledge integration</li>
+                            <li><i class="fas fa-check-circle"></i> On-premise or cloud deployment</li>
+                        </ul>
+                        <div class="prod-tech">
+                            <span class="prod-tech-tag">LangChain</span>
+                            <span class="prod-tech-tag">Qdrant</span>
+                            <span class="prod-tech-tag">FastAPI</span>
+                            <span class="prod-tech-tag">OpenAI / Claude</span>
+                            <span class="prod-tech-tag">OPEA</span>
+                        </div>
+                        <a href="#" class="btn btn-gradient">Request Demo</a>
+                    </div>
+                </div>
+
+                <!-- Kobo Automation Suite -->
+                <div class="col-lg-6" id="kobo-automation" data-animate="fadeInUp" data-delay=".2">
+                    <div class="prod-card">
+                        <div class="prod-icon"><i class="fas fa-magic"></i></div>
+                        <h3>Kobo Automation Suite</h3>
+                        <p class="prod-sub">Advanced KoboToolbox Automation Platform</p>
+                        <p>A powerful automation layer on top of KoboToolbox — connecting survey data to notifications, dashboards, and downstream systems using n8n. Purpose-built for NGOs and research organisations that need more from their data collection workflows.</p>
+                        <ul class="prod-features">
+                            <li><i class="fas fa-check-circle"></i> Automated survey submission workflows</li>
+                            <li><i class="fas fa-check-circle"></i> WhatsApp &amp; SMS notifications via n8n</li>
+                            <li><i class="fas fa-check-circle"></i> Email alerts &amp; automated reports</li>
+                            <li><i class="fas fa-check-circle"></i> Real-time data pipelines to dashboards</li>
+                            <li><i class="fas fa-check-circle"></i> MEAL indicator tracking &amp; reporting</li>
+                            <li><i class="fas fa-check-circle"></i> Integration with DHIS2, ODK, CommCare</li>
+                        </ul>
+                        <div class="prod-tech">
+                            <span class="prod-tech-tag">KoboToolbox</span>
+                            <span class="prod-tech-tag">n8n</span>
+                            <span class="prod-tech-tag">WhatsApp API</span>
+                            <span class="prod-tech-tag">PostgreSQL</span>
+                        </div>
+                        <a href="#" class="btn btn-gradient">Request Demo</a>
+                    </div>
+                </div>
+
+            </div><!-- /.row -->
+
+            <!-- Demo CTA -->
+            <div class="mt-60" data-animate="fadeInUp">
+                <div class="demo-strip">
+                    <div>
+                        <h3>Ready to see a product in action?</h3>
+                        <p>Request a live demo, discuss customisation options, or ask about deployment and pricing for your organisation.</p>
+                    </div>
+                    <div class="demo-actions">
+                        <a href="training.html" class="btn btn-gradient">Book a Demo</a>
+                        <a href="https://wa.me/254710401008" class="btn btn-transparent btn-square" target="_blank" rel="noopener">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Footer ─────────────────────────────── -->
+    <footer class="main-footer main-footer--2 text-white footer-gradient mt-0">
+        <div class="top-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="footer-widget">
+                            <div class="widget-title" data-animate="fadeInUp" data-delay=".0">
+                                <img src="img/logo-white.png" data-rjs="2" alt="">
+                            </div>
+                            <div class="footer-about">
+                                <p>Q~Softwares Ltd designs, deploys, and maintains scalable digital platforms for NGOs, enterprises, and startups. Experts in DevOps, AI infrastructure, and open-source enterprise systems.</p>
+                            </div>
+                            <div class="social-links">
+                                <ul class="list-unstyled list-inline">
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="footer-widget">
+                            <h3 class="widget-title" data-animate="fadeInUp" data-delay=".15">Contact Us</h3>
+                            <div class="footer-posts footer-posts--2">
+                                <ul class="list-unstyled">
+                                    <li data-animate="fadeInUp" data-delay=".05">
+                                        <p><i class="fab fa-whatsapp"></i> WhatsApp</p>
+                                        <h4><a href="https://wa.me/254710401008">+254 710 401 008</a></h4>
+                                    </li>
+                                    <li data-animate="fadeInUp" data-delay=".1">
+                                        <p><i class="fas fa-envelope"></i> Email</p>
+                                        <h4><a href="mailto:info@qsoftwares.org">info@qsoftwares.org</a></h4>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="footer-widget">
+                            <h3 class="widget-title" data-animate="fadeInUp" data-delay=".4">Our Products</h3>
+                            <div class="footer-posts footer-posts--2">
+                                <ul class="list-unstyled">
+                                    <li><h4><a href="products.html#msacco">Msacco</a></h4></li>
+                                    <li><h4><a href="products.html#fpayroll">F-Payroll</a></h4></li>
+                                    <li><h4><a href="products.html#enterprise-rag">Enterprise-RAG</a></h4></li>
+                                    <li><h4><a href="products.html#kobo-automation">Kobo Automation Suite</a></h4></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer position-relative karla">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-5 order-last order-md-first">
+                        <span class="copyright-text">&copy; 2025 Q~Softwares Ltd. All rights reserved.</span>
+                    </div>
+                    <div class="col-md-7 order-first order-md-last">
+                        <ul class="footer-menu text-md-right list-inline footer-menu--2">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="training.html">Training</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a class="back-to-top back-top--2" href="#"><i class="fas fa-arrow-up"></i></a>
+        </div>
+    </footer>
+
+</div><!-- /.wrapper -->
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="plugins/retinajs/retina.min.js"></script>
+<script src="plugins/waypoints/jquery.waypoints.min.js"></script>
+<script src="plugins/waypoints/sticky.min.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>

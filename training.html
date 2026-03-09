@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Technical Training | Q~Softwares Ltd</title>
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400%7CPoppins:400,400i,500,700">
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <style>
+        /* ── Page background ───────────────────────── */
+        .training-page-bg {
+            background: linear-gradient(135deg, #cce9ef 0%, #dff4f8 60%, #b8dfe8 100%);
+            min-height: 100vh;
+            padding: 70px 0 80px;
+        }
+
+        /* ── Split card ──────────────────────────────── */
+        .training-card {
+            display: flex;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 24px 72px rgba(0,0,0,0.18);
+            max-width: 1060px;
+            margin: 0 auto;
+        }
+
+        /* ── Left – dark green panel ─────────────────── */
+        .tc-left {
+            background-color: #1b4945;
+            color: #fff;
+            padding: 56px 44px;
+            flex: 0 0 44%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .tc-left .tc-label {
+            color: #7ecdc8;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        .tc-left h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.25;
+            color: #fff;
+            margin-bottom: 40px;
+        }
+
+        /* benefit rows */
+        .tc-benefit {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 26px;
+        }
+        .tc-benefit .tc-icon {
+            width: 42px;
+            height: 42px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+        .tc-benefit .tc-icon i {
+            color: #7ecdc8;
+            font-size: 17px;
+        }
+        .tc-benefit h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: #fff;
+        }
+        .tc-benefit p {
+            font-size: 12.5px;
+            color: rgba(255,255,255,0.72);
+            margin: 0;
+            line-height: 1.55;
+        }
+
+        /* trust badge */
+        .tc-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255,255,255,0.13);
+            border-radius: 30px;
+            padding: 9px 18px;
+            margin-bottom: 22px;
+            font-size: 12.5px;
+            color: #fff;
+            font-weight: 500;
+        }
+        .tc-badge i { color: #f5a623; margin-right: 8px; }
+
+        /* client name tags */
+        .tc-clients {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .tc-clients span {
+            font-size: 11px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.45);
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+
+        /* ── Right – white form panel ────────────────── */
+        .tc-right {
+            background: #fff;
+            padding: 56px 44px;
+            flex: 1;
+            overflow-y: auto;
+        }
+        .tc-right h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1b4945;
+            margin-bottom: 6px;
+        }
+        .tc-right .tc-subtitle {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 28px;
+            line-height: 1.5;
+        }
+
+        /* form controls */
+        .tc-right .form-group { margin-bottom: 16px; }
+        .tc-right label {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .tc-right .form-control {
+            border: 1.5px solid #e2e8e8;
+            border-radius: 8px;
+            padding: 9px 13px;
+            font-size: 13.5px;
+            color: #333;
+            background: #fafafa;
+            transition: border-color 0.2s, background 0.2s;
+            width: 100%;
+        }
+        .tc-right .form-control:focus {
+            border-color: #1b4945;
+            background: #fff;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(27,73,69,0.09);
+        }
+        .tc-right textarea.form-control { resize: vertical; }
+
+        /* CTA button – orange */
+        .btn-tc-submit {
+            background: #f5a623;
+            color: #fff;
+            border: none;
+            border-radius: 9px;
+            padding: 14px 24px;
+            font-size: 14px;
+            font-weight: 700;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+            margin-top: 4px;
+        }
+        .btn-tc-submit:hover { background: #e09315; transform: translateY(-1px); }
+        .btn-tc-submit i { font-size: 15px; }
+
+        /* form message */
+        #tcFormMsg { margin-top: 14px; font-size: 13px; }
+
+        /* ── Responsive ──────────────────────────────── */
+        @media (max-width: 900px) {
+            .training-card { flex-direction: column; }
+            .tc-left { flex: none; padding: 40px 28px; }
+            .tc-right { padding: 40px 28px; }
+            .tc-left h1 { font-size: 26px; }
+        }
+        @media (max-width: 576px) {
+            .training-page-bg { padding: 40px 0 60px; }
+            .training-card { border-radius: 12px; }
+            .tc-left, .tc-right { padding: 32px 20px; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preLoader"><span class="spin"></span></div>
+
+    <div class="wrapper body-gradient">
+
+        <!-- ── Header ───────────────────────────────── -->
+        <header class="header">
+            <div class="header-absoulate">
+                <div class="main-header header--2">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-xl-3 col-lg-2 col-md-3 col-sm-5 col-7">
+                                <div class="logo" data-animate="fadeInDown" data-delay=".5">
+                                    <a href="index.html">
+                                        <img data-rjs="2" src="img/logo-white.png" alt="Qsoftwares Limited">
+                                        <img data-rjs="2" src="img/logo-white.png" alt="Qsoftwares Limited">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-7 col-lg-8 col-md-6 col-sm-3 col-2">
+                                <nav data-animate="fadeInDown" data-delay=".75">
+                                    <div class="header-menu">
+                                        <ul>
+                                            <li><a href="index.html">Home</a></li>
+                                            <li>
+                                                <a href="#">Services <i class="fas fa-caret-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#">DevOps &amp; Cloud</a></li>
+                                                    <li><a href="#">AI / MLOps</a></li>
+                                                    <li><a href="#">KoboToolbox</a></li>
+                                                    <li><a href="#">ERP Systems</a></li>
+                                                    <li><a href="#">Financial Systems</a></li>
+                                                    <li><a href="#">Custom Software</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Products <i class="fas fa-caret-down"></i></a>
+                                                <ul>
+                                                    <li><a href="#">Msacco</a></li>
+                                                    <li><a href="#">F-Payroll</a></li>
+                                                    <li><a href="#">Enterprise-RAG</a></li>
+                                                    <li><a href="#">Kobo Automation Suite</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="active"><a href="training.html">Training</a></li>
+                                            <li><a href="#">About</a></li>
+                                            <li><a href="#">Contact</a></li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-3">
+                                <div class="register-button" data-animate="fadeInDown" data-delay="1">
+                                    <a class="btn btn-primary no-border btn-block btn-square" href="training.html">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <span>Training</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- ── End Header ─────────────────────────── -->
+
+        <!-- ── Training split-panel section ─────── -->
+        <section class="training-page-bg">
+            <div class="container">
+                <div class="training-card">
+
+                    <!-- LEFT panel -->
+                    <div class="tc-left">
+                        <div>
+                            <p class="tc-label">
+                                <i class="fas fa-graduation-cap"></i>&nbsp;&nbsp;Technical Training for NGOs &amp; Enterprises
+                            </p>
+                            <h1>Capacity Building &amp; Technical Training That Empowers Your Team</h1>
+
+                            <div class="tc-benefit">
+                                <div class="tc-icon"><i class="fas fa-tools"></i></div>
+                                <div>
+                                    <h4>Hands-On, Practical Exercises</h4>
+                                    <p>Real-world lab sessions on KoboToolbox, DevOps pipelines, AI/RAG systems, and enterprise platforms — not just slides.</p>
+                                </div>
+                            </div>
+
+                            <div class="tc-benefit">
+                                <div class="tc-icon"><i class="fas fa-users"></i></div>
+                                <div>
+                                    <h4>Tailored for Your Organisation</h4>
+                                    <p>Training packages customised to your team size, skill level, and the specific tools your organisation runs.</p>
+                                </div>
+                            </div>
+
+                            <div class="tc-benefit">
+                                <div class="tc-icon"><i class="fas fa-certificate"></i></div>
+                                <div>
+                                    <h4>Expert Trainers — 9+ Years Field Experience</h4>
+                                    <p>Learn from consultants who have deployed these systems for Amref Kenya, Christian Aid, and Reforest Action.</p>
+                                </div>
+                            </div>
+
+                            <div class="tc-benefit">
+                                <div class="tc-icon"><i class="fas fa-globe-africa"></i></div>
+                                <div>
+                                    <h4>Online, On-site, or Hybrid Delivery</h4>
+                                    <p>We come to you, run virtual sessions, or combine both — flexible scheduling for busy NGO teams.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="tc-badge">
+                                <i class="fas fa-star"></i>
+                                Trusted by 50+ organisations across Africa
+                            </div>
+                            <div class="tc-clients">
+                                <span>Amref Kenya</span>
+                                <span>Christian Aid</span>
+                                <span>Reforest Action</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end LEFT -->
+
+                    <!-- RIGHT form panel -->
+                    <div class="tc-right">
+                        <h2>Register Your Training Interest</h2>
+                        <p class="tc-subtitle">Tell us about your organisation and training needs — we'll respond within 24 hours with a customised proposal.</p>
+
+                        <form id="tcForm" novalidate>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>First &amp; Last Name *</label>
+                                        <input type="text" name="name" class="form-control" placeholder="e.g. Jane Wanjiku" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Work Email *</label>
+                                        <input type="email" name="email" class="form-control" placeholder="jane@organisation.org" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Organisation / Company *</label>
+                                        <input type="text" name="organisation" class="form-control" placeholder="e.g. Amref Health Africa" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Organisation Size</label>
+                                        <select name="org_size" class="form-control">
+                                            <option value="">Select size</option>
+                                            <option>1–10 staff</option>
+                                            <option>10–50 staff</option>
+                                            <option>50–200 staff</option>
+                                            <option>200+ staff</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Training Topic *</label>
+                                <select name="training_topic" class="form-control" required>
+                                    <option value="">— Select a training area —</option>
+                                    <optgroup label="KoboToolbox">
+                                        <option>KoboToolbox — Survey Design &amp; XLSForm Development</option>
+                                        <option>KoboToolbox — Server Deployment &amp; Administration</option>
+                                        <option>KoboToolbox — API Integration &amp; n8n Automation</option>
+                                        <option>KoboToolbox — MEAL Reporting &amp; Data Pipelines</option>
+                                    </optgroup>
+                                    <optgroup label="DevOps &amp; Cloud">
+                                        <option>DevOps — Kubernetes, Docker &amp; CI/CD Pipelines</option>
+                                        <option>DevOps — Infrastructure as Code (Terraform / Ansible)</option>
+                                        <option>DevOps — Monitoring &amp; Observability (Prometheus / Grafana)</option>
+                                    </optgroup>
+                                    <optgroup label="AI / MLOps">
+                                        <option>AI / MLOps — RAG Systems &amp; LLM Deployment</option>
+                                        <option>AI / MLOps — AI Pipeline Orchestration</option>
+                                    </optgroup>
+                                    <optgroup label="Enterprise Platforms">
+                                        <option>ERP — ERPNext &amp; Frappe HR</option>
+                                        <option>Financial Systems — Apache Fineract &amp; Mifos</option>
+                                        <option>DHIS2 — Configuration &amp; Administration</option>
+                                        <option>LMS — Canvas / Moodle Deployment</option>
+                                    </optgroup>
+                                    <option value="custom">Custom / Multiple Topics</option>
+                                </select>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Number of Participants</label>
+                                        <select name="participants" class="form-control">
+                                            <option value="">Select</option>
+                                            <option>1–5 participants</option>
+                                            <option>6–15 participants</option>
+                                            <option>16–30 participants</option>
+                                            <option>30+ participants</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Preferred Delivery Format</label>
+                                        <select name="format" class="form-control">
+                                            <option value="">Select format</option>
+                                            <option>Online (Virtual / Zoom)</option>
+                                            <option>On-site (Our / Your location)</option>
+                                            <option>Hybrid</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Preferred Dates / Timeline</label>
+                                <input type="text" name="dates" class="form-control" placeholder="e.g. April 2025, or ASAP, or flexible">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Additional Requirements or Questions</label>
+                                <textarea name="message" class="form-control" rows="3" placeholder="Describe specific needs, current skill level, platforms in use, or any questions..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-tc-submit">
+                                <i class="fas fa-paper-plane"></i>
+                                Submit Training Request &mdash; We'll contact you within 24 hrs
+                            </button>
+                        </form>
+
+                        <div id="tcFormMsg"></div>
+                    </div>
+                    <!-- end RIGHT -->
+
+                </div><!-- /.training-card -->
+            </div>
+        </section>
+        <!-- ── End Training section ──────────────── -->
+
+        <!-- ── Footer ───────────────────────────── -->
+        <footer class="main-footer main-footer--2 text-white footer-gradient mt-0">
+            <div class="top-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="footer-widget">
+                                <div class="widget-title" data-animate="fadeInUp" data-delay=".0">
+                                    <img src="img/logo-white.png" data-rjs="2" alt="">
+                                </div>
+                                <div class="footer-about">
+                                    <p>Q~Softwares Ltd designs, deploys, and maintains scalable digital platforms for NGOs, enterprises, and startups. Experts in DevOps, AI infrastructure, and open-source enterprise systems.</p>
+                                </div>
+                                <div class="social-links">
+                                    <ul class="list-unstyled list-inline">
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="footer-widget">
+                                <h3 class="widget-title" data-animate="fadeInUp" data-delay=".15">Contact Us</h3>
+                                <div class="footer-posts footer-posts--2">
+                                    <ul class="list-unstyled">
+                                        <li data-animate="fadeInUp" data-delay=".05">
+                                            <p><i class="fab fa-whatsapp"></i> WhatsApp</p>
+                                            <h4><a href="https://wa.me/254710401008">+254 710 401 008</a></h4>
+                                        </li>
+                                        <li data-animate="fadeInUp" data-delay=".1">
+                                            <p><i class="fas fa-envelope"></i> Email</p>
+                                            <h4><a href="mailto:info@qsoftwares.org">info@qsoftwares.org</a></h4>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="footer-widget">
+                                <h3 class="widget-title" data-animate="fadeInUp" data-delay=".4">Training Topics</h3>
+                                <div class="footer-posts footer-posts--2">
+                                    <ul class="list-unstyled">
+                                        <li><h4><a href="training.html">KoboToolbox Training</a></h4></li>
+                                        <li><h4><a href="training.html">DevOps &amp; Cloud Training</a></h4></li>
+                                        <li><h4><a href="training.html">AI / MLOps Training</a></h4></li>
+                                        <li><h4><a href="training.html">ERP Systems Training</a></h4></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-footer position-relative karla">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 order-last order-md-first">
+                            <span class="copyright-text" data-animate="fadeInDown" data-delay=".7">&copy; 2025 Q~Softwares Ltd. All rights reserved.</span>
+                        </div>
+                        <div class="col-md-7 order-first order-md-last">
+                            <ul class="footer-menu text-md-right list-inline footer-menu--2">
+                                <li data-animate="fadeInDown" data-delay=".75"><a href="index.html">Home</a></li>
+                                <li data-animate="fadeInDown" data-delay=".8"><a href="#">About Us</a></li>
+                                <li data-animate="fadeInDown" data-delay=".85"><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a class="back-to-top back-top--2" href="#" data-animate="fadeInDown" data-delay=".95">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+        </footer>
+        <!-- ── End Footer ─────────────────────────── -->
+
+    </div><!-- /.wrapper -->
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="plugins/retinajs/retina.min.js"></script>
+    <script src="plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script src="plugins/waypoints/sticky.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        $('#tcForm').on('submit', function (e) {
+            e.preventDefault();
+
+            // Basic client-side validation
+            var topic = $('[name="training_topic"]').val();
+            var name  = $('[name="name"]').val().trim();
+            var email = $('[name="email"]').val().trim();
+            var org   = $('[name="organisation"]').val().trim();
+
+            if (!name || !email || !org || !topic) {
+                $('#tcFormMsg').html(
+                    '<div class="alert alert-warning mt-2">Please fill in all required fields (*).</div>'
+                );
+                return;
+            }
+
+            var btn = $(this).find('.btn-tc-submit');
+            btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Sending…');
+
+            // Build a readable message body for the PHP mailer
+            var data = {
+                contactName:    name,
+                contactEmail:   email,
+                contactMessage: [
+                    'Organisation: ' + org,
+                    'Org size: '     + $('[name="org_size"]').val(),
+                    'Training topic: '+ topic,
+                    'Participants: ' + $('[name="participants"]').val(),
+                    'Format: '       + $('[name="format"]').val(),
+                    'Dates: '        + $('[name="dates"]').val(),
+                    'Message: '      + $('[name="message"]').val()
+                ].join('\n')
+            };
+
+            $.ajax({
+                url: 'phpmailer/contact_form.php',
+                method: 'POST',
+                data: data,
+                success: function (res) {
+                    try {
+                        var r = JSON.parse(res);
+                        if (r[0] === 'success') {
+                            $('#tcFormMsg').html(
+                                '<div class="alert alert-success mt-2">Thank you! Your training request has been received. We\'ll be in touch within 24 hours.</div>'
+                            );
+                            $('#tcForm')[0].reset();
+                        } else {
+                            showError();
+                        }
+                    } catch (ex) { showError(); }
+                },
+                error: showError,
+                complete: function () {
+                    btn.prop('disabled', false).html(
+                        '<i class="fas fa-paper-plane"></i> Submit Training Request &mdash; We\'ll contact you within 24 hrs'
+                    );
+                }
+            });
+
+            function showError() {
+                $('#tcFormMsg').html(
+                    '<div class="alert alert-danger mt-2">Something went wrong. Please email us directly at <a href="mailto:info@qsoftwares.org">info@qsoftwares.org</a></div>'
+                );
+            }
+        });
+    </script>
+</body>
+</html>
