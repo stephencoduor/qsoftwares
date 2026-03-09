@@ -1,7 +1,408 @@
 /*==================================================================================
-    Custom Stylesheet (Any custom styling you want to apply should be defined here).
+    Q~Softwares Design System
+    Color palette: dark green #1b4945, teal accent #7ecdc8, orange CTA #f5a623
+    Light bg gradient: #cce9ef → #dff4f8 → #b8dfe8
+    Fonts: Poppins (headings), Karla (body)
 ====================================================================================*/
-.text-green
- {
-    color: #1b4945 !important;
+
+/* ── Brand colours ─────────────────────────── */
+.text-green { color: #1b4945 !important; }
+
+/* ── Light section backgrounds ─────────────── */
+.section-light-blue {
+    background: linear-gradient(135deg, #cce9ef 0%, #dff4f8 60%, #b8dfe8 100%);
+}
+
+/* ── Orange CTA buttons ────────────────────── */
+.btn-orange {
+    background: #f5a623;
+    color: #fff !important;
+    border: none;
+    border-radius: 9px;
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    text-decoration: none;
+}
+.btn-orange:hover {
+    background: #e09315;
+    color: #fff !important;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+.btn-orange-outline {
+    background: transparent;
+    color: #f5a623 !important;
+    border: 2px solid #f5a623;
+    border-radius: 9px;
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+.btn-orange-outline:hover {
+    background: #f5a623;
+    color: #fff !important;
+    text-decoration: none;
+}
+.btn-teal {
+    background: #1b4945;
+    color: #fff !important;
+    border: none;
+    border-radius: 9px;
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    text-decoration: none;
+}
+.btn-teal:hover {
+    background: #15383a;
+    color: #fff !important;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+/* ── White content cards ───────────────────── */
+.q-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 36px 30px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    border: 1px solid rgba(27,73,69,0.06);
+    height: 100%;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+.q-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+}
+.q-card .card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #e8f6f5 0%, #d0ede9 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.q-card .card-icon i {
+    color: #1b4945;
+    font-size: 22px;
+}
+.q-card h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #1b4945;
+    margin-bottom: 10px;
+}
+.q-card p {
+    color: #555;
+    font-size: 13.5px;
+    line-height: 1.7;
+    margin-bottom: 14px;
+}
+.q-card ul {
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+}
+.q-card ul li {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.q-card ul li i {
+    color: #7ecdc8;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+/* ── Product cards (white variant) ─────────── */
+.q-prod-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 40px 34px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    border: 1px solid rgba(27,73,69,0.06);
+    height: 100%;
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    overflow: hidden;
+}
+.q-prod-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+}
+.q-prod-card.featured {
+    border: 2px solid #7ecdc8;
+}
+.q-prod-card.featured::before {
+    content: "Most Popular";
+    position: absolute;
+    top: 18px;
+    right: -28px;
+    background: #f5a623;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 40px;
+    transform: rotate(45deg);
+    letter-spacing: 0.5px;
+}
+.q-prod-card .prod-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #e8f6f5 0%, #d0ede9 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+}
+.q-prod-card .prod-icon i { color: #1b4945; font-size: 28px; }
+.q-prod-card h3 {
+    font-family: 'Poppins', sans-serif;
+    color: #1b4945;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+.q-prod-card .prod-sub {
+    color: #7ecdc8;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+.q-prod-card p { color: #555; font-size: 13.5px; line-height: 1.7; margin-bottom: 20px; }
+.q-prod-card .prod-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px;
+}
+.q-prod-card .prod-features li {
+    color: #555;
+    font-size: 13px;
+    padding: 7px 0;
+    border-bottom: 1px solid #eef3f2;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.q-prod-card .prod-features li i { color: #7ecdc8; font-size: 12px; flex-shrink: 0; }
+.q-prod-card .prod-tech { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 24px; }
+.q-prod-card .prod-tech-tag {
+    background: #eef8f7;
+    color: #1b4945;
+    border: 1px solid #c4e4e0;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11.5px;
+    font-weight: 600;
+}
+
+/* ── Dark green section (n8n, CTA strips) ──── */
+.section-dark-green {
+    background: #1b4945;
+}
+.cta-strip {
+    background: #1b4945;
+    border-radius: 18px;
+    padding: 50px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+.cta-strip h3 { color: #fff; font-family: 'Poppins', sans-serif; font-size: 26px; font-weight: 700; margin: 0 0 10px; }
+.cta-strip p { color: rgba(255,255,255,0.75); margin: 0; font-size: 14px; }
+.cta-strip .cta-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; flex-shrink: 0; }
+.btn-orange-on-dark {
+    background: #f5a623;
+    color: #fff !important;
+    border: none;
+    border-radius: 9px;
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.btn-orange-on-dark:hover { background: #e09315; color: #fff !important; text-decoration: none; }
+.btn-white-outline {
+    background: transparent;
+    color: #fff !important;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 9px;
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+.btn-white-outline:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: #fff;
+    color: #fff !important;
+    text-decoration: none;
+}
+
+/* ── Tech tags ─────────────────────────────── */
+.tech-tag {
+    background: #eef8f7;
+    color: #1b4945;
+    border: 1px solid #c4e4e0;
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+.tech-tag-dark {
+    background: rgba(126,205,200,0.15);
+    color: #7ecdc8;
+    border: 1px solid rgba(126,205,200,0.3);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* ── Heading styles ────────────────────────── */
+.section-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.section-heading h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: #1b4945;
+    margin-bottom: 14px;
+}
+.section-heading p {
+    color: #666;
+    font-size: 15px;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ── Page hero (light bg variant) ──────────── */
+.page-hero-light {
+    background: linear-gradient(135deg, #1b4945 0%, #1e5a54 50%, #206057 100%);
+    padding: 100px 0 80px;
+    text-align: center;
+}
+.page-hero-light h1 {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+.page-hero-light p {
+    color: rgba(255,255,255,0.8);
+    font-size: 16px;
+    max-width: 620px;
+    margin: 0 auto 20px;
+    line-height: 1.7;
+}
+.page-hero-light .breadcrumb { background: transparent; margin: 0; padding: 0; }
+.page-hero-light .breadcrumb-item a { color: rgba(255,255,255,0.65); }
+.page-hero-light .breadcrumb-item.active { color: #fff; }
+.page-hero-light .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,0.4); }
+
+/* ── n8n featured section (on light bg) ────── */
+.n8n-featured {
+    background: #1b4945;
+    border-radius: 24px;
+    padding: 60px 50px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+}
+.n8n-featured .n8n-label {
+    color: #7ecdc8;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: block;
+}
+.n8n-featured h2 { color: #fff; font-family: 'Poppins', sans-serif; font-size: 30px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; }
+.n8n-featured p { color: rgba(255,255,255,0.8); font-size: 14.5px; line-height: 1.75; margin-bottom: 14px; }
+.n8n-cap {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 20px 18px;
+    height: 100%;
+}
+.n8n-cap i { color: #7ecdc8; font-size: 22px; margin-bottom: 10px; display: block; }
+.n8n-cap h6 { color: #fff; font-weight: 600; font-size: 13.5px; margin-bottom: 6px; }
+.n8n-cap p { color: rgba(255,255,255,0.62); font-size: 12px; margin: 0; line-height: 1.5; }
+
+/* ── SLA / support strip ───────────────────── */
+.sla-strip-new {
+    background: #1b4945;
+    border-radius: 18px;
+    padding: 44px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+}
+.sla-strip-new h3 { color: #fff; font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; margin: 0 0 8px; }
+.sla-strip-new p  { color: rgba(255,255,255,0.75); margin: 0; font-size: 14px; }
+.sla-points-new { display: flex; gap: 24px; flex-wrap: wrap; }
+.sla-point-new { display: flex; align-items: center; gap: 10px; }
+.sla-point-new i { color: #7ecdc8; font-size: 18px; }
+.sla-point-new span { color: rgba(255,255,255,0.85); font-size: 13px; font-weight: 500; }
+
+/* ── Responsive adjustments ────────────────── */
+@media (max-width: 991px) {
+    .n8n-featured { padding: 40px 30px; }
+    .n8n-featured h2 { font-size: 24px; }
+    .cta-strip { padding: 36px 28px; text-align: center; justify-content: center; }
+    .sla-strip-new { padding: 32px 24px; text-align: center; justify-content: center; }
+    .page-hero-light h1 { font-size: 32px; }
+    .section-heading h2 { font-size: 28px; }
+}
+@media (max-width: 576px) {
+    .q-card { padding: 28px 22px; border-radius: 14px; }
+    .q-prod-card { padding: 28px 22px; border-radius: 14px; }
+    .n8n-featured { border-radius: 14px; padding: 32px 20px; }
+    .cta-strip { border-radius: 14px; padding: 28px 20px; }
 }
