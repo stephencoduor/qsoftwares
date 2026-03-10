@@ -253,6 +253,9 @@
     font-weight: 700;
     text-decoration: none;
     transition: background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 .btn-orange-on-dark:hover { background: #e09315; color: #fff !important; text-decoration: none; }
 .btn-white-outline {
@@ -560,6 +563,12 @@
 
 /* ── n8n tech tags wrapper (services) ────── */
 .n8n-tech-tags { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ── n8n capability card grid explicit gap ── */
+.n8n-cap-grid {
+    row-gap: 16px !important;
+    --bs-gutter-y: 0;          /* prevent Bootstrap double-spacing */
+}
 
 /* ── Dark-bg strong emphasis ─────────────── */
 .text-white-strong { color: #fff; }

@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh pr view 1 --json url,state,title)",
+      "Bash(python -c \":*)",
+      "Bash(ls -la \"D:/qsoftwares-site/.claude/worktrees/hardcore-keller/\"*.html)",
+      "Bash(gh pr view 2 --json title,url,state,headRefName)",
+      "Bash(gh api repos/stephencoduor/qsoftwares/pulls/2 -X PATCH -f title=\"Add services/products pages, n8n automation, training form, and client logos\")",
+      "Bash(python /tmp/rewrite_index.py)",
+      "Bash(python \"D:/qsoftwares-site/.claude/worktrees/hardcore-keller/rewrite_index.py\")",
+      "Bash(python \"D:\\\\qsoftwares-site\\\\.claude\\\\worktrees\\\\hardcore-keller\\\\_rewrite.py\")",
+      "Bash(\"D:\\\\qsoftwares-site\\\\.claude\\\\worktrees\\\\hardcore-keller\\\\_rewrite.py\":*)",
+      "Bash(python _rewrite.py)",
+      "Bash(grep -c \"254710401008\\\\|710 401 008\" \"D:/qsoftwares-site/.claude/worktrees/hardcore-keller/\"*.html)",
+      "Bash(grep -c \"254101609998\\\\|101 609 998\" \"D:/qsoftwares-site/.claude/worktrees/hardcore-keller/\"*.html)",
+      "Bash(gh pr view 2 --json state,title,url,additions,deletions,changedFiles)",
+      "Bash(grep -n \"710.*401\\\\|710401008\" \"D:\\\\qsoftwares-site\\\\.claude\\\\worktrees\\\\hardcore-keller\"/*.html)",
+      "Bash(python _color_fix.py)",
+      "Bash(python _spacing_fix.py)",
+      "Bash(python -c \"import os; os.remove\\(''_color_fix.py''\\); os.remove\\(''_spacing_fix.py''\\); print\\(''Cleaned up''\\)\")",
+      "Bash(python _name_fix.py)",
+      "Bash(python -c \"import os; os.remove\\(''_name_fix.py''\\); print\\(''Cleaned up''\\)\")",
+      "Bash(gh pr list --head claude/hardcore-keller --state all)",
+      "mcp__Claude_Preview__preview_start"
+    ]
+  }
+}
