@@ -1,12 +1,12 @@
 /*==================================================================================
     Q~Softwares Design System
-    Color palette: dark green #1b4945, teal accent #7ecdc8, orange CTA #f5a623
+    Color palette: dark green #015055, teal accent #7ecdc8, orange CTA #f5a623
     Light bg gradient: #cce9ef → #dff4f8 → #b8dfe8
     Fonts: Poppins (headings), Karla (body)
 ====================================================================================*/
 
 /* ── Brand colours ─────────────────────────── */
-.text-green { color: #1b4945 !important; }
+.text-green { color: #015055 !important; }
 
 /* ── Light section backgrounds ─────────────── */
 .section-light-blue {
@@ -58,7 +58,7 @@
     text-decoration: none;
 }
 .btn-teal {
-    background: #1b4945;
+    background: #015055;
     color: #fff !important;
     border: none;
     border-radius: 9px;
@@ -74,7 +74,7 @@
     text-decoration: none;
 }
 .btn-teal:hover {
-    background: #15383a;
+    background: #003d42;
     color: #fff !important;
     transform: translateY(-2px);
     text-decoration: none;
@@ -84,9 +84,9 @@
 .q-card {
     background: #fff;
     border-radius: 18px;
-    padding: 36px 30px;
+    padding: 40px 32px;
     box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-    border: 1px solid rgba(27,73,69,0.06);
+    border: 1px solid rgba(1,80,85,0.06);
     height: 100%;
     transition: transform 0.25s, box-shadow 0.25s;
 }
@@ -95,24 +95,24 @@
     box-shadow: 0 20px 60px rgba(0,0,0,0.12);
 }
 .q-card .card-icon {
-    width: 56px;
-    height: 56px;
+    width: 60px;
+    height: 60px;
     border-radius: 14px;
-    background: linear-gradient(135deg, #e8f6f5 0%, #d0ede9 100%);
+    background: linear-gradient(135deg, #eef8f7 0%, #d0ede9 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 .q-card .card-icon i {
-    color: #1b4945;
-    font-size: 22px;
+    color: #015055;
+    font-size: 24px;
 }
 .q-card h4 {
     font-family: 'Poppins', sans-serif;
     font-size: 17px;
     font-weight: 700;
-    color: #1b4945;
+    color: #015055;
     margin-bottom: 10px;
 }
 .q-card p {
@@ -146,7 +146,7 @@
     border-radius: 18px;
     padding: 40px 34px;
     box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-    border: 1px solid rgba(27,73,69,0.06);
+    border: 1px solid rgba(1,80,85,0.06);
     height: 100%;
     transition: transform 0.25s, box-shadow 0.25s;
     position: relative;
@@ -176,16 +176,16 @@
     width: 64px;
     height: 64px;
     border-radius: 16px;
-    background: linear-gradient(135deg, #e8f6f5 0%, #d0ede9 100%);
+    background: linear-gradient(135deg, #eef8f7 0%, #d0ede9 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 22px;
 }
-.q-prod-card .prod-icon i { color: #1b4945; font-size: 28px; }
+.q-prod-card .prod-icon i { color: #015055; font-size: 28px; }
 .q-prod-card h3 {
     font-family: 'Poppins', sans-serif;
-    color: #1b4945;
+    color: #015055;
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 6px;
@@ -217,7 +217,7 @@
 .q-prod-card .prod-tech { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 24px; }
 .q-prod-card .prod-tech-tag {
     background: #eef8f7;
-    color: #1b4945;
+    color: #015055;
     border: 1px solid #c4e4e0;
     border-radius: 20px;
     padding: 4px 12px;
@@ -227,10 +227,10 @@
 
 /* ── Dark green section (n8n, CTA strips) ──── */
 .section-dark-green {
-    background: #1b4945;
+    background: #015055;
 }
 .cta-strip {
-    background: #1b4945;
+    background: #015055;
     border-radius: 18px;
     padding: 50px 60px;
     display: flex;
@@ -279,7 +279,7 @@
 /* ── Tech tags ─────────────────────────────── */
 .tech-tag {
     background: #eef8f7;
-    color: #1b4945;
+    color: #015055;
     border: 1px solid #c4e4e0;
     border-radius: 20px;
     padding: 5px 14px;
@@ -307,7 +307,7 @@
     font-family: 'Poppins', sans-serif;
     font-size: 34px;
     font-weight: 700;
-    color: #1b4945;
+    color: #015055;
     margin-bottom: 14px;
 }
 .section-heading p {
@@ -320,7 +320,7 @@
 
 /* ── Page hero (light bg variant) ──────────── */
 .page-hero-light {
-    background: linear-gradient(135deg, #1b4945 0%, #1e5a54 50%, #206057 100%);
+    background: linear-gradient(135deg, #015055 0%, #016a6e 50%, #017276 100%);
     padding: 100px 0 80px;
     text-align: center;
 }
@@ -345,7 +345,7 @@
 
 /* ── n8n featured section (on light bg) ────── */
 .n8n-featured {
-    background: #1b4945;
+    background: #015055;
     border-radius: 24px;
     padding: 60px 50px;
     box-shadow: 0 16px 48px rgba(0,0,0,0.15);
@@ -365,16 +365,16 @@
     background: rgba(255,255,255,0.07);
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 12px;
-    padding: 20px 18px;
+    padding: 24px 22px;
     height: 100%;
 }
-.n8n-cap i { color: #7ecdc8; font-size: 22px; margin-bottom: 10px; display: block; }
-.n8n-cap h6 { color: #fff; font-weight: 600; font-size: 13.5px; margin-bottom: 6px; }
-.n8n-cap p { color: rgba(255,255,255,0.62); font-size: 12px; margin: 0; line-height: 1.5; }
+.n8n-cap i { color: #7ecdc8; font-size: 24px; margin-bottom: 12px; display: block; line-height: 1; }
+.n8n-cap h6 { color: #fff; font-weight: 600; font-size: 14px; margin-bottom: 8px; }
+.n8n-cap p { color: rgba(255,255,255,0.65); font-size: 12.5px; margin: 0; line-height: 1.55; }
 
 /* ── SLA / support strip ───────────────────── */
 .sla-strip-new {
-    background: #1b4945;
+    background: #015055;
     border-radius: 18px;
     padding: 44px 50px;
     display: flex;
@@ -443,7 +443,7 @@
     font-family: 'Poppins', sans-serif;
     font-size: 34px;
     font-weight: 700;
-    color: #1b4945;
+    color: #015055;
     line-height: 1.25;
     margin-bottom: 20px;
 }
@@ -458,14 +458,16 @@
 .stat-box {
     background: #eef8f7;
     border-radius: 14px;
-    padding: 24px 20px;
+    padding: 28px 24px;
     text-align: center;
 }
 .stat-number {
     font-family: 'Poppins', sans-serif;
     font-size: 36px;
     font-weight: 700;
-    color: #1b4945;
+    color: #015055;
+    line-height: 1.1;
+    margin-bottom: 4px;
 }
 .stat-label {
     font-size: 13px;
@@ -495,11 +497,11 @@
     justify-content: center;
     flex-shrink: 0;
 }
-.feature-card .feature-icon i { color: #1b4945; font-size: 20px; }
+.feature-card .feature-icon i { color: #015055; font-size: 20px; }
 .feature-card h5 {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    color: #1b4945;
+    color: #015055;
     font-size: 16px;
     margin-bottom: 6px;
 }
@@ -550,6 +552,9 @@
     letter-spacing: 0.3px;
 }
 
+/* ── Card grid spacing override ──────────── */
+.card-grid { row-gap: 28px !important; }
+
 /* ── n8n tech tags wrapper (services) ────── */
 .n8n-tech-tags { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px; }
 
@@ -576,8 +581,12 @@
     .q-card { padding: 28px 22px; border-radius: 14px; }
     .q-prod-card { padding: 28px 22px; border-radius: 14px; }
     .n8n-featured { border-radius: 14px; padding: 32px 20px; }
+    .n8n-cap { padding: 18px 16px; }
+    .n8n-cap i { font-size: 20px; }
     .cta-strip { border-radius: 14px; padding: 28px 20px; }
     .feature-card { flex-direction: column; gap: 14px; }
     .stat-number { font-size: 24px; }
-    .stat-box { padding: 16px 14px; }
+    .stat-box { padding: 18px 14px; }
+    .q-card .card-icon { width: 52px; height: 52px; }
+    .q-card .card-icon i { font-size: 20px; }
 }

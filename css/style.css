@@ -101,7 +101,7 @@ p:last-child{
     margin-bottom: 0; 
 }
 a {
-    color: #fed966;
+    color: #f5a623;
 }
 a:hover {
     color: #031b4e;
@@ -113,7 +113,7 @@ a:focus {
     text-decoration: none;
 }
 h1, h2, h3, h4, h5, h6 { 
-    color: #1b4945; 
+    color: #015055; 
 }
 h1 { 
     font-size: 36px; 
@@ -162,13 +162,13 @@ body {
 .btn-primary:not(:disabled):not(.disabled).active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
     color: #fff;
-    background-color: #fed966;
+    background-color: #f5a623;
     border-color: #fff;
     box-shadow: none;
 }
 .btn-primary:hover {
     color: #fff;
-    background-color: #fed966;
+    background-color: #f5a623;
     border-color: #fff;
 }
 .btn-secondary,
@@ -962,7 +962,7 @@ select.parsley-error {
     border-radius: 100%;
     color: #fff;
     text-align: center;
-    background: #1b4945;
+    background: #015055;
     font-size: 18px;
     line-height: 68px;
     cursor: pointer;
@@ -970,8 +970,8 @@ select.parsley-error {
 /* Home 3 Banner */
 .banner--2 .btn.btn-transparent:hover {
     color: #fff;
-    background-color: #1b4945;
-    border-color: #1b4945;
+    background-color: #015055;
+    border-color: #015055;
 }
 .banner--2 .btn.btn-transparent {
     padding: 13.5px 30px;
@@ -1061,7 +1061,7 @@ select.parsley-error {
 }
 .banner-shape {
     position: absolute;
-    background-color: #fed966;
+    background-color: #f5a623;
     left: 0;
     top: 0;
     width: 100%;
@@ -2830,7 +2830,7 @@ a.disabled:hover {
     top: 0;
     height: 100%;
     width: 50px;
-    background-color: #fed966;
+    background-color: #f5a623;
     border: none;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
@@ -3574,7 +3574,7 @@ a.disabled:hover {
     background-color: #ffffff;
 }
 .home4-section-light {
-    background-color: #fed966;
+    background-color: #f5a623;
 }
 
 /*=============================================
