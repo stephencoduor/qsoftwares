@@ -552,6 +552,9 @@
     letter-spacing: 0.3px;
 }
 
+/* ── Utility spacing ─────────────────────── */
+.mt-60 { margin-top: 60px; }
+
 /* ── Card grid spacing override ──────────── */
 .card-grid { row-gap: 28px !important; }
 
@@ -560,6 +563,18 @@
 
 /* ── Dark-bg strong emphasis ─────────────── */
 .text-white-strong { color: #fff; }
+
+/* ── Homepage banner fix (override template) ── */
+.body-gradient {
+    background: #015055 !important;
+}
+.section-gradient {
+    background: linear-gradient(135deg, #cce9ef 0%, #dff4f8 60%, #b8dfe8 100%) !important;
+    background-blend-mode: normal !important;
+}
+.banner-shape {
+    background-color: transparent !important;
+}
 
 /* ── Responsive adjustments ────────────────── */
 @media (max-width: 991px) {
