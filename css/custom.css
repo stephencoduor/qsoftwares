@@ -391,6 +391,171 @@
 .sla-point-new i { color: #7ecdc8; font-size: 18px; }
 .sla-point-new span { color: rgba(255,255,255,0.85); font-size: 13px; font-weight: 500; }
 
+/* ── Section spacing ──────────────────────── */
+.section-pad       { padding: 90px 0; }
+.section-pad-top   { padding: 90px 0 80px; }
+.section-pad-sm    { padding: 80px 0; }
+.section-pad-xs    { padding: 70px 0; }
+.section-white     { background: #fff; }
+
+/* ── Centered card variant ───────────────── */
+.q-card-center { text-align: center; }
+.q-card-center .card-icon { margin: 0 auto 20px; }
+
+/* ── Small button variant ────────────────── */
+.btn-orange-sm {
+    background: #f5a623;
+    color: #fff !important;
+    border: none;
+    border-radius: 9px;
+    padding: 10px 22px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    text-decoration: none;
+}
+.btn-orange-sm:hover {
+    background: #e09315;
+    color: #fff !important;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+.btn-orange-sm i { font-size: 11px; }
+
+/* ── Section label (teal uppercase) ──────── */
+.section-label {
+    color: #7ecdc8;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 14px;
+}
+
+/* ── Why section title ───────────────────── */
+.why-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: #1b4945;
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+.why-desc {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.75;
+    margin-bottom: 30px;
+}
+
+/* ── Stat boxes ──────────────────────────── */
+.stat-box {
+    background: #eef8f7;
+    border-radius: 14px;
+    padding: 24px 20px;
+    text-align: center;
+}
+.stat-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #1b4945;
+}
+.stat-label {
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+}
+
+/* ── Feature cards (icon + text rows) ────── */
+.feature-stack { display: flex; flex-direction: column; gap: 20px; }
+.feature-card {
+    background: #fff;
+    border: 1px solid #e8f0ef;
+    border-radius: 14px;
+    padding: 28px;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+}
+.feature-card .feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #e8f6f5, #d0ede9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.feature-card .feature-icon i { color: #1b4945; font-size: 20px; }
+.feature-card h5 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: #1b4945;
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+.feature-card p {
+    color: #666;
+    font-size: 13.5px;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* ── Orange "Learn more" link ────────────── */
+.link-orange {
+    color: #f5a623;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.link-orange:hover {
+    color: #e09315;
+    text-decoration: none;
+}
+
+/* ── Section heading on dark bg ──────────── */
+.section-heading-dark { text-align: center; margin-bottom: 36px; }
+.section-heading-dark h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.section-heading-dark p {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
+
+/* ── Client badges ───────────────────────── */
+.client-badges { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px; }
+.client-badge {
+    padding: 14px 28px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.3px;
+}
+
+/* ── n8n tech tags wrapper (services) ────── */
+.n8n-tech-tags { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ── Dark-bg strong emphasis ─────────────── */
+.text-white-strong { color: #fff; }
+
 /* ── Responsive adjustments ────────────────── */
 @media (max-width: 991px) {
     .n8n-featured { padding: 40px 30px; }
@@ -399,10 +564,20 @@
     .sla-strip-new { padding: 32px 24px; text-align: center; justify-content: center; }
     .page-hero-light h1 { font-size: 32px; }
     .section-heading h2 { font-size: 28px; }
+    .why-title { font-size: 28px; }
+    .stat-number { font-size: 28px; }
+    .section-pad, .section-pad-top { padding: 60px 0; }
+    .section-pad-sm { padding: 50px 0; }
+    .section-heading-dark h2 { font-size: 24px; }
+    .client-badges { gap: 10px; }
+    .client-badge { padding: 10px 20px; font-size: 13px; }
 }
 @media (max-width: 576px) {
     .q-card { padding: 28px 22px; border-radius: 14px; }
     .q-prod-card { padding: 28px 22px; border-radius: 14px; }
     .n8n-featured { border-radius: 14px; padding: 32px 20px; }
     .cta-strip { border-radius: 14px; padding: 28px 20px; }
+    .feature-card { flex-direction: column; gap: 14px; }
+    .stat-number { font-size: 24px; }
+    .stat-box { padding: 16px 14px; }
 }
