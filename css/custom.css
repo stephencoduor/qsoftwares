@@ -612,6 +612,16 @@
     background-color: transparent !important;
 }
 
+/* ── Mobile hamburger menu fix ────────────── */
+@media (max-width: 991px) {
+    .header-menu #menu-button {
+        color: #fff !important;
+    }
+    .sticking .header-menu #menu-button {
+        color: #015055 !important;
+    }
+}
+
 /* ── Footer newsletter input (brand colors) ── */
 .subscribe-form.form-style--2 input:not([type=submit]) {
     background-color: rgba(126,205,200,0.15) !important;

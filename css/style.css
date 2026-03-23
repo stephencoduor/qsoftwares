@@ -531,7 +531,7 @@ select.parsley-error {
 }
 /* Light Version Section Title */
 .light-version .section-title h2 {
-    color: #145af9;
+    color: #015055;
     font-weight: 600;
 }
 .light-version .section-title p {
@@ -539,7 +539,7 @@ select.parsley-error {
 }
 .light-version .section-title p:after,
 .section-title.light p:after {
-    background-color: #145af9;
+    background-color: #015055;
 }
 /*=============================================
     04: Header
@@ -1145,7 +1145,7 @@ canvas#c {
 /* Feature Style--2 */
 .single-feature-item.feature-style--2 {
     text-align: center;
-    background-color: #145af9;
+    background-color: #015055;
     color: #fff;
     padding: 50px 20px;
     font-size: 26px;
@@ -1173,7 +1173,7 @@ canvas#c {
 .feature-style--2.light {
     background-color: #fff;
     box-shadow: 0 6px 16px rgba(0,0,0,.1);
-    color: #145af9;
+    color: #015055;
     font-weight: 600;
     -webkit-transition: .3s;
     transition: .3s;
@@ -1406,14 +1406,14 @@ canvas#c {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #145af9;
+    background-color: #015055;
     content: '';
     top: 0;
     left: 0;
     z-index: -1;
 }
 .pricing-filter .pricing_nav .nav-item a.active {
-    border-color: #145af9;
+    border-color: #015055;
 }
 .single_pricing_table {
     padding: 50px;
@@ -1436,7 +1436,7 @@ canvas#c {
     content: '';
     -webkit-transform: scale(0);
             transform: scale(0);
-    background-color: #145af9;
+    background-color: #015055;
     -webkit-transition: all .5s cubic-bezier(0.77, 0, 0.175, 1);
     transition: all .5s cubic-bezier(0.77, 0, 0.175, 1);
 }
@@ -1456,7 +1456,7 @@ canvas#c {
 .single_pricing_table .pt_header .pt_price {
     display: inline-block;
     margin: 0 auto;
-    border: 1px solid #145af9;
+    border: 1px solid #015055;
     padding: 30px 22px;
     border-radius: 4px;
     margin-bottom: 40px;
@@ -1478,20 +1478,20 @@ canvas#c {
     margin-bottom: 30px;
 }
 .single_pricing_table .pt_footer a {
-    border-color: #145af9;
+    border-color: #015055;
     font-size: 16px;
 }
 .single_pricing_table:hover .pt_price,
 .single_pricing_table:hover .btn {
     background-color: #fff;
-    color: #145af9;
+    color: #015055;
 }
 /* Pricing Area Home--3 Light */
 .single_pricing_table.light {
     background-color: #fff;
 }
 .single_pricing_table.light,.single_pricing_table.light .btn {
-    border-color: #145af9;
+    border-color: #015055;
     color: #535353;
 }
 .single_pricing_table.light h2 {
@@ -1506,11 +1506,11 @@ canvas#c {
     color: #535353;
 }
 .single_pricing_table.light .pt_header .pt_price {
-    background-color: #145af9;
+    background-color: #015055;
     color: #fff;
 }
 .single_pricing_table.light:hover .pt_header .pt_price {
-    color: #145af9;
+    color: #015055;
     background-color: #fff;
 }
 
@@ -1791,7 +1791,7 @@ canvas#c {
 }
 .review-controls  .carousel-control:hover {
     border-color: transparent;
-    background-color: #145af9;
+    background-color: #015055;
 }
 .review-slider--2 {
     margin-left: 15px;
@@ -1803,7 +1803,7 @@ canvas#c {
     background-color: transparent !important;
 }
 .review-slider--2 .single-review .review-text {
-    background-color: #145af9 !important;
+    background-color: #015055 !important;
     color: #fff;
     border-radius: 10px;
     padding: 100px;
@@ -1847,23 +1847,23 @@ canvas#c {
     margin: 15px;
 }
 .review-slider--2.light .single-review .review-text i {
-    color: #145af9;
+    color: #015055;
 }
 .review-slider--2 .single-review .review-info  img {
     border: 3px solid #ffffff;
     border-radius: 4px;
 }
 .review-slider--2.light .single-review .review-info  img {
-    border-color:#145af9;
+    border-color:#015055;
 }
 .review-slider--2.light .single-review .review-info h3 {
-    color: #145af9;
+    color: #015055;
 }
 .review-slider--2.light .single-review .review-info span {
     color: #535353;
 }
 .review-controls.light .carousel-control {
-    border-color: #145af9;
+    border-color: #015055;
 }
 .review-controls.light .carousel-control svg .cls-1 {
     fill: #bbbbbb;
@@ -2132,7 +2132,7 @@ a.disabled:hover {
 
 /* Blog Version--2 */
 .blog-bg {
-    background-color: #145af9;
+    background-color: #015055;
 }
 .blog-shape {
     background-image: url(../img/home-3/blog-pattern.png);
@@ -2220,7 +2220,7 @@ a.disabled:hover {
     z-index: -1;
 }
 .single-post.post-style--2 .post-hover .post-hover-inner a {
-    color: #145af9;
+    color: #015055;
     font-size: 26px;
     display: block;
 }
@@ -2245,7 +2245,7 @@ a.disabled:hover {
     color: #535353;
 }
 .single-post.post-style--2.light .post-hover .post-hover-inner:after {
-    background-color: #145af9;
+    background-color: #015055;
     opacity: .85;
 }
 
@@ -2813,7 +2813,7 @@ a.disabled:hover {
 .subscribe-form.form-style--2 input:not([type=submit]) {
     width: 100%;
     border-radius: 4px;
-    background-color: #0a26b0; /*#FF9B00 Bright Yellow*/
+    background-color: rgba(126,205,200,0.15); /*#FF9B00 Bright Yellow*/
     border-color: transparent;
     -webkit-transition: .3s;
     transition: .3s;
@@ -2822,7 +2822,7 @@ a.disabled:hover {
 }
 .subscribe-form.form-style--2 input:not([type=submit]):focus {
     outline: none;
-    border-color: #145af9;
+    border-color: #015055;
 }
 .subscribe-form.form-style--2 button {
     position: absolute;
@@ -2857,7 +2857,7 @@ a.disabled:hover {
     transition: .3s;
 }
 .social-links li a:hover {
-    color: #145af9;
+    color: #015055;
 } 
 .footer-menu--2 li a{
     font-size: 16px;
@@ -2990,7 +2990,7 @@ a.disabled:hover {
 }
 /* Back to Top --2 Light */
 .back-to-top.back-top--2.light {
-    border: 1px solid blue;
+    border: 1px solid #015055;
 }
 
 /* Back to Top--3 */
@@ -3251,16 +3251,16 @@ a.disabled:hover {
     padding: 70px;
     border-radius: 10px;
     background-image: url(../img/home-3/search-pattern.png);
-    background-color: #145af9;
+    background-color: #015055;
 }
 
 .domain-search-inner.light {
     background-color: #fff;
-    color: #145af9;
+    color: #015055;
     box-shadow: 0 6px 38px rgba(25, 25, 25, .1);
 }
 .domain-search-inner.light h2{
-    color: #145af9
+    color: #015055
 }
 .domain-search-form {
     position: relative;
@@ -3275,8 +3275,8 @@ a.disabled:hover {
     color: #fff;
 }
 .domain-search-inner.light .domain-search-form input[type="text"] {
-    border-color: #145af9;
-    color: #145af9;
+    border-color: #015055;
+    color: #015055;
 }
 .domain-search-form input[type="text"]::-webkit-input-placeholder {
     color: #ffffff !important;
@@ -3291,16 +3291,16 @@ a.disabled:hover {
     color: #ffffff !important;
 }
 .domain-search-inner.light .domain-search-form input[type="text"]::-webkit-input-placeholder {
-    color: #145af9 !important;
+    color: #015055 !important;
 }
 .domain-search-inner.light .domain-search-form input[type="text"]::-moz-placeholder {
-    color: #145af9 !important;
+    color: #015055 !important;
 }
 .domain-search-inner.light .domain-search-form input[type="text"]:-ms-input-placeholder {
-    color: #145af9 !important;
+    color: #015055 !important;
 }
 .domain-search-inner.light .domain-search-form input[type="text"]::placeholder {
-    color: #145af9 !important;
+    color: #015055 !important;
 }
 .domain-search-form input[type="text"]:focus {
     outline: none;
@@ -3317,7 +3317,7 @@ a.disabled:hover {
     cursor: pointer;
 }
 .domain-search-inner.light .domain-search-form button[type=submit] {
-    color: #145af9;
+    color: #015055;
 }
 
 /* Domain Search Home-4 */
@@ -3636,7 +3636,7 @@ a.disabled:hover {
 .single-brand-icon {
     display: table;
     width: 100%;
-    background-color: #145af9;
+    background-color: #015055;
     height: 130px;
     margin-bottom: 30px;
     border-radius: 10px;
@@ -3667,7 +3667,7 @@ a.disabled:hover {
     margin-bottom: 30px;
 }
 .single-why-choose:hover {
-    background-color: #145af9;
+    background-color: #015055;
 }
 .single-why-choose:hover .why-choose-text {
     background-color: #020ea4;
@@ -3681,7 +3681,7 @@ a.disabled:hover {
     width: 70%;
     padding: 20px;
     color: #fff;
-    background-color: #145af9;
+    background-color: #015055;
     -webkit-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
     border-radius: 0 10px 10px 0;
@@ -3701,7 +3701,7 @@ a.disabled:hover {
 /* why Choose us Light */
 .single-why-choose.light {
     box-shadow: 0 6px 16px rgba(0,0,0,.1);
-    background-color: #145af9;
+    background-color: #015055;
 }
 .single-why-choose.light .why-choose-text {
     background-color: #e1f396;
