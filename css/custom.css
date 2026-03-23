@@ -612,6 +612,72 @@
     background-color: transparent !important;
 }
 
+/* ── Footer newsletter input (brand colors) ── */
+.subscribe-form.form-style--2 input:not([type=submit]) {
+    background-color: rgba(126,205,200,0.15) !important;
+    border: 1px solid rgba(126,205,200,0.3) !important;
+}
+.subscribe-form.form-style--2 input:not([type=submit]):focus {
+    border-color: #7ecdc8 !important;
+    background-color: rgba(126,205,200,0.25) !important;
+}
+
+/* ── Team section ────────────────────────────── */
+.team-card {
+    text-align: center;
+    padding: 30px 20px;
+}
+.team-card .team-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #7ecdc8;
+    object-fit: cover;
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.team-card:hover .team-avatar {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(1,80,85,0.2);
+}
+.team-card h5 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #015055;
+    margin-bottom: 6px;
+}
+.team-card .team-role {
+    color: #f5a623;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+.team-card .team-socials {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.team-card .team-socials a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #eef8f7;
+    color: #015055;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+.team-card .team-socials a:hover {
+    background: #015055;
+    color: #fff;
+}
+
 /* ── Responsive adjustments ────────────────── */
 @media (max-width: 991px) {
     .n8n-featured { padding: 40px 30px; }
