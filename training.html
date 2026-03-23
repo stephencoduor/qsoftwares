@@ -442,6 +442,11 @@
                                 <textarea name="message" class="form-control" rows="3" placeholder="Describe specific needs, current skill level, platforms in use, or any questions..."></textarea>
                             </div>
 
+                            <!-- Honeypot — hidden from humans, catches bots -->
+                            <div style="position:absolute;left:-9999px;" aria-hidden="true">
+                                <input type="text" name="website_url" tabindex="-1" autocomplete="off">
+                            </div>
+
                             <button type="submit" class="btn-tc-submit">
                                 <i class="fas fa-paper-plane"></i>
                                 Submit Training Request &mdash; We'll contact you within 24 hrs
