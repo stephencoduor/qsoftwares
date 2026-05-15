@@ -84,43 +84,388 @@
     <!-- ── Page hero ──────────────────────────── -->
     <section class="page-hero-light">
         <div class="container">
-            <h1 data-animate="fadeInUp">Our Products</h1>
-            <p data-animate="fadeInUp" data-delay=".2">Productized digital platforms built on proven open-source foundations — ready to deploy for your organisation, with full support and customisation.</p>
+            <h1 data-animate="fadeInUp">Our Products &amp; Portfolio</h1>
+            <p data-animate="fadeInUp" data-delay=".2">Ten recent builds shipped across fintech, AI agents, SACCO &amp; banking, construction estimation, and product/competitive intelligence — plus three productized platforms ready to deploy &amp; customise. Every project is production-shape on day one: clickable app, real backend, full document suite. Lifecycle badges below show where each build sits today.</p>
         </div>
     </section>
 
-    <!-- ── Products grid ──────────────────────── -->
-    <section class="pt-100 pb-80 section-light-blue">
+    <!-- ── Portfolio (recent builds) — moved to TOP per founder direction ── -->
+    <section class="section-padding pt-60 pb-40 portfolio-section-dark">
         <div class="container">
-            <div class="row g-4 card-grid">
+            <!-- Section header -->
+            <div class="portfolio-section-header" data-animate="fadeInUp">
+                <span class="eyebrow">RECENT PORTFOLIO · 10 PROJECTS · 5 VERTICALS</span>
+                <h2>Recent builds — production-shape on day one.</h2>
+                <p>Ten client and self-funded projects across fintech, AI agents, SACCO &amp; banking, construction estimation, and product/competitive intelligence. Every project is shipped through the same 8-phase pipeline — frontend → backend wired → beta → deployed → live. Status badges below show where each project sits today.</p>
+            </div>
 
-                <!-- Msacco -->
-                <div class="col-lg-6" id="msacco" data-animate="fadeInUp" data-delay=".1">
-                    <div class="q-prod-card">
-                        <div class="prod-icon"><i class="fas fa-piggy-bank"></i></div>
-                        <h3>Msacco</h3>
-                        <p class="prod-sub">Digital Microfinance Platform</p>
-                        <p>A fully-featured digital microfinance platform built on Apache Fineract — designed for SACCOs, MFIs, and community finance organisations to digitise operations and reach more members.</p>
-                        <ul class="prod-features">
-                            <li><i class="fas fa-check-circle"></i> Loan origination, appraisal &amp; disbursement</li>
-                            <li><i class="fas fa-check-circle"></i> Savings &amp; fixed deposit accounts</li>
-                            <li><i class="fas fa-check-circle"></i> SACCO member management</li>
-                            <li><i class="fas fa-check-circle"></i> Mobile banking APIs</li>
-                            <li><i class="fas fa-check-circle"></i> Payment gateway integrations (M-Pesa, Airtel)</li>
-                            <li><i class="fas fa-check-circle"></i> Custom reporting &amp; dashboards</li>
-                        </ul>
-                        <div class="prod-tech">
-                            <span class="prod-tech-tag">Apache Fineract</span>
-                            <span class="prod-tech-tag">Payment Hub</span>
-                            <span class="prod-tech-tag">Docker / K8s</span>
-                            <span class="prod-tech-tag">REST API</span>
+            <!-- Legend -->
+            <div class="portfolio-legend" data-animate="fadeInUp">
+                <strong>Lifecycle</strong>
+                <span class="lgn-item"><span class="lgn-dot prototype"></span>Prototype <em style="color:#999">· frontend only</em></span>
+                <span class="lgn-item"><span class="lgn-dot backend-wired"></span>Backend wired</span>
+                <span class="lgn-item"><span class="lgn-dot beta"></span>Beta</span>
+                <span class="lgn-item"><span class="lgn-dot preview"></span>Pre-launch</span>
+                <span class="lgn-item"><span class="lgn-dot deployed"></span>Deployed</span>
+                <span class="lgn-item"><span class="lgn-dot live"></span>Live · public</span>
+            </div>
+
+            <div class="row">
+
+                <!-- 1 · AI Receptionist (Live) -->
+                <div class="col-lg-6" id="ai-receptionist" data-animate="fadeInUp" data-delay=".05">
+                    <div class="q-portfolio-card">
+                        <div class="portfolio-screenshot">
+                            <img src="img/products/ai-receptionist.png" alt="AI Receptionist · Multi-tenant voice-AI SaaS">
+                            <span class="portfolio-status">Live</span>
                         </div>
-                        <a href="#" class="btn-orange">Request Demo</a>
+                        <div class="portfolio-body">
+                            <span class="portfolio-vertical">AI Agents · Voice AI</span>
+                            <h3>AI Receptionist</h3>
+                            <p class="portfolio-desc">Multi-tenant voice-AI SaaS. Answers inbound voice, chat, WhatsApp, SMS &amp; email for clinics, law firms, real-estate, hotels &amp; e-commerce. RAG-grounded with mandatory citations, sub-800ms latency, KE-DPA + GDPR + HIPAA-aware.</p>
+                            <ul class="portfolio-stats">
+                                <li><strong>218</strong>features</li>
+                                <li><strong>30</strong>modules</li>
+                                <li><strong>254</strong>FE tests</li>
+                                <li><strong>293</strong>BE tests</li>
+                            </ul>
+                            <div class="portfolio-stack">
+                                <span class="stack-item">Frontend</span>
+                                <span class="stack-item">Backend</span>
+                                <span class="stack-item live">Live · public</span>
+                            </div>
+                            <div class="prod-tech">
+                                <span class="prod-tech-tag">FastAPI</span>
+                                <span class="prod-tech-tag">LangGraph</span>
+                                <span class="prod-tech-tag">Twilio</span>
+                                <span class="prod-tech-tag">Anthropic</span>
+                                <span class="prod-tech-tag">Pinecone</span>
+                                <span class="prod-tech-tag">React 19</span>
+                            </div>
+                            <a href="https://ai.automated.sbs" target="_blank" rel="noopener" class="btn-orange">View Live →</a>
+                        </div>
                     </div>
                 </div>
 
+                <!-- 2 · ProdR-IQ (Live · internal product) -->
+                <div class="col-lg-6" id="prodr-iq" data-animate="fadeInUp" data-delay=".10">
+                    <div class="q-portfolio-card">
+                        <div class="portfolio-screenshot">
+                            <img src="img/products/prodr-iq.png" alt="ProdR-IQ · Agentic Discovery OS for product teams">
+                            <span class="portfolio-status">Live</span>
+                        </div>
+                        <div class="portfolio-body">
+                            <span class="portfolio-vertical">AI Agents · Product Discovery</span>
+                            <h3>ProdR-IQ</h3>
+                            <p class="portfolio-desc">Agentic Discovery Operating System for product teams. Compresses the spark → research → competitor → gap → validation → spec loop from a quarter to a sprint, with every claim cited. WCAG 2.1 AA modal a11y, CSP/HSTS hardened, deployed via Caddy + GHCR + SSH.</p>
+                            <ul class="portfolio-stats">
+                                <li><strong>88/88</strong>features (100%)</li>
+                                <li><strong>28</strong>wired routes</li>
+                                <li><strong>61</strong>screenshots</li>
+                                <li><strong>WCAG</strong>2.1 AA</li>
+                            </ul>
+                            <div class="portfolio-stack">
+                                <span class="stack-item">Frontend</span>
+                                <span class="stack-item">Backend</span>
+                                <span class="stack-item live">Live · public</span>
+                            </div>
+                            <div class="prod-tech">
+                                <span class="prod-tech-tag">React + Vite</span>
+                                <span class="prod-tech-tag">Caddy</span>
+                                <span class="prod-tech-tag">GHCR</span>
+                                <span class="prod-tech-tag">Docker</span>
+                                <span class="prod-tech-tag">Agentic AI</span>
+                            </div>
+                            <a href="#contact" class="btn-orange">Request Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 · CommitBot (Pre-launch) -->
+                <div class="col-lg-6" id="commitbot" data-animate="fadeInUp" data-delay=".05">
+                    <div class="q-portfolio-card">
+                        <div class="portfolio-screenshot">
+                            <img src="img/products/commitbot.png" alt="CommitBot · Closed-loop meeting agent">
+                            <span class="portfolio-status preview">Pre-launch</span>
+                        </div>
+                        <div class="portfolio-body">
+                            <span class="portfolio-vertical">AI Agents · Engineering Productivity</span>
+                            <h3>CommitBot</h3>
+                            <p class="portfolio-desc">The closed-loop meeting agent for engineering teams. Two agents on one calendar invite — PrepAgent before, transcription during, CommitBot after. The Accountability Heatmap is the manager wedge no transcription tool ships. Pilot teams: 41% → 89% commitment completion in 90 days.</p>
+                            <ul class="portfolio-stats">
+                                <li><strong>30</strong>routes</li>
+                                <li><strong>1,000</strong>tests</li>
+                                <li><strong>148</strong>test files</li>
+                                <li><strong>75+</strong>components</li>
+                            </ul>
+                            <div class="portfolio-stack">
+                                <span class="stack-item">Frontend</span>
+                                <span class="stack-item">Backend</span>
+                                <span class="stack-item beta">Pre-launch</span>
+                            </div>
+                            <div class="prod-tech">
+                                <span class="prod-tech-tag">React 19</span>
+                                <span class="prod-tech-tag">FastAPI</span>
+                                <span class="prod-tech-tag">Tailwind v4</span>
+                                <span class="prod-tech-tag">Slack / Jira / Linear</span>
+                            </div>
+                            <a href="https://commitbot.us" target="_blank" rel="noopener" class="btn-orange">View Site →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 · GCIPay Bank (Deployed) -->
+                <div class="col-lg-6" id="gcipay" data-animate="fadeInUp" data-delay=".10">
+                    <div class="q-portfolio-card">
+                        <div class="portfolio-screenshot">
+                            <img src="img/products/gcipay.png" alt="GCIPay Bank · Private banking + BaaS console">
+                            <span class="portfolio-status deployed">Deployed</span>
+                        </div>
+                        <div class="portfolio-body">
+                            <span class="portfolio-vertical">Fintech · Banking-as-a-Service</span>
+                            <h3>GCIPay Bank</h3>
+                            <p class="portfolio-desc">Private banking + BaaS admin console for Green Capital Private Advisers (GCPA). Designed for relicensing to 30-50 partner banks. Custom Apache Fineract module pattern. 25 routes wired to live Fineract, all 10 planned <code>custom/gcipay/*</code> modules in production.</p>
+                            <ul class="portfolio-stats">
+                                <li><strong>25</strong>routes live</li>
+                                <li><strong>10</strong>Fineract modules</li>
+                                <li><strong>WebAuthn</strong>passkeys</li>
+                                <li><strong>BaaS</strong>relicensable</li>
+                            </ul>
+                            <div class="portfolio-stack">
+                                <span class="stack-item">Frontend</span>
+                                <span class="stack-item">Backend</span>
+                                <span class="stack-item beta">Deployed</span>
+                            </div>
+                            <div class="prod-tech">
+                                <span class="prod-tech-tag">Apache Fineract</span>
+                                <span class="prod-tech-tag">React</span>
+                                <span class="prod-tech-tag">Custom modules</span>
+                                <span class="prod-tech-tag">WebAuthn</span>
+                            </div>
+                            <a href="#contact" class="btn-orange">Request Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5 · NeoBank (Deployed) -->
+                <div class="col-lg-6" id="neobank" data-animate="fadeInUp" data-delay=".05">
+                    <div class="q-portfolio-card">
+                        <div class="portfolio-screenshot">
+                            <img src="img/products/neobank.png" alt="NeoBank · Digital banking for East Africa">
+                            <span class="portfolio-status deployed">Deployed</span>
+                        </div>
+                        <div class="portfolio-body">
+                            <span class="portfolio-vertical">Fintech · Digital Banking · EAC</span>
+                            <h3>NeoBank</h3>
+                            <p class="portfolio-desc">Next-generation digital banking and payments platform targeting Kenya and East Africa. Built on Apache Fineract core banking. 30 pages wired to live Fineract API with Live/Demo badges on every route. M-Pesa STK push, multi-currency (KES + USD).</p>
+                            <ul class="portfolio-stats">
+                                <li><strong>30</strong>pages live</li>
+                                <li><strong>Fineract</strong>core</li>
+                                <li><strong>M-Pesa</strong>STK push</li>
+                                <li><strong>$60K</strong>prototype build</li>
+                            </ul>
+                            <div class="portfolio-stack">
+                                <span class="stack-item">Frontend</span>
+                                <span class="stack-item">Backend</span>
+                                <span class="stack-item beta">Deployed</span>
+                            </div>
+                            <div class="prod-tech">
+                                <span class="prod-tech-tag">Apache Fineract</span>
+                                <span class="prod-tech-tag">React</span>
+                                <span class="prod-tech-tag">M-Pesa</span>
+                                <span class="prod-tech-tag">Savanna DS</span>
+                            </div>
+                            <a href="#contact" class="btn-orange">Request Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6 · Msacco (Deployed · Fineract SACCO product) -->
+                <div class="col-lg-6" id="msacco-portfolio" data-animate="fadeInUp" data-delay=".10">
+                    <div class="q-portfolio-card">
+                        <div class="portfolio-screenshot">
+                            <img src="img/products/msacco.png" alt="Msacco · Digital microfinance platform for SACCOs and MFIs">
+                            <span class="portfolio-status deployed">Deployed</span>
+                        </div>
+                        <div class="portfolio-body">
+                            <span class="portfolio-vertical">Fintech · Microfinance · SACCOs</span>
+                            <h3>Msacco</h3>
+                            <p class="portfolio-desc">Digital microfinance platform built on Apache Fineract — designed for SACCOs, MFIs, and community-finance organisations. Loan origination, appraisal &amp; disbursement, savings &amp; fixed deposits, mobile-money collection/disbursement, M-Pesa &amp; Airtel integration, custom reporting.</p>
+                            <ul class="portfolio-stats">
+                                <li><strong>Loan</strong>full lifecycle</li>
+                                <li><strong>M-Pesa</strong>+ Airtel</li>
+                                <li><strong>Savings</strong>+ deposits</li>
+                                <li><strong>Multi-tenant</strong>SACCO</li>
+                            </ul>
+                            <div class="portfolio-stack">
+                                <span class="stack-item">Frontend</span>
+                                <span class="stack-item">Backend</span>
+                                <span class="stack-item beta">Deployed</span>
+                            </div>
+                            <div class="prod-tech">
+                                <span class="prod-tech-tag">Apache Fineract</span>
+                                <span class="prod-tech-tag">Payment Hub</span>
+                                <span class="prod-tech-tag">Docker / K8s</span>
+                                <span class="prod-tech-tag">REST API</span>
+                            </div>
+                            <a href="#contact" class="btn-orange">Request Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7 · PulseIQ (Beta · 97%) -->
+                <div class="col-lg-6" id="pulseiq" data-animate="fadeInUp" data-delay=".05">
+                    <div class="q-portfolio-card">
+                        <div class="portfolio-screenshot">
+                            <img src="img/products/pulseiq.png" alt="PulseIQ · AI competitive &amp; marketing intelligence">
+                            <span class="portfolio-status beta">Beta</span>
+                        </div>
+                        <div class="portfolio-body">
+                            <span class="portfolio-vertical">AI Agents · Competitive Intelligence</span>
+                            <h3>PulseIQ</h3>
+                            <p class="portfolio-desc">Agentic AI competitive and marketing intelligence platform. Unifies traffic, ad, social, content, pricing, review, and AI-search-visibility signals into autonomous briefings, always-fresh battlecards, and a recommended-action queue. Web for the analyst, mobile for the CMO.</p>
+                            <ul class="portfolio-stats">
+                                <li><strong>87/90</strong>features (97%)</li>
+                                <li><strong>21</strong>wired routes</li>
+                                <li><strong>42</strong>screenshots</li>
+                                <li><strong>Mobile</strong>+ Web</li>
+                            </ul>
+                            <div class="portfolio-stack">
+                                <span class="stack-item">Frontend</span>
+                                <span class="stack-item">Backend</span>
+                                <span class="stack-item beta">Beta</span>
+                            </div>
+                            <div class="prod-tech">
+                                <span class="prod-tech-tag">React + Vite</span>
+                                <span class="prod-tech-tag">Agentic AI</span>
+                                <span class="prod-tech-tag">Battlecards</span>
+                                <span class="prod-tech-tag">Mobile-ready</span>
+                            </div>
+                            <a href="#contact" class="btn-orange">Request Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8 · Kalkuli (Beta · DACH) -->
+                <div class="col-lg-6" id="kalkuli" data-animate="fadeInUp" data-delay=".10">
+                    <div class="q-portfolio-card">
+                        <div class="portfolio-screenshot">
+                            <img src="img/products/kalkuli.png" alt="Kalkuli · AI-powered construction estimation for DACH">
+                            <span class="portfolio-status beta">Beta</span>
+                        </div>
+                        <div class="portfolio-body">
+                            <span class="portfolio-vertical">Construction · DACH</span>
+                            <h3>Kalkuli</h3>
+                            <p class="portfolio-desc">KI-gestützte Kalkulation für das Baugewerbe — AI-powered LV (Leistungsverzeichnis) cost-estimation for German-speaking construction trades. Replaces HubSpot + DATEV/Lexware + Craftboxx + cloud phone with one central platform. Generates customer offer, internal calc &amp; worker instruction PDFs.</p>
+                            <ul class="portfolio-stats">
+                                <li><strong>LV</strong>generation engine</li>
+                                <li><strong>Aufmaß</strong>PDF parse</li>
+                                <li><strong>3</strong>PDF artifacts</li>
+                                <li><strong>DACH</strong>German-native</li>
+                            </ul>
+                            <div class="portfolio-stack">
+                                <span class="stack-item">Frontend</span>
+                                <span class="stack-item">Backend</span>
+                                <span class="stack-item beta">Beta</span>
+                            </div>
+                            <div class="prod-tech">
+                                <span class="prod-tech-tag">React</span>
+                                <span class="prod-tech-tag">FastAPI</span>
+                                <span class="prod-tech-tag">Docker Compose</span>
+                                <span class="prod-tech-tag">PDF parse</span>
+                            </div>
+                            <a href="#contact" class="btn-orange">Request Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9 · DisbursePro (Prototype — frontend only) -->
+                <div class="col-lg-6" id="disbursepro" data-animate="fadeInUp" data-delay=".05">
+                    <div class="q-portfolio-card">
+                        <div class="portfolio-screenshot">
+                            <img src="img/products/disbursepro.png" alt="DisbursePro · Enterprise disbursement &amp; expense management">
+                            <span class="portfolio-status prototype">Prototype</span>
+                        </div>
+                        <div class="portfolio-body">
+                            <span class="portfolio-vertical">Fintech · Enterprise · Zambia</span>
+                            <h3>DisbursePro</h3>
+                            <p class="portfolio-desc">Enterprise disbursement &amp; expense-management platform for the Zambian market — a control, visibility, and orchestration layer above licensed custodians. Think Soldo/Pleo for emerging markets. Decouples control from custody so the platform isn't on the regulated balance sheet.</p>
+                            <ul class="portfolio-stats">
+                                <li><strong>Multi-level</strong>approvals</li>
+                                <li><strong>Audit</strong>trail</li>
+                                <li><strong>Custody</strong>decoupled</li>
+                                <li><strong>RFP</strong>respondent</li>
+                            </ul>
+                            <div class="portfolio-stack">
+                                <span class="stack-item">Frontend</span>
+                                <span class="stack-item todo">Backend</span>
+                                <span class="stack-item todo">Beta</span>
+                            </div>
+                            <div class="prod-tech">
+                                <span class="prod-tech-tag">React</span>
+                                <span class="prod-tech-tag">Tailwind</span>
+                                <span class="prod-tech-tag">Savanna DS</span>
+                                <span class="prod-tech-tag">shadcn/ui</span>
+                            </div>
+                            <a href="#contact" class="btn-orange">Request Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10 · FundFlow (Prototype — frontend only) -->
+                <div class="col-lg-6" id="fundflow" data-animate="fadeInUp" data-delay=".10">
+                    <div class="q-portfolio-card">
+                        <div class="portfolio-screenshot">
+                            <img src="img/products/fundflow.png" alt="FundFlow · Multi-tenant ISO management platform">
+                            <span class="portfolio-status prototype">Prototype</span>
+                        </div>
+                        <div class="portfolio-body">
+                            <span class="portfolio-vertical">Fintech · Multi-Tenant ISO · US</span>
+                            <h3>FundFlow</h3>
+                            <p class="portfolio-desc">Multi-tenant, multi-provider financial-services platform serving a hierarchical licensee network. Master distributor manages sub-distributors managing their provider networks. Includes provider portals, admin dashboards, revenue tracking, audit logging, email automation, and AI voice intelligence.</p>
+                            <ul class="portfolio-stats">
+                                <li><strong>B2B2B</strong>hierarchy</li>
+                                <li><strong>Revenue</strong>split tiers</li>
+                                <li><strong>AI voice</strong>intel</li>
+                                <li><strong>US</strong>California law</li>
+                            </ul>
+                            <div class="portfolio-stack">
+                                <span class="stack-item">Frontend</span>
+                                <span class="stack-item todo">Backend</span>
+                                <span class="stack-item todo">Beta</span>
+                            </div>
+                            <div class="prod-tech">
+                                <span class="prod-tech-tag">React</span>
+                                <span class="prod-tech-tag">TypeScript</span>
+                                <span class="prod-tech-tag">Multi-tenant</span>
+                                <span class="prod-tech-tag">shadcn/ui</span>
+                            </div>
+                            <a href="#contact" class="btn-orange">Request Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /.row · portfolio -->
+        </div>
+    </section>
+
+    <!-- ── Platform Products section (existing 3 productized platforms) ── -->
+    <section class="section-padding pt-80 pb-0 section-light-blue">
+        <div class="container">
+            <div class="text-center mb-40" data-animate="fadeInUp">
+                <span class="eyebrow" style="font-family:'Karla',sans-serif;color:#7ecdc8;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;display:inline-block;margin-bottom:12px;">PLATFORM PRODUCTS · 3 PRODUCTS</span>
+                <h2 style="font-family:'Poppins',sans-serif;color:#015055;font-size:32px;font-weight:700;margin:0;">Three productized platforms — deploy &amp; customise.</h2>
+                <p style="color:#666;margin-top:14px;max-width:680px;margin-left:auto;margin-right:auto;font-size:14px;line-height:1.6;">Open-source-grounded productized offerings deployable to your organisation with full support and customisation. (Msacco — also part of the SACCO portfolio above — is included in the portfolio section for screenshots and stack details.)</p>
+            </div>
+        </div>
+    </section>
+    <section class="pt-40 pb-80 section-light-blue">
+        <div class="container">
+            <div class="row g-4 card-grid">
+
+
                 <!-- F-Payroll -->
-                <div class="col-lg-6" id="fpayroll" data-animate="fadeInUp" data-delay=".2">
+                <div class="col-lg-6" id="fpayroll" data-animate="fadeInUp" data-delay=".1">
                     <div class="q-prod-card featured">
                         <div class="prod-icon"><i class="fas fa-file-invoice-dollar"></i></div>
                         <h3>F-Payroll</h3>
@@ -145,7 +490,7 @@
                 </div>
 
                 <!-- Enterprise-RAG -->
-                <div class="col-lg-6" id="enterprise-rag" data-animate="fadeInUp" data-delay=".1">
+                <div class="col-lg-6" id="enterprise-rag" data-animate="fadeInUp" data-delay=".15">
                     <div class="q-prod-card">
                         <div class="prod-icon"><i class="fas fa-brain"></i></div>
                         <h3>Enterprise-RAG</h3>
@@ -195,10 +540,14 @@
                     </div>
                 </div>
 
-            </div><!-- /.row -->
+            </div><!-- /.row · platform products -->
+        </div>
+    </section>
 
-            <!-- Demo CTA -->
-            <div class="mt-60" data-animate="fadeInUp">
+    <!-- ── Demo CTA ─────────────────────────────── -->
+    <section class="section-padding pt-40 pb-100 section-light-blue">
+        <div class="container">
+            <div data-animate="fadeInUp">
                 <div class="cta-strip">
                     <div>
                         <h3>Ready to see a product in action?</h3>
