@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Carbon Field — Offline-First Field Data for Carbon Projects | QSOFTWARES Ltd</title>
+    <meta name="description" content="An offline-first mobile app and sync backend for carbon project field data: farmer registry, FPIC consent, parcel mapping and monitoring rounds. In development — partners, sponsors and feedback wanted.">
+    <meta property="og:title" content="Carbon Field — offline-first field data for carbon projects">
+    <meta property="og:description" content="An offline-first mobile app and sync backend for carbon project field data: farmer registry, FPIC consent, parcel mapping and monitoring rounds. In development — partners, sponsors and feedback wanted.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qsoftwares.org/carbon-field.html">
+    <meta property="og:image" content="https://qsoftwares.org/img/products/carbon-field/hero.jpg">
+    <link rel="canonical" href="https://qsoftwares.org/carbon-field.html">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400%7CPoppins:400,400i,500,700">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="css/responsive.css?v=3">
+    <link rel="stylesheet" href="css/custom.css?v=3">
+    <style>
+        /* ── Carbon Field pages ─────────────────────── */
+        .cf-hero { padding: 120px 0 90px; }
+        .cf-hero p { max-width: 720px; font-size: 17px; }
+        .cf-eyebrow {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 7px 16px; margin-bottom: 22px; border-radius: 999px;
+            background: rgba(255,255,255,0.1); border: 1px solid rgba(126,205,200,0.5);
+            color: #d6f3f0; font-size: 12.5px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase;
+        }
+        .cf-dot { width: 8px; height: 8px; border-radius: 50%; background: #1cbf8a; display: inline-block; }
+        .cf-hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+        .cf-btn-ghost {
+            display: inline-flex; align-items: center; gap: 10px; padding: 12px 28px; border-radius: 9px;
+            border: 2px solid rgba(255,255,255,0.7); color: #fff !important; font-family: 'Poppins', sans-serif;
+            font-size: 14px; font-weight: 700; text-decoration: none; transition: background 0.2s;
+        }
+        .cf-btn-ghost:hover { background: rgba(255,255,255,0.12); text-decoration: none; }
+        .cf-kicker { display: block; color: #0a7a7f; font-size: 12.5px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 10px; }
+        .cf-h2 { font-family: 'Poppins', sans-serif; font-size: 34px; font-weight: 700; line-height: 1.25; color: #015055; margin-bottom: 18px; }
+        .cf-h3 { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 700; line-height: 1.3; color: #015055; margin-bottom: 12px; }
+        .cf-lead { font-size: 17px; line-height: 1.7; color: #333; margin-bottom: 14px; }
+        .cf-body { font-size: 15px; line-height: 1.75; color: #555; margin-bottom: 14px; }
+        .cf-ticks { list-style: none; padding: 0; margin: 20px 0 0; }
+        .cf-ticks li { display: flex; align-items: flex-start; gap: 12px; padding: 6px 0; font-size: 15px; color: #333; }
+        .cf-ticks li svg, .cf-ticks li i { color: #1cbf8a; margin-top: 4px; flex-shrink: 0; }
+        .cf-photo { width: 100%; border-radius: 18px; box-shadow: 0 16px 48px rgba(0,0,0,0.18); display: block; }
+        .cf-feature { margin-bottom: 72px; }
+        .cf-shot { width: 100%; display: block; border-radius: 14px; border: 8px solid #fff; box-shadow: 0 16px 48px rgba(1,80,85,0.18); }
+        .cf-mini { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 30px; }
+        .cf-mini-icon { width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, #eef8f7 0%, #d0ede9 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #015055; font-size: 18px; }
+        .cf-mini h5 { font-family: 'Poppins', sans-serif; font-size: 15.5px; font-weight: 600; color: #015055; margin: 2px 0 6px; }
+        .cf-mini p { font-size: 14px; line-height: 1.65; color: #555; margin: 0; }
+        .cf-arch { background: #fff; border-radius: 16px; padding: 28px 24px; height: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.07); }
+        .cf-arch svg, .cf-arch i { color: #0a7a7f; font-size: 26px; margin-bottom: 14px; display: block; }
+        .cf-arch h5 { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; color: #015055; margin-bottom: 8px; }
+        .cf-arch p { font-size: 14px; line-height: 1.65; color: #555; margin: 0; }
+        .cf-status { background: #f6fbfa; border: 1px solid #d0ede9; border-radius: 16px; padding: 30px 30px 22px; height: 100%; }
+        .cf-status h4 { font-family: 'Poppins', sans-serif; font-size: 19px; font-weight: 700; color: #015055; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+        .cf-status-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+        .cf-status-dot.built { background: #1cbf8a; }
+        .cf-status-dot.left { background: #f5a623; }
+        .cf-status ul { padding-left: 20px; margin: 0; }
+        .cf-status li { font-size: 14.5px; line-height: 1.7; color: #444; margin-bottom: 10px; }
+        .cf-ask { background: #fff; border-radius: 18px; padding: 36px 30px; height: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.08); display: flex; flex-direction: column; }
+        .cf-ask-icon { width: 60px; height: 60px; border-radius: 16px; background: linear-gradient(135deg, #eef8f7 0%, #d0ede9 100%); display: flex; align-items: center; justify-content: center; color: #015055; font-size: 23px; margin-bottom: 18px; }
+        .cf-ask h3 { font-family: 'Poppins', sans-serif; font-size: 21px; font-weight: 700; color: #015055; margin-bottom: 4px; }
+        .cf-ask > p { font-size: 14.5px; color: #777; margin-bottom: 16px; }
+        .cf-ask ul { list-style: none; padding: 0; margin: 0 0 26px; }
+        .cf-ask li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.6; color: #444; padding: 6px 0; }
+        .cf-ask li svg, .cf-ask li i { color: #7ecdc8; margin-top: 4px; flex-shrink: 0; }
+        .cf-ask .btn-orange { margin-top: auto; align-self: flex-start; }
+        @media (max-width: 991px) { .cf-feature { margin-bottom: 52px; } .cf-h2 { font-size: 28px; } }
+
+    </style>
+</head>
+
+<body>
+<div class="preLoader"><span class="spin"></span></div>
+
+<div class="wrapper body-gradient">
+
+    <!-- ── Header ─────────────────────────────── -->
+    <header class="header">
+        <div class="header-absoulate">
+            <div class="main-header header--2">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-2 col-md-3 col-sm-5 col-7">
+                            <div class="logo" data-animate="fadeInDown" data-delay=".5">
+                                <a href="index.html">
+                                    <img data-rjs="2" src="img/logo-q.png" alt="QSOFTWARES Limited">
+                                    <img data-rjs="2" src="img/logo-q.png" alt="QSOFTWARES Limited">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-lg-8 col-md-6 col-sm-3 col-2">
+                            <nav data-animate="fadeInDown" data-delay=".75">
+                                <div class='header-menu'>
+                                        <ul>
+                                            <li>
+                                                <a href='index.html'>Home</a>
+                                            </li>
+                                            <li>
+                                                <a href='services.html'>Services <i class="fas fa-caret-down"></i></a>
+                                                <ul>
+                                                    <li><a href="services.html#n8n">n8n Automation</a></li>
+                                                    <li><a href="services.html#devops">DevOps &amp; Cloud</a></li>
+                                                    <li><a href="services.html#ai-mlops">AI / MLOps</a></li>
+                                                    <li><a href="services.html#kobotoolbox">KoboToolbox</a></li>
+                                                    <li><a href="services.html#erp">ERP Systems</a></li>
+                                                    <li><a href="services.html#financial">Financial Systems</a></li>
+                                                    <li><a href="services.html#custom">Custom Software</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="active">
+                                                <a href='products.html'>Products <i class="fas fa-caret-down"></i></a>
+                                                <ul>
+                                                    <li><a href="products.html#msacco">Msacco</a></li>
+                                                    <li><a href="products.html#fpayroll">F-Payroll</a></li>
+                                                    <li><a href="products.html#enterprise-rag">Enterprise-RAG</a></li>
+                                                    <li><a href="products.html#kobo-automation">Kobo Automation Suite</a></li>
+                                                    <li><a href="carbon-field.html">Carbon Field</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="training.html">Training</a></li>
+                                            <li><a href="kobo-support.html">Kobo Support</a></li>
+                                        </ul>
+                                    </div>
+                            </nav>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-3">
+                            <div class="register-button" data-animate="fadeInDown" data-delay="1">
+                                <a class="btn btn-primary no-border btn-block btn-square" href="carbon-field.html#work-with-us">
+                                    <i class="fas fa-handshake"></i>
+                                    <span>Partner</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+        <!-- ── Hero ────────────────────────────────── -->
+        <section class="page-hero-light cf-hero">
+            <div class="container">
+                <span class="cf-eyebrow" data-animate="fadeInUp"><span class="cf-dot"></span>In development &middot; Mobile app + sync backend</span>
+                <h1 data-animate="fadeInUp" data-delay=".1">Carbon Field</h1>
+                <p data-animate="fadeInUp" data-delay=".2">An offline-first mobile app and sync backend for carbon project field data. Surveyors register farmers, capture consent, map parcels and run monitoring rounds with no signal. Supervisors review every record before it counts.</p>
+                <div class="cf-hero-actions" data-animate="fadeInUp" data-delay=".3">
+                    <a href="carbon-playbook.html" class="btn-orange">Read the field-data playbook <i class="fas fa-arrow-right"></i></a>
+                    <a href="#work-with-us" class="cf-btn-ghost">Build it with us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── The problem ─────────────────────────── -->
+        <section class="section-white section-pad">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <span class="cf-kicker">Why it needs building</span>
+                        <h2 class="cf-h2">A farmer is not a survey response.</h2>
+                        <p class="cf-lead">Most field tools save every visit as a separate form. The baseline survey in March, the consent in April and the monitoring visit in October never meet, and the evidence trail breaks before a verifier ever opens it.</p>
+                        <p class="cf-body">Carbon Field starts from a registry instead. Every farmer gets one record, and every stage of the project hangs off it: who they are, what they agreed to, where their land is, and what changed on it, round after round.</p>
+                        <ul class="cf-ticks">
+                            <li><i class="fas fa-check"></i> One record per farmer, from baseline to the last monitoring round</li>
+                            <li><i class="fas fa-check"></i> Evidence checked at capture, while the surveyor is still on the farm</li>
+                            <li><i class="fas fa-check"></i> Built to work for weeks without a connection</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <img class="cf-photo" src="img/products/carbon-field/hero.jpg" alt="A surveyor holding a tablet that shows the Carbon Field home screen, in a market street" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Feature tour ────────────────────────── -->
+        <section class="section-light-blue section-pad" id="features">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>What is in the app</h2>
+                    <p>Screens from the current tablet design. Names and numbers shown are sample data.</p>
+                </div>
+
+                <div class="row align-items-center cf-feature">
+                    <div class="col-lg-7 mb-4 mb-lg-0"><img class="cf-shot" src="img/products/carbon-field/home.png" alt="Carbon Field home screen showing today's route, with farmers needing rework listed first" loading="lazy"></div>
+                    <div class="col-lg-5">
+                        <span class="cf-kicker">Home</span>
+                        <h3 class="cf-h3">The day opens on a route</h3>
+                        <p class="cf-body">Who needs a visit, what is due, what came back for rework and what is still waiting to sync. Rework comes first, then the nearest farmer. A surveyor who prefers big action buttons can switch the layout in one tap.</p>
+                    </div>
+                </div>
+
+                <div class="row align-items-center cf-feature">
+                    <div class="col-lg-7 order-lg-2 mb-4 mb-lg-0"><img class="cf-shot" src="img/products/carbon-field/documents.png" alt="Farmer registration screen with a progress rail and document capture tiles" loading="lazy"></div>
+                    <div class="col-lg-5 order-lg-1">
+                        <span class="cf-kicker">Registration</span>
+                        <h3 class="cf-h3">Register a farmer once</h3>
+                        <p class="cf-body">Personal details, ID photos and a GPS homestead point, on a guided three-step rail. Each document tile says plainly whether it is saved, pending or still needed. A duplicate check compares name, village and distance before a second record can be created.</p>
+                    </div>
+                </div>
+
+                <div class="row align-items-center cf-feature">
+                    <div class="col-lg-7 mb-4 mb-lg-0"><img class="cf-shot" src="img/products/carbon-field/signature.png" alt="FPIC consent screen with a signature pad showing a captured signature" loading="lazy"></div>
+                    <div class="col-lg-5">
+                        <span class="cf-kicker">FPIC consent</span>
+                        <h3 class="cf-h3">Consent, signed on the glass</h3>
+                        <p class="cf-body">Free, prior and informed consent is captured as a signature and a photo, dated, tied to the surveyor who witnessed it and kept with the project's restricted artefacts. A site can hold later stages until consent is approved.</p>
+                    </div>
+                </div>
+
+                <div class="row align-items-center cf-feature">
+                    <div class="col-lg-7 order-lg-2 mb-4 mb-lg-0"><img class="cf-shot" src="img/products/carbon-field/boundary.png" alt="Parcel boundary screen with a five-corner polygon drawn on a map and area and perimeter readouts" loading="lazy"></div>
+                    <div class="col-lg-5 order-lg-1">
+                        <span class="cf-kicker">Parcel boundary</span>
+                        <h3 class="cf-h3">Walk the parcel, corner by corner</h3>
+                        <p class="cf-body">Walk the edge or tap the corners on an offline map. Area and perimeter update live, and the shape is checked as it is drawn: no crossing edges, at least three corners, an area inside the site's limits. Parcels export as GeoJSON and KML for QGIS and Google Earth.</p>
+                    </div>
+                </div>
+
+                <div class="row align-items-center cf-feature">
+                    <div class="col-lg-7 mb-4 mb-lg-0"><img class="cf-shot" src="img/products/carbon-field/form.png" alt="Stage form screen with a section list, a required-field error and a photo quality warning" loading="lazy"></div>
+                    <div class="col-lg-5">
+                        <span class="cf-kicker">Stage forms</span>
+                        <h3 class="cf-h3">Forms that check themselves</h3>
+                        <p class="cf-body">Each project defines its own questions. The app checks required answers, photo quality and location accuracy as the surveyor works, in plain sentences rather than error codes. Drafts autosave and resume exactly where they stopped.</p>
+                    </div>
+                </div>
+
+                <div class="row align-items-center cf-feature mb-0">
+                    <div class="col-lg-7 order-lg-2 mb-4 mb-lg-0"><img class="cf-shot" src="img/products/carbon-field/mydata.png" alt="My Data screen listing records waiting to sync, one failed upload with its reason, and device storage" loading="lazy"></div>
+                    <div class="col-lg-5 order-lg-1">
+                        <span class="cf-kicker">Sync</span>
+                        <h3 class="cf-h3">Saved first, sent when it can be</h3>
+                        <p class="cf-body">Every record is saved on the tablet first and queued. Sync runs automatically when a signal appears, retries on its own and says in plain language what is waiting, what failed and why.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── More features ───────────────────────── -->
+        <section class="section-white section-pad">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Also built in</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6"><div class="cf-mini"><div class="cf-mini-icon"><i class="fas fa-layer-group"></i></div><div><h5>Five-stage lifecycle</h5><p>Baseline survey, FPIC consent, boundary mapping, implementation and monitoring, in the order the project runs them.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="cf-mini"><div class="cf-mini-icon"><i class="fas fa-redo"></i></div><div><h5>Monitoring rounds</h5><p>Each round is its own submission. A round that has been sent cannot be quietly re-opened.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="cf-mini"><div class="cf-mini-icon"><i class="fas fa-crosshairs"></i></div><div><h5>GPS accuracy gate</h5><p>Readings are averaged and held to a 10&nbsp;m gate. Anything worse is flagged, never silently accepted.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="cf-mini"><div class="cf-mini-icon"><i class="fas fa-camera"></i></div><div><h5>Photo quality check</h5><p>Blurred, too dark or too bright photos are caught at capture, with the reason in a sentence.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="cf-mini"><div class="cf-mini-icon"><i class="fas fa-user-friends"></i></div><div><h5>Duplicate detection</h5><p>Similar name, same village, nearby homestead. An override needs a written reason.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="cf-mini"><div class="cf-mini-icon"><i class="fas fa-language"></i></div><div><h5>English and Hindi</h5><p>The interface and the forms switch language on the device.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="cf-mini"><div class="cf-mini-icon"><i class="fas fa-shield-alt"></i></div><div><h5>Device checks</h5><p>Mock locations and modified devices are flagged for review. They never stop a surveyor working.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="cf-mini"><div class="cf-mini-icon"><i class="fas fa-clipboard-check"></i></div><div><h5>Supervisor console</h5><p>Review queue, farmer timeline, site map, exports and an audit trail. Approve, or return with a reason.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="cf-mini"><div class="cf-mini-icon"><i class="fas fa-map-marked-alt"></i></div><div><h5>Offline maps</h5><p>Map tiles for the site download once, with a size estimate first, and work without a connection.</p></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Under the hood ──────────────────────── -->
+        <section class="section-light-blue section-pad" id="architecture">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>A mobile app and its backend</h2>
+                    <p>One codebase for the web app and the Android and iOS shells, with a sync backend designed for weeks of queued work.</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4"><div class="cf-arch"><i class="fas fa-mobile-alt"></i><h5>Mobile app</h5><p>A web app wrapped for Android and iOS, with native bridges for camera, GPS and secure storage.</p></div></div>
+                    <div class="col-lg-3 col-md-6 mb-4"><div class="cf-arch"><i class="fas fa-database"></i><h5>Offline store</h5><p>Everything is written to an on-device database first. The network is never in the way of saving.</p></div></div>
+                    <div class="col-lg-3 col-md-6 mb-4"><div class="cf-arch"><i class="fas fa-sync-alt"></i><h5>Sync backend</h5><p>Postgres with row-level security. Sync endpoints for farmers, submissions, media and changes, safe to retry.</p></div></div>
+                    <div class="col-lg-3 col-md-6 mb-4"><div class="cf-arch"><i class="fas fa-server"></i><h5>Self-hosting kit</h5><p>A container-based deployment kit, so a project can run the backend on infrastructure it controls.</p></div></div>
+                </div>
+                <div class="prod-tech text-center">
+                    <span class="prod-tech-tag">Next.js</span>
+                    <span class="prod-tech-tag">Capacitor</span>
+                    <span class="prod-tech-tag">Dexie / IndexedDB</span>
+                    <span class="prod-tech-tag">Supabase</span>
+                    <span class="prod-tech-tag">PostgreSQL</span>
+                    <span class="prod-tech-tag">MapLibre</span>
+                    <span class="prod-tech-tag">Playwright</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Status ──────────────────────────────── -->
+        <section class="section-white section-pad" id="status">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Where the build stands</h2>
+                    <p>Carbon Field is in active development. This is an honest list, not a launch announcement.</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="cf-status">
+                            <h4><span class="cf-status-dot built"></span>Built</h4>
+                            <ul>
+                                <li><strong>Offline-first app.</strong> Registration, stage forms, photos, GPS and parcel mapping, all working without a signal.</li>
+                                <li><strong>Sync backend.</strong> Database, access rules and sync endpoints that accept weeks of queued work.</li>
+                                <li><strong>Supervisor console.</strong> Review queue, farmer timeline, site map, exports and audit trail.</li>
+                                <li><strong>One shared codebase</strong> for the web app and the Android and iOS shells.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="cf-status">
+                            <h4><span class="cf-status-dot left"></span>Still to do</h4>
+                            <ul>
+                                <li><strong>Real-device testing</strong> on the low-cost Android tablets and older iPads field teams really carry.</li>
+                                <li><strong>Store releases.</strong> Signing, review and update channels for Google Play and the App Store.</li>
+                                <li><strong>A production backend.</strong> Hosting, backups, monitoring and a security review before real farmer data goes in.</li>
+                                <li><strong>Maps and imagery.</strong> Offline satellite tiles that are licensed for field use.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Work with us ────────────────────────── -->
+        <section class="section-light-blue section-pad" id="work-with-us">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Help us finish it</h2>
+                    <p>We are looking for partners, sponsors and critics for the development of the mobile app and its backend.</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 mb-4" id="partner">
+                        <div class="cf-ask">
+                            <div class="cf-ask-icon"><i class="fas fa-handshake"></i></div>
+                            <h3>Partner</h3>
+                            <p>Build a milestone with us.</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i><span><strong>Engineering partners</strong> who have shipped offline-first apps: Capacitor, Android, iOS, Postgres, sync</span></li>
+                                <li><i class="fas fa-check"></i><span><strong>Infrastructure partners:</strong> cloud hosts, device makers, map-imagery providers</span></li>
+                                <li><i class="fas fa-check"></i><span><strong>Field partners</strong> who will run test builds with real surveyors and tell us the truth</span></li>
+                            </ul>
+                            <a class="btn-orange" href="mailto:info@qsoftwares.org?subject=Carbon%20Field%20%E2%80%94%20partnership">Propose a partnership</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4" id="sponsor">
+                        <div class="cf-ask">
+                            <div class="cf-ask-icon"><i class="fas fa-seedling"></i></div>
+                            <h3>Sponsor</h3>
+                            <p>Fund a named milestone.</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i><span><strong>Device lab:</strong> test builds on the tablets field teams carry</span></li>
+                                <li><i class="fas fa-check"></i><span><strong>Store release:</strong> a first public version on both app stores</span></li>
+                                <li><i class="fas fa-check"></i><span><strong>Hardened backend:</strong> hosting, backups, monitoring, security review</span></li>
+                                <li><i class="fas fa-check"></i><span><strong>Offline maps:</strong> licensed satellite tiles</span></li>
+                            </ul>
+                            <a class="btn-orange" href="mailto:info@qsoftwares.org?subject=Carbon%20Field%20%E2%80%94%20sponsorship">Ask for the roadmap</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4" id="feedback">
+                        <div class="cf-ask">
+                            <div class="cf-ask-icon"><i class="fas fa-comments"></i></div>
+                            <h3>Give feedback</h3>
+                            <p>Tell us what we are getting wrong.</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i><span>Which home screen would you hand a surveyor on day one?</span></li>
+                                <li><i class="fas fa-check"></i><span>How would you sync weeks of offline work over a weak link?</span></li>
+                                <li><i class="fas fa-check"></i><span>Two surveyors edit one farmer offline. Who wins?</span></li>
+                                <li><i class="fas fa-check"></i><span>What must an export contain before a verifier trusts it?</span></li>
+                            </ul>
+                            <a class="btn-orange" href="mailto:info@qsoftwares.org?subject=Carbon%20Field%20%E2%80%94%20feedback">Send feedback</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Playbook strip ──────────────────────── -->
+        <section class="section-white section-pad-sm">
+            <div class="container">
+                <div class="sla-strip-new">
+                    <div>
+                        <h3>The field-data playbook for carbon projects</h3>
+                        <p>Five stages, four evidence rules and one review loop. Free to read, no sign-up.</p>
+                    </div>
+                    <a href="carbon-playbook.html" class="btn-orange">Read the playbook <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Footer ───────────────────────────── -->
+        <footer class="main-footer main-footer--2 text-white footer-gradient mt-0">
+            <div class="top-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="footer-widget">
+                                <div class="widget-title" data-animate="fadeInUp" data-delay=".0">
+                                    <img src="img/logo-q.png" data-rjs="2" alt="">
+                                </div>
+                                <div class="footer-about">
+                                    <p>QSOFTWARES Ltd designs, deploys, and maintains scalable digital platforms for NGOs, enterprises, and startups. Experts in DevOps, AI infrastructure, and open-source enterprise systems.</p>
+                                </div>
+                                <div class="social-links">
+                                    <ul class="list-unstyled list-inline">
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="footer-widget">
+                                <h3 class="widget-title" data-animate="fadeInUp" data-delay=".15">Contact Us</h3>
+                                <div class="footer-posts footer-posts--2">
+                                    <ul class="list-unstyled">
+                                        <li data-animate="fadeInUp" data-delay=".05">
+                                            <p><i class="fab fa-whatsapp"></i> WhatsApp</p>
+                                            <h4><a href="https://wa.me/254101609998">+254 101 609 998</a></h4>
+                                        </li>
+                                        <li data-animate="fadeInUp" data-delay=".1">
+                                            <p><i class="fas fa-envelope"></i> Email</p>
+                                            <h4><a href="mailto:info@qsoftwares.org">info@qsoftwares.org</a></h4>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="footer-widget">
+                                <h3 class="widget-title" data-animate="fadeInUp" data-delay=".4">Quick Links</h3>
+                                <div class="footer-posts footer-posts--2">
+                                    <ul class="list-unstyled">
+                                        <li><h4><a href="carbon-field.html">Carbon Field</a></h4></li>
+                                        <li><h4><a href="carbon-playbook.html">Field-data playbook</a></h4></li>
+                                        <li><h4><a href="products.html">Products &amp; portfolio</a></h4></li>
+                                        <li><h4><a href="services.html">Services</a></h4></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-footer position-relative karla">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 order-last order-md-first">
+                            <span class="copyright-text" data-animate="fadeInDown" data-delay=".7">&copy; 2026 QSOFTWARES Ltd. All rights reserved.</span>
+                        </div>
+                        <div class="col-md-7 order-first order-md-last">
+                            <ul class="footer-menu text-md-right list-inline footer-menu--2">
+                                <li data-animate="fadeInDown" data-delay=".75"><a href="index.html">Home</a></li>
+                                <li data-animate="fadeInDown" data-delay=".8"><a href="#">About Us</a></li>
+                                <li data-animate="fadeInDown" data-delay=".85"><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a class="back-to-top back-top--2" href="#" data-animate="fadeInDown" data-delay=".95">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+        </footer>
+        <!-- ── End Footer ─────────────────────────── -->
+
+    </div><!-- /.wrapper -->
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="plugins/retinajs/retina.min.js"></script>
+    <script src="plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script src="plugins/waypoints/sticky.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
