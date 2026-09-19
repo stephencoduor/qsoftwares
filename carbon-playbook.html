@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>The Field-Data Playbook for Carbon Projects | QSOFTWARES Ltd</title>
+    <meta name="description" content="Five stages, four evidence rules and one review loop. A practical guide to collecting farmer data that still stands when a verifier opens it.">
+    <meta property="og:title" content="The field-data playbook for carbon projects">
+    <meta property="og:description" content="Five stages, four evidence rules and one review loop. A practical guide to collecting farmer data that still stands when a verifier opens it.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://qsoftwares.org/carbon-playbook.html">
+    <meta property="og:image" content="https://qsoftwares.org/img/products/carbon-field/hero.jpg">
+    <link rel="canonical" href="https://qsoftwares.org/carbon-playbook.html">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400%7CPoppins:400,400i,500,700">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="css/responsive.css?v=3">
+    <link rel="stylesheet" href="css/custom.css?v=3">
+    <style>
+        /* ── Carbon Field pages ─────────────────────── */
+        .cf-hero { padding: 120px 0 90px; }
+        .cf-hero p { max-width: 720px; font-size: 17px; }
+        .cf-eyebrow {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 7px 16px; margin-bottom: 22px; border-radius: 999px;
+            background: rgba(255,255,255,0.1); border: 1px solid rgba(126,205,200,0.5);
+            color: #d6f3f0; font-size: 12.5px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase;
+        }
+        .cf-dot { width: 8px; height: 8px; border-radius: 50%; background: #1cbf8a; display: inline-block; }
+        .cf-hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+        .cf-btn-ghost {
+            display: inline-flex; align-items: center; gap: 10px; padding: 12px 28px; border-radius: 9px;
+            border: 2px solid rgba(255,255,255,0.7); color: #fff !important; font-family: 'Poppins', sans-serif;
+            font-size: 14px; font-weight: 700; text-decoration: none; transition: background 0.2s;
+        }
+        .cf-btn-ghost:hover { background: rgba(255,255,255,0.12); text-decoration: none; }
+        .cf-kicker { display: block; color: #0a7a7f; font-size: 12.5px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 10px; }
+        .cf-h2 { font-family: 'Poppins', sans-serif; font-size: 34px; font-weight: 700; line-height: 1.25; color: #015055; margin-bottom: 18px; }
+        .cf-h3 { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 700; line-height: 1.3; color: #015055; margin-bottom: 12px; }
+        .cf-lead { font-size: 17px; line-height: 1.7; color: #333; margin-bottom: 14px; }
+        .cf-body { font-size: 15px; line-height: 1.75; color: #555; margin-bottom: 14px; }
+        .cf-ticks { list-style: none; padding: 0; margin: 20px 0 0; }
+        .cf-ticks li { display: flex; align-items: flex-start; gap: 12px; padding: 6px 0; font-size: 15px; color: #333; }
+        .cf-ticks li svg, .cf-ticks li i { color: #1cbf8a; margin-top: 4px; flex-shrink: 0; }
+        .cf-photo { width: 100%; border-radius: 18px; box-shadow: 0 16px 48px rgba(0,0,0,0.18); display: block; }
+        .cf-feature { margin-bottom: 72px; }
+        .cf-shot { width: 100%; display: block; border-radius: 14px; border: 8px solid #fff; box-shadow: 0 16px 48px rgba(1,80,85,0.18); }
+        .cf-mini { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 30px; }
+        .cf-mini-icon { width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, #eef8f7 0%, #d0ede9 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #015055; font-size: 18px; }
+        .cf-mini h5 { font-family: 'Poppins', sans-serif; font-size: 15.5px; font-weight: 600; color: #015055; margin: 2px 0 6px; }
+        .cf-mini p { font-size: 14px; line-height: 1.65; color: #555; margin: 0; }
+        .cf-arch { background: #fff; border-radius: 16px; padding: 28px 24px; height: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.07); }
+        .cf-arch svg, .cf-arch i { color: #0a7a7f; font-size: 26px; margin-bottom: 14px; display: block; }
+        .cf-arch h5 { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; color: #015055; margin-bottom: 8px; }
+        .cf-arch p { font-size: 14px; line-height: 1.65; color: #555; margin: 0; }
+        .cf-status { background: #f6fbfa; border: 1px solid #d0ede9; border-radius: 16px; padding: 30px 30px 22px; height: 100%; }
+        .cf-status h4 { font-family: 'Poppins', sans-serif; font-size: 19px; font-weight: 700; color: #015055; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+        .cf-status-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+        .cf-status-dot.built { background: #1cbf8a; }
+        .cf-status-dot.left { background: #f5a623; }
+        .cf-status ul { padding-left: 20px; margin: 0; }
+        .cf-status li { font-size: 14.5px; line-height: 1.7; color: #444; margin-bottom: 10px; }
+        .cf-ask { background: #fff; border-radius: 18px; padding: 36px 30px; height: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.08); display: flex; flex-direction: column; }
+        .cf-ask-icon { width: 60px; height: 60px; border-radius: 16px; background: linear-gradient(135deg, #eef8f7 0%, #d0ede9 100%); display: flex; align-items: center; justify-content: center; color: #015055; font-size: 23px; margin-bottom: 18px; }
+        .cf-ask h3 { font-family: 'Poppins', sans-serif; font-size: 21px; font-weight: 700; color: #015055; margin-bottom: 4px; }
+        .cf-ask > p { font-size: 14.5px; color: #777; margin-bottom: 16px; }
+        .cf-ask ul { list-style: none; padding: 0; margin: 0 0 26px; }
+        .cf-ask li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.6; color: #444; padding: 6px 0; }
+        .cf-ask li svg, .cf-ask li i { color: #7ecdc8; margin-top: 4px; flex-shrink: 0; }
+        .cf-ask .btn-orange { margin-top: auto; align-self: flex-start; }
+        @media (max-width: 991px) { .cf-feature { margin-bottom: 52px; } .cf-h2 { font-size: 28px; } }
+
+        /* ── Playbook article ───────────────────────── */
+        .pb-article { max-width: 780px; margin: 0 auto; font-size: 16.5px; line-height: 1.8; color: #333; }
+        .pb-article p { margin-bottom: 18px; color: #333; font-size: 16.5px; line-height: 1.8; }
+        .pb-article a { color: #0a7a7f; text-decoration: underline; }
+        .pb-article a.btn-orange { text-decoration: none; }
+        .pb-intro { font-size: 19px !important; line-height: 1.7 !important; color: #222 !important; }
+        .pb-note { background: #f6fbfa; border: 1px solid #d0ede9; border-radius: 14px; padding: 22px 26px; margin: 28px 0; font-size: 15.5px; line-height: 1.75; color: #333; }
+        .pb-toc { background: #015055; border-radius: 18px; padding: 30px 34px; margin: 34px 0 10px; }
+        .pb-toc h2 { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #7ecdc8; margin: 0 0 14px; padding: 0; border: 0; }
+        .pb-toc ol { margin: 0; padding-left: 22px; columns: 2; column-gap: 40px; }
+        .pb-toc li { color: #7ecdc8; font-size: 15.5px; line-height: 1.5; padding: 5px 0; break-inside: avoid; }
+        .pb-toc a { color: #fff; text-decoration: none; }
+        .pb-toc a:hover { color: #7ecdc8; }
+        .pb-article > h2 { font-family: 'Poppins', sans-serif; font-size: 30px; font-weight: 700; line-height: 1.3; color: #015055; margin: 64px 0 22px; padding-top: 28px; border-top: 1px solid #e3eeed; display: flex; align-items: center; gap: 16px; }
+        .pb-num { width: 46px; height: 46px; border-radius: 50%; background: #015055; color: #fff; font-size: 20px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .pb-article h3 { font-family: 'Poppins', sans-serif; font-size: 21px; font-weight: 700; line-height: 1.35; color: #015055; margin: 36px 0 14px; }
+        .pb-article ul, .pb-article ol { padding-left: 24px; margin-bottom: 20px; }
+        .pb-article li { margin-bottom: 10px; line-height: 1.75; }
+        .pb-stage { display: flex; gap: 18px; align-items: flex-start; padding: 18px 22px; margin-bottom: 12px; background: #f6fbfa; border: 1px solid #d0ede9; border-radius: 14px; }
+        .pb-stage-n { width: 38px; height: 38px; border-radius: 50%; border: 2px solid #0a7a7f; color: #015055; font-family: 'Poppins', sans-serif; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; background: #fff; }
+        .pb-stage h4 { font-family: 'Poppins', sans-serif; font-size: 17px; font-weight: 700; color: #015055; margin: 5px 0 6px; }
+        .pb-stage p { margin: 0 !important; font-size: 15.5px !important; line-height: 1.7 !important; color: #444 !important; }
+        .pb-check { border: 1px solid #d0ede9; border-radius: 14px; padding: 22px 26px 12px; margin-bottom: 16px; break-inside: avoid; }
+        .pb-check h4 { font-family: 'Poppins', sans-serif; font-size: 17px; font-weight: 700; color: #015055; margin: 0 0 12px; }
+        .pb-check ul { list-style: none; padding: 0; margin: 0; }
+        .pb-check li { position: relative; padding-left: 32px; font-size: 15.5px; line-height: 1.6; }
+        .pb-check li::before { content: ""; position: absolute; left: 0; top: 4px; width: 18px; height: 18px; border: 2px solid #0a7a7f; border-radius: 4px; background: #fff; }
+        .pb-questions li { padding-left: 6px; font-weight: 500; color: #222; }
+        .pb-about { margin-top: 64px; padding: 32px 34px 18px; border-radius: 18px; background: linear-gradient(135deg, #cce9ef 0%, #dff4f8 60%, #b8dfe8 100%); }
+        .pb-about h3 { margin-top: 0; }
+        @media (max-width: 767px) { .pb-toc ol { columns: 1; } .pb-article > h2 { font-size: 24px; } }
+        @media print {
+            .preLoader, .header, .main-footer, .pb-noprint, .back-to-top { display: none !important; }
+            .page-hero-light { background: #fff !important; padding: 0 0 20px !important; text-align: left !important; }
+            .page-hero-light h1 { color: #015055 !important; font-size: 30pt !important; }
+            .page-hero-light p { color: #333 !important; margin-left: 0 !important; }
+            .cf-eyebrow { color: #015055 !important; border-color: #015055 !important; background: #fff !important; }
+            .pb-article { max-width: none; font-size: 11.5pt; }
+            .pb-article > h2 { break-after: avoid; margin-top: 28pt; }
+            .pb-article h3 { break-after: avoid; }
+            .pb-toc { background: #fff !important; border: 1px solid #015055; }
+            .pb-toc a, .pb-toc li, .pb-toc h2 { color: #015055 !important; }
+            .pb-stage, .pb-note { break-inside: avoid; }
+            .wrapper, body { background: #fff !important; }
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="preLoader"><span class="spin"></span></div>
+
+<div class="wrapper body-gradient">
+
+    <!-- ── Header ─────────────────────────────── -->
+    <header class="header">
+        <div class="header-absoulate">
+            <div class="main-header header--2">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-2 col-md-3 col-sm-5 col-7">
+                            <div class="logo" data-animate="fadeInDown" data-delay=".5">
+                                <a href="index.html">
+                                    <img data-rjs="2" src="img/logo-q.png" alt="QSOFTWARES Limited">
+                                    <img data-rjs="2" src="img/logo-q.png" alt="QSOFTWARES Limited">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-lg-8 col-md-6 col-sm-3 col-2">
+                            <nav data-animate="fadeInDown" data-delay=".75">
+                                <div class='header-menu'>
+                                        <ul>
+                                            <li>
+                                                <a href='index.html'>Home</a>
+                                            </li>
+                                            <li>
+                                                <a href='services.html'>Services <i class="fas fa-caret-down"></i></a>
+                                                <ul>
+                                                    <li><a href="services.html#n8n">n8n Automation</a></li>
+                                                    <li><a href="services.html#devops">DevOps &amp; Cloud</a></li>
+                                                    <li><a href="services.html#ai-mlops">AI / MLOps</a></li>
+                                                    <li><a href="services.html#kobotoolbox">KoboToolbox</a></li>
+                                                    <li><a href="services.html#erp">ERP Systems</a></li>
+                                                    <li><a href="services.html#financial">Financial Systems</a></li>
+                                                    <li><a href="services.html#custom">Custom Software</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="active">
+                                                <a href='products.html'>Products <i class="fas fa-caret-down"></i></a>
+                                                <ul>
+                                                    <li><a href="products.html#msacco">Msacco</a></li>
+                                                    <li><a href="products.html#fpayroll">F-Payroll</a></li>
+                                                    <li><a href="products.html#enterprise-rag">Enterprise-RAG</a></li>
+                                                    <li><a href="products.html#kobo-automation">Kobo Automation Suite</a></li>
+                                                    <li><a href="carbon-field.html">Carbon Field</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="training.html">Training</a></li>
+                                            <li><a href="kobo-support.html">Kobo Support</a></li>
+                                        </ul>
+                                    </div>
+                            </nav>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-3">
+                            <div class="register-button" data-animate="fadeInDown" data-delay="1">
+                                <a class="btn btn-primary no-border btn-block btn-square" href="carbon-field.html#work-with-us">
+                                    <i class="fas fa-handshake"></i>
+                                    <span>Partner</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+        <!-- ── Hero ────────────────────────────────── -->
+        <section class="page-hero-light cf-hero">
+            <div class="container">
+                <span class="cf-eyebrow"><span class="cf-dot"></span>Field edition &middot; September 2026</span>
+                <h1>The field-data playbook for carbon projects</h1>
+                <p>Five stages, four evidence rules and one review loop. How to collect farmer data that still stands when a verifier opens it.</p>
+                <div class="cf-hero-actions pb-noprint">
+                    <a href="#part-1" class="btn-orange">Start reading <i class="fas fa-arrow-down"></i></a>
+                    <a href="javascript:window.print()" class="cf-btn-ghost">Save as PDF</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-white section-pad-sm">
+            <div class="container">
+                <article class="pb-article">
+
+                    <p class="pb-intro">A carbon credit from a smallholder project is a long chain of claims. At the far end of that chain is a surveyor standing on a farm with a tablet. If what they record is incomplete, unverifiable or impossible to connect to the same farmer six months later, nothing further up the chain can fix it. This playbook is about that first link.</p>
+
+                    <div class="pb-note">
+                        <strong>Who this is for.</strong> Project developers, field coordinators, cooperative and NGO staff who run surveyors, and the people who build tools for them. It is a guide to the craft of field data collection. It does not replace your methodology, your registry's rules or your verifier's requirements. Those come first, and where they are stricter than anything here, follow them.
+                    </div>
+
+                    <nav class="pb-toc" aria-label="Contents">
+                        <h2>Contents</h2>
+                        <ol>
+                            <li><a href="#part-1">Start with the farmer, not the form</a></li>
+                            <li><a href="#part-2">The five stages</a></li>
+                            <li><a href="#part-3">Four evidence rules</a></li>
+                            <li><a href="#part-4">Offline is the normal case</a></li>
+                            <li><a href="#part-5">The review loop</a></li>
+                            <li><a href="#part-6">Privacy, access and what leaves the project</a></li>
+                            <li><a href="#part-7">Checklists</a></li>
+                            <li><a href="#part-8">Ten questions to ask any field-data tool</a></li>
+                        </ol>
+                    </nav>
+
+                    <!-- ═══ Part 1 ═══ -->
+                    <h2 id="part-1"><span class="pb-num">1</span>Start with the farmer, not the form</h2>
+
+                    <p>Most field data tools are built around forms. You design a survey, a surveyor fills it in, and each submission lands as one row in a table. That works for a one-off survey. It fails for a carbon project, because a carbon project is not one survey. It is the same farmer, visited again and again over years: a baseline, a consent conversation, a boundary walk, an implementation check, then monitoring rounds for as long as the project runs.</p>
+
+                    <p>In a form-first tool those visits never meet. The baseline lives in one table and the monitoring visit in another, joined, if at all, by a name that three surveyors spelled three ways. The day a verifier asks to see everything you hold on one farmer, someone spends an afternoon with spreadsheets.</p>
+
+                    <p>The fix is a design decision, not a feature: <strong>a farmer is an entity, not a survey response.</strong> Build a registry first. Every farmer gets one record, and every later piece of data attaches to it.</p>
+
+                    <h3>What a registry record needs</h3>
+                    <ul>
+                        <li><strong>An identifier created on the device.</strong> A surveyor with no signal must be able to register a farmer and immediately start collecting against that record. That means the tablet generates the permanent internal ID itself, at the moment of registration, not the server later.</li>
+                        <li><strong>A human-readable code assigned centrally.</strong> People need something they can read aloud and print on a card. Assign it on the server at first sync, prefixed by site, so two offline tablets can never hand out the same code. Until then, show a clearly provisional reference.</li>
+                        <li><strong>A homestead location and a photo.</strong> Not for surveillance, but so the next surveyor can find the right person and confirm they have.</li>
+                        <li><strong>Who registered them, taken from the sign-in.</strong> Never typed by hand.</li>
+                    </ul>
+
+                    <h3>Catch duplicates at the gate</h3>
+                    <p>The cheapest moment to catch a duplicate is before it exists. At registration, compare the new entry against the farmers already on the device: a similar name, the same village, a homestead within a short distance. Show the surveyor the candidates and let them open the existing record instead. If they are sure it is a different person, let them continue, but require a written reason. Two brothers with the same surname on neighbouring plots are common. A silent block would be wrong, and a silent pass would be worse.</p>
+
+                    <!-- ═══ Part 2 ═══ -->
+                    <h2 id="part-2"><span class="pb-num">2</span>The five stages</h2>
+
+                    <p>Once the farmer is the record, the project becomes a sequence of stages that each farmer moves through. Your project may name them differently or need more, but most smallholder carbon projects contain these five.</p>
+
+                    <div class="pb-stage"><span class="pb-stage-n">1</span><div><h4>Baseline survey</h4><p>Who farms what, today. Household, land, crops, trees, current practices. This is the "before" that every later claim is measured against, so it has to be complete before anything changes on the land.</p></div></div>
+                    <div class="pb-stage"><span class="pb-stage-n">2</span><div><h4>FPIC consent</h4><p>Free, prior and informed consent. A conversation in the farmer's own language about what the project is, what it asks of them and what they can expect, ending in a recorded decision. See <a href="#rule-3">evidence rule 3</a>.</p></div></div>
+                    <div class="pb-stage"><span class="pb-stage-n">3</span><div><h4>Boundary mapping</h4><p>The parcel or parcels the project applies to, walked or drawn. A farmer often has more than one. See <a href="#rule-4">evidence rule 4</a>.</p></div></div>
+                    <div class="pb-stage"><span class="pb-stage-n">4</span><div><h4>Implementation</h4><p>What actually changed on the land: trees planted, practices adopted, inputs delivered. Dated, located and photographed.</p></div></div>
+                    <div class="pb-stage"><span class="pb-stage-n">5</span><div><h4>Monitoring</h4><p>Round after round of return visits. Treat each round as its own submission, numbered, so round three can never quietly overwrite round two.</p></div></div>
+
+                    <h3>Give every stage the same small vocabulary</h3>
+                    <p>For each farmer and each stage, one of five states: <em>not started</em>, <em>in progress</em>, <em>submitted</em>, <em>approved</em>, <em>rejected</em>. That is enough to drive a surveyor's worklist, a supervisor's queue and a project-wide funnel, and everyone reads it the same way.</p>
+
+                    <h3>Decide what order means</h3>
+                    <p>Should a surveyor be able to map a boundary before consent is approved? There are two honest answers. A <strong>warning</strong> lets the work continue and records that it happened out of the usual order. A <strong>block</strong> refuses until consent is approved. Which one is right depends on the project and sometimes on the site, so make it a per-site setting rather than an argument in the field. Whichever you choose, tell the surveyor in a sentence why the stage is unavailable and what would unlock it.</p>
+
+                    <!-- ═══ Part 3 ═══ -->
+                    <h2 id="part-3"><span class="pb-num">3</span>Four evidence rules</h2>
+
+                    <p>Evidence that is checked weeks later in an office is evidence you will have to collect twice. Each of these rules moves a check to the moment of capture, while the surveyor is still standing on the farm.</p>
+
+                    <h3 id="rule-1">Rule 1: Location is a gate, not a field</h3>
+                    <p>A coordinate without an accuracy reading is a guess. Phones and tablets report an estimated accuracy with every fix. Record it, and use it.</p>
+                    <ul>
+                        <li><strong>Set a threshold</strong> and hold to it. We use 10&nbsp;metres as the default gate for a point, configurable per project. The "verified" label appears only when the fix has earned it.</li>
+                        <li><strong>Average several readings</strong> for an important point such as a homestead. Ten samples taken over a few seconds are steadier than one.</li>
+                        <li><strong>Never silently accept a poor fix.</strong> Under tree cover or in a valley the threshold may be unreachable. Let the surveyor save the point, flagged as low accuracy, rather than forcing them to walk away with nothing.</li>
+                        <li><strong>Allow manual entry, and flag it.</strong> Sometimes the GPS is simply broken. A typed coordinate is better than none, provided everyone downstream can see that it was typed.</li>
+                        <li><strong>Check the device.</strong> Mock-location apps exist. If the device reports one, record that and flag the submission for review. Do not stop the surveyor working. Device checks inform review. They should never be the reason a day in the field is lost.</li>
+                    </ul>
+
+                    <h3 id="rule-2">Rule 2: A bad photo is caught at capture</h3>
+                    <p>A photo is only evidence if someone can see what is in it. The three common failures are all detectable on the device: blurred, too dark, too bright.</p>
+                    <ul>
+                        <li><strong>Say what is wrong in a sentence.</strong> "It looks too dark", not a quality score.</li>
+                        <li><strong>Warn or block, and be clear which.</strong> For most photos, warn and let the surveyor keep it if retaking is impossible. For a few critical ones, refuse. The surveyor should never have to work out which case they are in from the buttons.</li>
+                        <li><strong>Keep the photo's own metadata.</strong> Compress images for slow uplinks, but keep the capture time and location inside the file. They are part of the evidence.</li>
+                        <li><strong>Ask for a note when it matters.</strong> "North edge, by the water tank" turns a picture of some trees into a record.</li>
+                    </ul>
+
+                    <h3 id="rule-3">Rule 3: Consent is evidence</h3>
+                    <p>A ticked box is not consent that anyone can inspect. Treat FPIC as the most sensitive evidence the project holds.</p>
+                    <ul>
+                        <li><strong>Capture it as a signature and a photo,</strong> with the date and the identity of the surveyor who witnessed it taken from the sign-in. For farmers who do not sign, agree the alternative with your verifier in advance, such as a thumbprint or a witnessed mark, and capture that the same way.</li>
+                        <li><strong>Keep the original.</strong> Do not recompress or crop consent artefacts.</li>
+                        <li><strong>Store it apart.</strong> Consent artefacts belong in a restricted location with tighter access than ordinary photos, and should travel with the other restricted material when the project is audited.</li>
+                        <li><strong>Hold the conversation in the farmer's language.</strong> If your tool only speaks English, the consent was informed for the surveyor, not the farmer. The interface and the forms should both switch language on the device.</li>
+                    </ul>
+
+                    <h3 id="rule-4">Rule 4: A boundary has to close</h3>
+                    <p>Parcel boundaries are where field data most often turns out to be unusable, usually long after the surveyor has left.</p>
+                    <ul>
+                        <li><strong>Offer two ways to map.</strong> Walking the edge is best. Tapping corners on a satellite map is the fallback when the parcel cannot be walked.</li>
+                        <li><strong>Check the shape as it is drawn:</strong> at least three corners, no edges that cross each other, and an area inside limits you set per site. A quarter-hectare plot that maps as forty hectares is a slip of the finger, and the surveyor can fix it in ten seconds if they are told now.</li>
+                        <li><strong>When walking, drop weak readings</strong> and warn about jumps. If the recorded track leaps a long way between two corners, say which edge to check.</li>
+                        <li><strong>Show area and perimeter live.</strong> Farmers know roughly how big their land is. A number that surprises them is a number worth checking together.</li>
+                        <li><strong>Export in open formats.</strong> GeoJSON and KML open in QGIS and Google Earth, which is what your GIS and verification people already use.</li>
+                    </ul>
+
+                    <!-- ═══ Part 4 ═══ -->
+                    <h2 id="part-4"><span class="pb-num">4</span>Offline is the normal case</h2>
+
+                    <p>Tools that treat offline as an error state fail in exactly the places carbon projects operate. Design for a tablet that sees a good connection once a week, and treat any signal in between as a bonus.</p>
+
+                    <h3>Get the tablet ready while there is still signal</h3>
+                    <p>Before a surveyor leaves town, five things have to be true: they are signed in, their site is confirmed, the forms and farmer list are on the device, the offline map is downloaded, and the device has been asked to keep this app's data when storage runs low. Put those five on one screen with a plain answer to one question: <em>is this tablet ready to work offline?</em></p>
+                    <p>Map tiles are the expensive part. Estimate the download size before starting, recommend Wi-Fi, and if storage is short, skip the deepest zoom levels and say so rather than failing.</p>
+
+                    <h3>Save first, send later</h3>
+                    <ul>
+                        <li><strong>Every save goes to the device first.</strong> The network is never in the path of the save button.</li>
+                        <li><strong>Queue automatically.</strong> "Saved offline, queued to sync" is a complete and successful outcome. The surveyor should not have to remember to press anything.</li>
+                        <li><strong>Make every upload safe to repeat.</strong> Connections drop mid-request. Because records carry identifiers created on the device, sending the same record twice must produce one record, not two.</li>
+                        <li><strong>Send in dependency order.</strong> The farmer first, then their submissions, then the photos. Let large photo uploads resume, and confirm arrival with a checksum.</li>
+                        <li><strong>Back off politely</strong> after failures, then try again on its own.</li>
+                    </ul>
+
+                    <h3>Tell the truth about sync, in plain words</h3>
+                    <p>A surveyor needs to know three things: what is waiting, what failed, and whether it is safe to hand the tablet back. "Sending photos" and "Waiting before the next attempt" are useful. Internal state names and error codes are not. Before the queue has been read, say "checking", not "everything is synced". And signing out must never delete unsent work: say clearly whether everything has been sent.</p>
+
+                    <!-- ═══ Part 5 ═══ -->
+                    <h2 id="part-5"><span class="pb-num">5</span>The review loop</h2>
+
+                    <p>Capture-time checks catch what a machine can see. The rest needs a person. Every submission should pass in front of a supervisor who either approves it or sends it back.</p>
+
+                    <ul>
+                        <li><strong>Rejection needs a reason,</strong> written for the surveyor: "household size is missing and the plot photo is too dark".</li>
+                        <li><strong>Rework goes to the top of the route.</strong> A returned record should be the first thing the surveyor sees the next morning, above new work and sorted ahead of distance.</li>
+                        <li><strong>Approved means locked.</strong> Once a stage is approved, a correction has to be deliberately re-opened by a supervisor. Once a monitoring round is sent, it cannot be re-opened by the surveyor at all.</li>
+                        <li><strong>Log who did what.</strong> Approvals, rejections, overrides and exports all belong in an audit trail that nobody can edit.</li>
+                        <li><strong>Watch for patterns, not just records.</strong> A form completed implausibly fast, a surveyor whose photos are always flagged, a village where every GPS point was typed by hand. These tell a supervisor where to look.</li>
+                    </ul>
+
+                    <p>Rework is not a failure of the process. It <em>is</em> the process. A project with a zero rejection rate is usually a project where nobody is checking.</p>
+
+                    <!-- ═══ Part 6 ═══ -->
+                    <h2 id="part-6"><span class="pb-num">6</span>Privacy, access and what leaves the project</h2>
+
+                    <p>A farmer registry holds names, ID documents, photographs of people, signatures and the precise location of homes. Treat it accordingly.</p>
+                    <ul>
+                        <li><strong>Deny by default.</strong> Access rules belong in the database itself, not only in the app. A surveyor sees their sites. A supervisor sees the sites they supervise.</li>
+                        <li><strong>Separate roles:</strong> surveyor, supervisor, administrator. Exports are a privilege, not a menu item.</li>
+                        <li><strong>Restrict the most sensitive artefacts</strong> such as consent signatures and ID photos more tightly than everything else.</li>
+                        <li><strong>Strip what an export does not need.</strong> A photo shared outside the project should not carry a farmer's home coordinates in its metadata.</li>
+                        <li><strong>Funders and sponsors see totals and progress,</strong> never a farmer's personal details.</li>
+                        <li><strong>Know where the data lives.</strong> If your organisation or your host country requires it, you should be able to run the backend on infrastructure you control.</li>
+                    </ul>
+
+                    <!-- ═══ Part 7 ═══ -->
+                    <h2 id="part-7"><span class="pb-num">7</span>Checklists</h2>
+
+                    <div class="pb-check">
+                        <h4>Before the season</h4>
+                        <ul>
+                            <li>Stages agreed and named, with the order rule (warn or block) set per site</li>
+                            <li>Forms written in every language the conversations will happen in</li>
+                            <li>GPS threshold and parcel area limits set for each site</li>
+                            <li>Alternative to a signature agreed with the verifier</li>
+                            <li>Every tablet signed in, site confirmed, forms, farmers and maps downloaded</li>
+                            <li>Surveyors have practised one full farmer, start to finish, with the tablet in aeroplane mode</li>
+                        </ul>
+                    </div>
+                    <div class="pb-check">
+                        <h4>Every morning</h4>
+                        <ul>
+                            <li>Tablet charged, power bank packed</li>
+                            <li>Readiness screen shows ready</li>
+                            <li>Rework items read, with the supervisor's reasons</li>
+                            <li>Route checked: rework first, then nearest</li>
+                        </ul>
+                    </div>
+                    <div class="pb-check">
+                        <h4>At each farm</h4>
+                        <ul>
+                            <li>Find the farmer in the registry before registering anyone new</li>
+                            <li>Wait for the GPS to settle before capturing a point</li>
+                            <li>Retake any photo the app warns about, while you are still there</li>
+                            <li>Read the area back to the farmer after mapping a parcel</li>
+                            <li>Check the record says saved before leaving</li>
+                        </ul>
+                    </div>
+                    <div class="pb-check">
+                        <h4>Every evening</h4>
+                        <ul>
+                            <li>Find signal, open the sync screen, let it finish</li>
+                            <li>Read anything that failed and why</li>
+                            <li>Do not sign out while work is still waiting</li>
+                        </ul>
+                    </div>
+                    <div class="pb-check">
+                        <h4>Every week, for supervisors</h4>
+                        <ul>
+                            <li>Clear the review queue, with a written reason for every rejection</li>
+                            <li>Look at the flags: low-accuracy points, typed locations, device checks, fast completions</li>
+                            <li>Check the funnel by site: where are farmers getting stuck between stages?</li>
+                            <li>Spot-check one farmer end to end. Could you rebuild their full history in five minutes?</li>
+                        </ul>
+                    </div>
+
+                    <!-- ═══ Part 8 ═══ -->
+                    <h2 id="part-8"><span class="pb-num">8</span>Ten questions to ask any field-data tool</h2>
+
+                    <p>These apply to whatever you use, including ours.</p>
+                    <ol class="pb-questions">
+                        <li>Can a surveyor register a farmer and collect against that record with no connection at all?</li>
+                        <li>Show me everything you hold on one farmer, across every visit, on one screen.</li>
+                        <li>What happens to a GPS point with 40&nbsp;metres of error?</li>
+                        <li>What happens when a surveyor takes a photo in the dark?</li>
+                        <li>How is consent captured, where is it stored, and who can open it?</li>
+                        <li>What stops a parcel boundary from crossing itself?</li>
+                        <li>If the connection drops halfway through an upload, do I get zero records, one, or two?</li>
+                        <li>When a supervisor rejects a record, how does the surveyor find out, and when?</li>
+                        <li>Who can export data, and is every export logged?</li>
+                        <li>Can I run this on infrastructure I control, and can I get all my data out in open formats?</li>
+                    </ol>
+
+                    <!-- ═══ About ═══ -->
+                    <div class="pb-about">
+                        <h3>About this playbook</h3>
+                        <p>This playbook comes out of building <a href="carbon-field.html">Carbon Field</a>, an offline-first mobile app and sync backend for carbon project field data, developed by QSOFTWARES Ltd. The app is still in development, and we are looking for engineering, infrastructure and field partners, for sponsors of specific build milestones, and for blunt feedback.</p>
+                        <p class="pb-noprint"><a class="btn-orange" href="carbon-field.html#work-with-us">Help us finish it <i class="fas fa-arrow-right"></i></a></p>
+                        <p>Disagree with something here? We would like to hear it: <a href="mailto:info@qsoftwares.org?subject=Field-data%20playbook">info@qsoftwares.org</a>.</p>
+                    </div>
+
+                </article>
+            </div>
+        </section>
+
+        <!-- ── Footer ───────────────────────────── -->
+        <footer class="main-footer main-footer--2 text-white footer-gradient mt-0">
+            <div class="top-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="footer-widget">
+                                <div class="widget-title" data-animate="fadeInUp" data-delay=".0">
+                                    <img src="img/logo-q.png" data-rjs="2" alt="">
+                                </div>
+                                <div class="footer-about">
+                                    <p>QSOFTWARES Ltd designs, deploys, and maintains scalable digital platforms for NGOs, enterprises, and startups. Experts in DevOps, AI infrastructure, and open-source enterprise systems.</p>
+                                </div>
+                                <div class="social-links">
+                                    <ul class="list-unstyled list-inline">
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="footer-widget">
+                                <h3 class="widget-title" data-animate="fadeInUp" data-delay=".15">Contact Us</h3>
+                                <div class="footer-posts footer-posts--2">
+                                    <ul class="list-unstyled">
+                                        <li data-animate="fadeInUp" data-delay=".05">
+                                            <p><i class="fab fa-whatsapp"></i> WhatsApp</p>
+                                            <h4><a href="https://wa.me/254101609998">+254 101 609 998</a></h4>
+                                        </li>
+                                        <li data-animate="fadeInUp" data-delay=".1">
+                                            <p><i class="fas fa-envelope"></i> Email</p>
+                                            <h4><a href="mailto:info@qsoftwares.org">info@qsoftwares.org</a></h4>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="footer-widget">
+                                <h3 class="widget-title" data-animate="fadeInUp" data-delay=".4">Quick Links</h3>
+                                <div class="footer-posts footer-posts--2">
+                                    <ul class="list-unstyled">
+                                        <li><h4><a href="carbon-field.html">Carbon Field</a></h4></li>
+                                        <li><h4><a href="carbon-playbook.html">Field-data playbook</a></h4></li>
+                                        <li><h4><a href="products.html">Products &amp; portfolio</a></h4></li>
+                                        <li><h4><a href="services.html">Services</a></h4></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-footer position-relative karla">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 order-last order-md-first">
+                            <span class="copyright-text" data-animate="fadeInDown" data-delay=".7">&copy; 2026 QSOFTWARES Ltd. All rights reserved.</span>
+                        </div>
+                        <div class="col-md-7 order-first order-md-last">
+                            <ul class="footer-menu text-md-right list-inline footer-menu--2">
+                                <li data-animate="fadeInDown" data-delay=".75"><a href="index.html">Home</a></li>
+                                <li data-animate="fadeInDown" data-delay=".8"><a href="#">About Us</a></li>
+                                <li data-animate="fadeInDown" data-delay=".85"><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a class="back-to-top back-top--2" href="#" data-animate="fadeInDown" data-delay=".95">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+        </footer>
+        <!-- ── End Footer ─────────────────────────── -->
+
+    </div><!-- /.wrapper -->
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="plugins/retinajs/retina.min.js"></script>
+    <script src="plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script src="plugins/waypoints/sticky.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
