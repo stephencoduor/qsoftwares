@@ -1,2 +1,4 @@
 tmp/
 .claude/worktrees/
+# partner registry and the plaintext playbook never go in this public repo
+private/
