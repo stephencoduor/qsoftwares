@@ -124,7 +124,15 @@
         /* ── Partner gate ───────────────────────────── */
         [hidden] { display: none !important; }
         .pb-gate { margin: 40px 0 10px; display: grid; gap: 22px; }
-        .pb-gate, .pb-article h2[id], .pb-article h3[id] { scroll-margin-top: 110px; }
+        .pb-gate, .pb-gate-register, .pb-article h2[id], .pb-article h3[id] { scroll-margin-top: 110px; }
+        .pb-gate-link { color: #ffd9a8 !important; font-weight: 700; }
+        .pb-step-badge { display: inline-block; padding: 5px 12px; border-radius: 999px; background: #015055; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; margin-bottom: 12px; }
+        .pb-gate-register.pb-highlight { box-shadow: 0 0 0 3px #f5a623; }
+        .pb-sent { margin-top: 24px; padding: 22px 24px; border-radius: 14px; background: #fff; border: 2px solid #1cbf8a; }
+        .pb-sent h4 { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; color: #015055; margin: 0 0 8px; }
+        .pb-sent h4 svg, .pb-sent h4 i { color: #1cbf8a; }
+        .pb-sent textarea { font-family: ui-monospace, SFMono-Regular, Menlo, monospace !important; font-size: 13.5px !important; line-height: 1.55; background: #f6fbfa !important; }
+        .pb-sent-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
         .pb-gate-lock { background: #015055; border-radius: 18px; padding: 34px; }
         .pb-gate-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: rgba(255,255,255,0.1); border: 1px solid rgba(126,205,200,0.5); color: #d6f3f0; font-size: 12px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; }
         .pb-gate-lock h2 { font-family: 'Poppins', sans-serif; font-size: 26px; font-weight: 700; color: #fff; margin: 16px 0 10px; padding: 0; border: 0; }
@@ -225,8 +233,9 @@
                 <h1>The field-data playbook for carbon projects</h1>
                 <p>Five stages, four evidence rules and one review loop. How to collect farmer data that still stands when a verifier opens it.</p>
                 <div class="cf-hero-actions pb-noprint">
-                    <a href="#access" class="btn-orange" id="pb-hero-cta">Partner access <i class="fas fa-arrow-down"></i></a>
-                    <a href="javascript:window.print()" class="cf-btn-ghost" id="pb-hero-pdf" hidden>Save as PDF</a>
+                    <a href="#register" class="btn-orange" id="pb-hero-cta">Download the playbook <i class="fas fa-download"></i></a>
+                    <a href="#access" class="cf-btn-ghost" id="pb-hero-code">I have an access code</a>
+                    <a href="javascript:window.print()" class="cf-btn-ghost" id="pb-hero-pdf" hidden>Download as PDF <i class="fas fa-download"></i></a>
                 </div>
             </div>
         </section>
@@ -258,9 +267,9 @@
                     <!-- ═══ Partner gate ═══ -->
                     <section id="access" class="pb-gate" aria-labelledby="pb-gate-title">
                         <div class="pb-gate-lock">
-                            <span class="pb-gate-badge"><i class="fas fa-lock"></i> Registered partners only</span>
+                            <span class="pb-gate-badge"><i class="fas fa-lock"></i> Step 2 of 2 &middot; Registered readers only</span>
                             <h2 id="pb-gate-title">Enter your partner access code</h2>
-                            <p>The eight parts of this playbook are for registered Carbon Field partners. Your code unlocks them here in your browser. Nothing you type is sent to us.</p>
+                            <p>The eight parts of this playbook, and the PDF download, are for registered Carbon Field partners, sponsors and reviewers. Your code unlocks them here in your browser. Nothing you type is sent to us. No code yet? <a href="#register" class="pb-gate-link">Register first</a>.</p>
                             <form id="pb-unlock" novalidate>
                                 <label for="pb-code">Partner access code</label>
                                 <div class="pb-gate-row">
@@ -272,30 +281,47 @@
                             </form>
                             <noscript><p class="pb-msg pb-msg-error">This page needs JavaScript to unlock the playbook.</p></noscript>
                         </div>
-                        <div class="pb-gate-register">
-                            <h3>Not a partner yet?</h3>
-                            <p>Tell us who you are. We review every request and email a personal access code to approved partners.</p>
+                        <div class="pb-gate-register" id="register">
+                            <span class="pb-step-badge">Step 1 of 2 &middot; Register</span>
+                            <h3>Register to download the playbook</h3>
+                            <p>Downloads are for registered partners, sponsors and reviewers. Fill this in and your mail app opens with a <strong>pre-written registration email</strong>. Send it, and we reply with your personal access code. Step 2 is entering that code above to unlock and download.</p>
                             <form id="pb-register">
                                 <div class="pb-form-grid">
                                     <div><label for="pb-r-name">Your name</label><input id="pb-r-name" type="text" autocomplete="name" required></div>
                                     <div><label for="pb-r-org">Organisation</label><input id="pb-r-org" type="text" autocomplete="organization" required></div>
                                     <div><label for="pb-r-email">Work email</label><input id="pb-r-email" type="email" autocomplete="email" required></div>
-                                    <div><label for="pb-r-type">How would you partner?</label>
+                                    <div><label for="pb-r-type">I am registering as</label>
                                         <select id="pb-r-type" required>
                                             <option value="">Choose one</option>
-                                            <option>Device and field testing</option>
-                                            <option>Milestone funding</option>
-                                            <option>Mapping and imagery</option>
-                                            <option>Technology integration</option>
+                                            <optgroup label="Partner">
+                                                <option>Partner: device and field testing</option>
+                                                <option>Partner: milestone funding</option>
+                                                <option>Partner: mapping and imagery</option>
+                                                <option>Partner: technology integration</option>
+                                            </optgroup>
+                                            <option>Sponsor</option>
+                                            <option>Reviewer giving feedback</option>
                                             <option>Something else</option>
                                         </select>
                                     </div>
                                 </div>
                                 <label for="pb-r-note">Anything we should know? (optional)</label>
                                 <textarea id="pb-r-note" rows="3"></textarea>
-                                <button type="submit" class="btn-teal">Request partner access</button>
-                                <p class="pb-fineprint">This opens an email to info@qsoftwares.org in your own mail app, so you can see exactly what you send. Prefer to write it yourself? <a href="mailto:info@qsoftwares.org?subject=Carbon%20Field%20%E2%80%94%20partner%20registration">Email us</a>.</p>
+                                <button type="submit" class="btn-teal">Open my pre-written email <i class="fas fa-envelope"></i></button>
+                                <a id="pb-mailto" href="mailto:info@qsoftwares.org" hidden>Send the registration email</a>
+                                <p class="pb-fineprint">Nothing is sent from this page. The email opens in your own mail app, addressed to info@qsoftwares.org, so you can read it before you send it.</p>
                             </form>
+                            <div id="pb-sent" class="pb-sent" hidden>
+                                <h4><i class="fas fa-check-circle"></i> Your email is ready to send</h4>
+                                <p>Your mail app should have opened with the message below. <strong>Press send there</strong> and we will reply with your access code. If nothing opened (common with webmail), copy the text and send it to <a href="mailto:info@qsoftwares.org">info@qsoftwares.org</a>.</p>
+                                <label for="pb-sent-text">Your pre-written registration email</label>
+                                <textarea id="pb-sent-text" rows="11" readonly></textarea>
+                                <div class="pb-sent-actions">
+                                    <button type="button" class="btn-teal" id="pb-copy">Copy the email text</button>
+                                    <a class="btn-orange-outline" id="pb-mailto-again" href="mailto:info@qsoftwares.org">Open my mail app again</a>
+                                </div>
+                                <p id="pb-copy-msg" class="pb-fineprint" role="status" aria-live="polite"></p>
+                            </div>
                         </div>
                     </section>
 
@@ -420,7 +446,7 @@
         function say(text, isError) { var m = $('pb-msg'); m.textContent = text; m.className = 'pb-msg' + (isError ? ' pb-msg-error' : ''); }
         function lockToc(locked) {
             tocLinks.forEach(function (a) {
-                if (locked) { a.dataset.href = a.dataset.href || a.getAttribute('href'); a.setAttribute('href', '#access'); }
+                if (locked) { a.dataset.href = a.dataset.href || a.getAttribute('href'); a.setAttribute('href', '#register'); }
                 else if (a.dataset.href) { a.setAttribute('href', a.dataset.href); }
             });
         }
@@ -451,6 +477,7 @@
             $('pb-hero-pdf').hidden = false;
             $('pb-hero-cta').setAttribute('href', '#part-1');
             $('pb-hero-cta').firstChild.textContent = 'Start reading ';
+            $('pb-hero-code').hidden = true;
             lockToc(false);
         }
 
@@ -467,7 +494,7 @@
             try { (remember ? localStorage : sessionStorage).setItem(KEY, code); } catch (e) {}
             say('');
             show(html);
-            if (!silent && location.hash === '#access') history.replaceState(null, '', '#part-1');
+            if (!silent && (location.hash === '#access' || location.hash === '#register')) history.replaceState(null, '', '#part-1');
         }
 
         $('pb-unlock').addEventListener('submit', function (ev) { ev.preventDefault(); tryUnlock($('pb-code').value, $('pb-remember').checked, false); });
@@ -475,11 +502,48 @@
             try { sessionStorage.removeItem(KEY); localStorage.removeItem(KEY); } catch (e) {}
             location.reload();
         });
+        function registrationEmail() {
+            var role = $('pb-r-type').value;
+            var note = $('pb-r-note').value.trim();
+            var lines = [
+                'Hello QSOFTWARES team,', '',
+                'Please register me for the Carbon Field field-data playbook.', '',
+                'Name: ' + $('pb-r-name').value.trim(),
+                'Organisation: ' + $('pb-r-org').value.trim(),
+                'Work email: ' + $('pb-r-email').value.trim(),
+                'Registering as: ' + role
+            ];
+            if (note) lines.push('Note: ' + note);
+            lines.push('', 'I understand the access code is personal to me and I will not share it.', '', 'Thank you.');
+            return { subject: 'Carbon Field playbook: registration (' + role + ')', body: lines.join('\n') };
+        }
         $('pb-register').addEventListener('submit', function (ev) {
             ev.preventDefault();
-            var body = ['Name: ' + $('pb-r-name').value, 'Organisation: ' + $('pb-r-org').value, 'Work email: ' + $('pb-r-email').value, 'Partner type: ' + $('pb-r-type').value, '', $('pb-r-note').value].join('\n');
-            location.href = 'mailto:info@qsoftwares.org?subject=' + encodeURIComponent('Carbon Field \u2014 partner registration') + '&body=' + encodeURIComponent(body);
+            var mail = registrationEmail();
+            var href = 'mailto:info@qsoftwares.org?subject=' + encodeURIComponent(mail.subject) + '&body=' + encodeURIComponent(mail.body);
+            $('pb-mailto').setAttribute('href', href);
+            $('pb-mailto-again').setAttribute('href', href);
+            $('pb-sent-text').value = 'To: info@qsoftwares.org\nSubject: ' + mail.subject + '\n\n' + mail.body;
+            $('pb-sent').hidden = false;
+            $('pb-sent').scrollIntoView({ block: 'nearest' });
+            if (!window.__pbNoMailto) $('pb-mailto').click();
         });
+        $('pb-copy').addEventListener('click', function () {
+            var box = $('pb-sent-text');
+            box.select();
+            var done = function (ok) { $('pb-copy-msg').textContent = ok ? 'Copied. Paste it into a new email to info@qsoftwares.org.' : 'Select the text above and copy it by hand.'; };
+            if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(box.value).then(function () { done(true); }, function () { done(false); });
+            else { try { done(document.execCommand('copy')); } catch (e) { done(false); } }
+        });
+        // Anyone who arrives by pressing a Download button lands on the registration step.
+        function spotlightRegister() {
+            if (location.hash !== '#register' || $('access').hidden) return;
+            var box = $('register');
+            box.classList.add('pb-highlight');
+            setTimeout(function () { box.classList.remove('pb-highlight'); }, 2600);
+        }
+        window.addEventListener('hashchange', spotlightRegister);
+        spotlightRegister();
 
         lockToc(true);
         var saved = null;

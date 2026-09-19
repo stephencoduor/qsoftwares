@@ -5,6 +5,15 @@
 be relied on to stay hidden. The playbook body is therefore published **encrypted**, and each
 registered partner gets a **personal access code** that decrypts it in their own browser.
 
+## What a visitor goes through
+
+1. They press **Download** (product page hero, the playbook strip, or the playbook page itself). Every Download button lands on **Step 1 · Register**.
+2. They fill in name, organisation, work email and **who they are registering as** (one of the four partner kinds, Sponsor, Reviewer giving feedback, or something else) and press *Open my pre-written email*. Their own mail app opens with the registration email already written, addressed to info@qsoftwares.org. The same text is shown on the page with a Copy button, for people on webmail where nothing opens.
+3. You approve them with `gate.mjs add` (below) and reply with their access code.
+4. **Step 2**: they enter the code, the playbook unlocks, and *Download as PDF* appears.
+
+Nothing is sent from the page itself; there is no backend on this host.
+
 ## Everyday use (run from the repo root)
 
 ```bash
