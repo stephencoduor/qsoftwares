@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sacco — Core Banking for SACCOs and the Sacco Field Tablet | QSOFTWARES Ltd</title>
+    <meta name="description" content="Sacco is core banking for SACCOs on Apache Fineract, and Sacco Field, the offline-first tablet app your field officers carry: routes, group meetings, cash and M-Pesa collection, member files, one ledger.">
+    <meta property="og:title" content="Sacco — core banking for SACCOs, and the tablet your field officers carry">
+    <meta property="og:description" content="The branch runs Sacco on Apache Fineract. The field runs Sacco Field: routes, meetings, cash and M-Pesa collection, offline first, into the same ledger.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qsoftwares.org/sacco.html">
+    <meta property="og:image" content="https://qsoftwares.org/img/products/sacco/og.png">
+    <link rel="canonical" href="https://qsoftwares.org/sacco.html">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400%7CPoppins:400,400i,500,700">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="css/responsive.css?v=3">
+    <link rel="stylesheet" href="css/custom.css?v=3">
+    <style>
+        /* ── Sacco page ─────────────────────────────────────────────
+           The one page on the site in the product's own Emerald greens,
+           because every screenshot on it is. The site's header, footer,
+           type and orange call-to-action stay as they are everywhere else. */
+        :root {
+            --sf-forest: #1B4332;   /* primary-dark */
+            --sf-green:  #2D6A4F;   /* primary */
+            --sf-mint:   #D8F3DC;   /* primary-light */
+            --sf-canvas: #F1FBF3;
+            --sf-warm:   #F5F0E8;
+            --sf-gold:   #E9B949;
+            --sf-ink:    #1A1A1A;
+            --sf-body:   #4B5563;
+            --sf-line:   #D1DED8;
+        }
+        .sf-hero { background: linear-gradient(135deg, #10291f 0%, var(--sf-forest) 45%, var(--sf-green) 100%); padding: 150px 0 0; color: #fff; position: relative; z-index: 2; }
+        .sf-hero .container { position: relative; }
+        .sf-brand { display: inline-flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+        .sf-brand img { width: 64px; height: 64px; }
+        .sf-brand span { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -0.5px; }
+        .sf-eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px; margin-bottom: 22px; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(216,243,220,0.45); color: var(--sf-mint); font-size: 12.5px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; }
+        .sf-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sf-gold); display: inline-block; }
+        .sf-hero h1 { font-family: 'Poppins', sans-serif; font-size: 58px; font-weight: 700; line-height: 1.05; letter-spacing: -1.5px; color: #fff; margin-bottom: 20px; }
+        .sf-hero h1 em { font-style: normal; color: var(--sf-mint); }
+        .sf-hero p.sf-sub { font-size: 18px; line-height: 1.65; color: rgba(255,255,255,0.86); max-width: 620px; margin-bottom: 30px; }
+        .sf-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 64px; }
+        .sf-btn-ghost { display: inline-flex; align-items: center; gap: 10px; padding: 12px 28px; border-radius: 9px; border: 2px solid rgba(255,255,255,0.7); color: #fff !important; font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+        .sf-btn-ghost:hover { background: rgba(255,255,255,0.12); text-decoration: none; }
+
+        /* the tablet: a CSS bezel round a real capture */
+        .sf-tablet { position: relative; background: #0d1512; border-radius: 30px; padding: 18px; box-shadow: 0 40px 90px rgba(0,0,0,0.45), inset 0 0 0 2px #26322d; }
+        .sf-tablet::before { content: ""; position: absolute; top: 50%; left: 7px; width: 5px; height: 5px; margin-top: -2px; border-radius: 50%; background: #26322d; }
+        .sf-tablet img { display: block; width: 100%; border-radius: 12px; }
+        .sf-hero .sf-tablet { margin-bottom: -120px; }
+        .sf-hero-note { font-size: 12.5px; color: rgba(255,255,255,0.6); margin-top: 14px; text-align: center; }
+
+        .sf-after-hero { padding-top: 170px; }
+        .sf-kicker { display: block; color: var(--sf-green); font-size: 12.5px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 10px; }
+        .sf-h2 { font-family: 'Poppins', sans-serif; font-size: 36px; font-weight: 700; line-height: 1.2; color: var(--sf-forest); margin-bottom: 16px; letter-spacing: -0.5px; }
+        .sf-h3 { font-family: 'Poppins', sans-serif; font-size: 23px; font-weight: 700; line-height: 1.3; color: var(--sf-forest); margin-bottom: 10px; }
+        .sf-lead { font-size: 17px; line-height: 1.7; color: #333; }
+        .sf-body { font-size: 15px; line-height: 1.75; color: var(--sf-body); margin-bottom: 12px; }
+        .sf-head { text-align: center; max-width: 760px; margin: 0 auto 50px; }
+        .sf-canvas { background: var(--sf-canvas); }
+        .sf-warm { background: var(--sf-warm); }
+
+        /* two surfaces */
+        .sf-surface { background: #fff; border: 1px solid var(--sf-line); border-radius: 20px; padding: 28px; height: 100%; display: flex; flex-direction: column; }
+        .sf-surface img { width: 100%; border-radius: 12px; border: 1px solid var(--sf-line); margin-bottom: 22px; }
+        .sf-pill { display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; padding: 4px 11px; border-radius: 999px; margin-bottom: 12px; }
+        .sf-pill.deployed { background: var(--sf-forest); color: #fff; }
+        .sf-pill.dev { background: #FEF3C7; color: #854D0E; }
+        .sf-ticks { list-style: none; padding: 0; margin: 6px 0 0; }
+        .sf-ticks li { display: flex; gap: 12px; padding: 5px 0; font-size: 14.5px; line-height: 1.6; color: #333; }
+        .sf-ticks li svg, .sf-ticks li i { color: var(--sf-green); margin-top: 5px; flex-shrink: 0; }
+        .sf-ledger { text-align: center; margin: 34px auto 0; max-width: 720px; font-size: 15.5px; color: var(--sf-forest); font-weight: 500; }
+        .sf-ledger strong { background: var(--sf-mint); padding: 2px 8px; border-radius: 6px; }
+
+        /* a day, as a timeline */
+        .sf-day { position: relative; }
+        .sf-day::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: linear-gradient(var(--sf-mint), var(--sf-green), var(--sf-mint)); }
+        .sf-stop { position: relative; display: flex; align-items: center; gap: 110px; margin-bottom: 80px; }
+        .sf-stop:last-child { margin-bottom: 0; }
+        .sf-stop.flip { flex-direction: row-reverse; }
+        .sf-stop > .sf-shot, .sf-stop > .sf-text { flex: 1 1 0; min-width: 0; }
+        .sf-time { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2; background: var(--sf-forest); color: #fff; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 13px; padding: 7px 12px; border-radius: 999px; box-shadow: 0 0 0 6px var(--sf-canvas); white-space: nowrap; }
+        .sf-shot img { width: 100%; display: block; border-radius: 14px; border: 7px solid #fff; box-shadow: 0 18px 50px rgba(27,67,50,0.20); }
+        .sf-shot .sf-inset { width: 46%; margin: -60px 0 0 auto; position: relative; border-width: 5px; }
+        .sf-text .sf-quote { border-left: 3px solid var(--sf-gold); padding: 2px 0 2px 14px; margin: 14px 0 0; font-size: 14.5px; color: var(--sf-forest); font-weight: 500; }
+
+        /* four words */
+        .sf-words { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 38px; }
+        .sf-word { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 17px; padding: 10px 20px; border-radius: 999px; }
+        .sf-word.w-wait { background: #FEF9C3; color: #854D0E; }
+        .sf-word.w-posted { background: var(--sf-mint); color: var(--sf-forest); }
+        .sf-word.w-failed { background: #FEE2E2; color: #991B1B; }
+        .sf-word.w-disc { background: #E5E7EB; color: #374151; }
+        .sf-state { background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid var(--sf-line); height: 100%; }
+        .sf-state img { width: 100%; display: block; }
+        .sf-state div { padding: 16px 18px 18px; }
+        .sf-state h5 { font-family: 'Poppins', sans-serif; font-size: 15.5px; font-weight: 700; color: var(--sf-forest); margin-bottom: 6px; }
+        .sf-state p { font-size: 13.5px; line-height: 1.6; color: var(--sf-body); margin: 0; }
+
+        /* try the screens */
+        .sf-try { display: flex; gap: 40px; align-items: center; }
+        .sf-try-tabs { flex: 0 0 250px; display: flex; flex-direction: column; gap: 8px; }
+        .sf-try-tabs button { text-align: left; background: #fff; border: 1px solid var(--sf-line); border-radius: 12px; padding: 13px 16px; font-family: 'Poppins', sans-serif; font-size: 14.5px; font-weight: 600; color: var(--sf-forest); cursor: pointer; display: flex; gap: 12px; align-items: center; transition: background 0.15s, border-color 0.15s; }
+        .sf-try-tabs button:hover { border-color: var(--sf-green); }
+        .sf-try-tabs button[aria-selected="true"] { background: var(--sf-forest); border-color: var(--sf-forest); color: #fff; }
+        .sf-try-tabs button:focus-visible { outline: 3px solid var(--sf-gold); outline-offset: 2px; }
+        .sf-try-screen { flex: 1; min-width: 0; }
+        .sf-try-stack { position: relative; aspect-ratio: 1600 / 960; }
+        .sf-try-stack img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px; opacity: 0; transition: opacity 0.35s; }
+        .sf-try-stack img.on { opacity: 1; }
+        .sf-try-caption { margin-top: 16px; font-size: 14.5px; color: var(--sf-body); min-height: 48px; }
+        .no-js .sf-try-tabs { display: none; }
+
+        /* also built in */
+        .sf-mini { display: flex; gap: 14px; margin-bottom: 30px; }
+        .sf-mini-icon { width: 46px; height: 46px; border-radius: 12px; background: var(--sf-mint); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--sf-forest); font-size: 18px; }
+        .sf-mini h5 { font-family: 'Poppins', sans-serif; font-size: 15.5px; font-weight: 600; color: var(--sf-forest); margin: 2px 0 6px; }
+        .sf-mini p { font-size: 14px; line-height: 1.65; color: var(--sf-body); margin: 0; }
+
+        /* under the hood, status, asks */
+        .sf-card { background: #fff; border-radius: 16px; padding: 28px 24px; height: 100%; box-shadow: 0 8px 32px rgba(27,67,50,0.08); }
+        .sf-card svg, .sf-card > i { color: var(--sf-green); font-size: 26px; margin-bottom: 14px; display: block; }
+        .sf-card h5 { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; color: var(--sf-forest); margin-bottom: 8px; }
+        .sf-card p { font-size: 14px; line-height: 1.65; color: var(--sf-body); margin: 0; }
+        .sf-tags { text-align: center; margin-top: 12px; }
+        .sf-tags span { display: inline-block; margin: 4px; padding: 5px 12px; border-radius: 999px; background: #fff; border: 1px solid var(--sf-line); font-size: 12.5px; font-weight: 600; color: var(--sf-forest); }
+        .sf-status { background: #fff; border: 1px solid var(--sf-line); border-radius: 16px; padding: 30px 30px 20px; height: 100%; }
+        .sf-status h4 { font-family: 'Poppins', sans-serif; font-size: 19px; font-weight: 700; color: var(--sf-forest); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+        .sf-status-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+        .sf-status-dot.built { background: var(--sf-green); }
+        .sf-status-dot.next { background: var(--sf-gold); }
+        .sf-status ul { padding-left: 20px; margin: 0; }
+        .sf-status li { font-size: 14.5px; line-height: 1.7; color: #444; margin-bottom: 9px; }
+        .sf-proof { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 30px; }
+        .sf-proof div { background: var(--sf-forest); color: #fff; border-radius: 14px; padding: 16px 22px; text-align: center; min-width: 170px; }
+        .sf-proof strong { display: block; font-family: 'Poppins', sans-serif; font-size: 26px; color: var(--sf-mint); }
+        .sf-proof span { font-size: 12.5px; color: rgba(255,255,255,0.8); }
+        .sf-open { background: var(--sf-mint); border-radius: 22px; overflow: hidden; }
+        .sf-open img { width: 100%; display: block; }
+        .sf-open p { font-size: 13px; color: var(--sf-forest); padding: 12px 20px; margin: 0; }
+        .sf-ask { background: #fff; border-radius: 18px; padding: 34px 28px; height: 100%; box-shadow: 0 8px 32px rgba(27,67,50,0.08); display: flex; flex-direction: column; }
+        .sf-ask-icon { width: 58px; height: 58px; border-radius: 16px; background: var(--sf-mint); display: flex; align-items: center; justify-content: center; color: var(--sf-forest); font-size: 22px; margin-bottom: 18px; }
+        .sf-ask h3 { font-family: 'Poppins', sans-serif; font-size: 21px; font-weight: 700; color: var(--sf-forest); margin-bottom: 8px; }
+        .sf-ask p { font-size: 14.5px; line-height: 1.65; color: var(--sf-body); margin-bottom: 22px; }
+        .sf-ask .btn-orange { margin-top: auto; align-self: flex-start; }
+
+        @media (max-width: 991px) {
+            .sf-hero { padding-top: 130px; }
+            .sf-hero h1 { font-size: 42px; }
+            .sf-hero .sf-tablet { margin-bottom: -70px; }
+            .sf-after-hero { padding-top: 110px; }
+            .sf-h2 { font-size: 29px; }
+            .sf-day::before { left: 18px; }
+            .sf-stop, .sf-stop.flip { flex-direction: column; gap: 22px; align-items: stretch; padding-left: 44px; margin-bottom: 56px; }
+            .sf-time { left: 18px; top: -4px; transform: translate(-50%, 0); }
+            .sf-try { flex-direction: column; align-items: stretch; }
+            .sf-try-tabs { flex: none; flex-direction: row; flex-wrap: wrap; }
+            .sf-try-tabs button { flex: 1 1 140px; }
+        }
+        @media (max-width: 575px) {
+            .sf-hero h1 { font-size: 34px; }
+            .sf-tablet { padding: 9px; border-radius: 18px; }
+            .sf-shot .sf-inset { width: 60%; margin-top: -30px; }
+        }
+        @media (prefers-reduced-motion: reduce) { .sf-try-stack img { transition: none; } }
+    </style>
+</head>
+
+<body class="no-js">
+<script>document.body.classList.remove('no-js');</script>
+<div class="preLoader"><span class="spin"></span></div>
+
+<div class="wrapper body-gradient">
+
+    <!-- ── Header ─────────────────────────────── -->
+    <header class="header">
+        <div class="header-absoulate">
+            <div class="main-header header--2">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-2 col-md-3 col-sm-5 col-7">
+                            <div class="logo" data-animate="fadeInDown" data-delay=".5">
+                                <a href="index.html">
+                                    <img data-rjs="2" src="img/logo-q.png" alt="QSOFTWARES Limited">
+                                    <img data-rjs="2" src="img/logo-q.png" alt="QSOFTWARES Limited">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-lg-8 col-md-6 col-sm-3 col-2">
+                            <nav data-animate="fadeInDown" data-delay=".75">
+                                <div class='header-menu'>
+                                        <ul>
+                                            <li>
+                                                <a href='index.html'>Home</a>
+                                            </li>
+                                            <li>
+                                                <a href='services.html'>Services <i class="fas fa-caret-down"></i></a>
+                                                <ul>
+                                                    <li><a href="services.html#n8n">n8n Automation</a></li>
+                                                    <li><a href="services.html#devops">DevOps &amp; Cloud</a></li>
+                                                    <li><a href="services.html#ai-mlops">AI / MLOps</a></li>
+                                                    <li><a href="services.html#kobotoolbox">KoboToolbox</a></li>
+                                                    <li><a href="services.html#erp">ERP Systems</a></li>
+                                                    <li><a href="services.html#financial">Financial Systems</a></li>
+                                                    <li><a href="services.html#custom">Custom Software</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="active">
+                                                <a href='products.html'>Products <i class="fas fa-caret-down"></i></a>
+                                                <ul>
+                                                    <li><a href="sacco.html">Sacco</a></li>
+                                                    <li><a href="products.html#fpayroll">F-Payroll</a></li>
+                                                    <li><a href="products.html#enterprise-rag">Enterprise-RAG</a></li>
+                                                    <li><a href="products.html#kobo-automation">Kobo Automation Suite</a></li>
+                                                    <li><a href="carbon-field.html">Carbon Field</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="training.html">Training</a></li>
+                                            <li><a href="kobo-support.html">Kobo Support</a></li>
+                                        </ul>
+                                    </div>
+                            </nav>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-3">
+                            <div class="register-button" data-animate="fadeInDown" data-delay="1">
+                                <a class="btn btn-primary no-border btn-block btn-square" href="#work-with-us">
+                                    <i class="fas fa-tablet-alt"></i>
+                                    <span>Demo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+        <!-- ── 1 · Hero ────────────────────────────── -->
+        <section class="sf-hero">
+            <div class="container">
+                <div class="row align-items-end">
+                    <div class="col-lg-5">
+                        <div class="sf-brand" data-animate="fadeInUp">
+                            <img src="img/products/sacco/emblem-white.png" alt="">
+                            <span>Sacco</span>
+                        </div>
+                        <br>
+                        <span class="sf-eyebrow" data-animate="fadeInUp" data-delay=".1"><span class="sf-dot"></span>Core banking &middot; Field app</span>
+                        <h1 data-animate="fadeInUp" data-delay=".15">One screen.<br>One visit.<br><em>No paper.</em></h1>
+                        <p class="sf-sub" data-animate="fadeInUp" data-delay=".2">Sacco is core banking for SACCOs on Apache Fineract, and <strong>Sacco Field</strong>, the tablet your field officers carry. Routes, group meetings, cash and M-Pesa collection and member files, built to keep working without a signal and to land in the one ledger the branch runs.</p>
+                        <div class="sf-actions" data-animate="fadeInUp" data-delay=".25">
+                            <a href="mailto:info@qsoftwares.org?subject=Sacco%20%E2%80%94%20demo%20request" class="btn-orange">Request a demo <i class="fas fa-arrow-right"></i></a>
+                            <a href="#a-day" class="sf-btn-ghost">Walk a day with it</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7" data-animate="fadeInUp" data-delay=".3">
+                        <div class="sf-tablet">
+                            <img src="img/products/sacco/home.png" alt="Sacco Field Home screen on a tablet: a greeting for field officer Alice Wanjiru, 14 stops on today's route, three M-Pesa pushes pending, eight quick actions and today's collections of KES 9,340">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── 2 · Two surfaces, one ledger ────────── -->
+        <section class="section-white section-pad sf-after-hero">
+            <div class="container">
+                <div class="sf-head">
+                    <span class="sf-kicker">What Sacco is</span>
+                    <h2 class="sf-h2">Two surfaces. One ledger.</h2>
+                    <p class="sf-lead">The branch keeps the books. The field officer meets the members. Sacco gives each of them their own screen, and one set of accounts behind both.</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 mb-4" data-animate="fadeInUp">
+                        <div class="sf-surface">
+                            <img src="img/products/sacco/desktop.png" alt="Sacco at the branch: the overview dashboard with total portfolio, active loans, savings deposits and collections today (sample data)" loading="lazy" style="margin-bottom:6px;">
+                            <small style="display:block;font-size:12px;color:#6B7280;margin-bottom:18px;">The branch overview, with sample data.</small>
+                            <span><span class="sf-pill deployed">Deployed</span></span>
+                            <h3 class="sf-h3">Sacco at the branch</h3>
+                            <p class="sf-body">Core banking on Apache Fineract for SACCOs, MFIs and community-finance organisations. The back office the branch already runs.</p>
+                            <ul class="sf-ticks">
+                                <li><i class="fas fa-check"></i>Loan origination, appraisal and disbursement</li>
+                                <li><i class="fas fa-check"></i>Savings accounts and fixed deposits</li>
+                                <li><i class="fas fa-check"></i>M-Pesa and Airtel collection through Payment Hub</li>
+                                <li><i class="fas fa-check"></i>Accounting, tax and compliance, custom reports, multi-tenant</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4" data-animate="fadeInUp" data-delay=".1">
+                        <div class="sf-surface">
+                            <img src="img/products/sacco/route.png" alt="Sacco Field: today's route, overdue stops listed worst first with the loan, the amount and the days overdue" loading="lazy">
+                            <span><span class="sf-pill dev">In development</span></span>
+                            <h3 class="sf-h3">Sacco Field, in the field</h3>
+                            <p class="sf-body">A tablet app for the field officer, built for a market with no signal. Everything is saved on the tablet first and sent when it can be.</p>
+                            <ul class="sf-ticks">
+                                <li><i class="fas fa-check"></i>Today's route, worst first, from the collection sheet</li>
+                                <li><i class="fas fa-check"></i>Group meetings with attendance and a keypad per member</li>
+                                <li><i class="fas fa-check"></i>Cash, M-Pesa push, paybill and passbook deposits</li>
+                                <li><i class="fas fa-check"></i>The member's file: accounts, guarantors, collateral, next of kin</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p class="sf-ledger">What the officer collects at 10:15 goes to the branch ledger when the tablet next has a signal &mdash; and <strong>nothing on the tablet says <em>Posted</em> before the ledger has confirmed it.</strong></p>
+            </div>
+        </section>
+
+        <!-- ── 3 · A day with Sacco Field ──────────── -->
+        <section class="sf-canvas section-pad" id="a-day">
+            <div class="container">
+                <div class="sf-head">
+                    <span class="sf-kicker">A day with Sacco Field</span>
+                    <h2 class="sf-h2">Follow one field officer from the branch to the market and back.</h2>
+                    <p class="sf-body">Every screen below is the app itself on a tablet, running its labelled demo dataset: Alice Wanjiru's Kiambu route and the Umoja Self-Help Group. The names and amounts are that sample data.</p>
+                </div>
+
+                <div class="sf-day">
+                    <div class="sf-stop" data-animate="fadeInUp">
+                        <div class="sf-shot"><img src="img/products/sacco/route.png" alt="Today's route with Overdue (worst first) 5, Upcoming 5 and Paid tabs; Daniel Mutua Kioko 12 days overdue at the top" loading="lazy"></div>
+                        <span class="sf-time">07:40</span>
+                        <div class="sf-text">
+                            <span class="sf-kicker">The route</span>
+                            <h3 class="sf-h3">The day opens worst first</h3>
+                            <p class="sf-body">Fourteen stops from the collection sheet, split into overdue, upcoming and paid. The member twelve days behind is at the top, not the one nearest the branch. Tap a stop and it opens beside the list, so the rest of the day never leaves the screen.</p>
+                        </div>
+                    </div>
+
+                    <div class="sf-stop flip" data-animate="fadeInUp">
+                        <div class="sf-shot"><img src="img/products/sacco/meeting-keypad.png" alt="Umoja Self-Help Group meeting: members listed with their loan and what is still due, Otieno's pane open with 1430 — the rest of his instalment — typed on a numeric keypad and SEND M-PESA PUSH directly above the keys" loading="lazy"></div>
+                        <span class="sf-time">08:30</span>
+                        <div class="sf-text">
+                            <span class="sf-kicker">The group meeting</span>
+                            <h3 class="sf-h3">Fourteen members, one screen, a keypad each</h3>
+                            <p class="sf-body">Umoja meets at Gikomba. Each row shows what the member still owes today and their outstanding balance; a long-press marks them present, absent or late. Tap <em>Collect repayment</em> and a pane opens with its own keypad, and the send button sits just above the keys.</p>
+                            <p class="sf-quote">A member who has paid half today owes the rest, not the whole &mdash; so the row says the rest.</p>
+                        </div>
+                    </div>
+
+                    <div class="sf-stop" data-animate="fadeInUp">
+                        <div class="sf-shot">
+                            <img src="img/products/sacco/collect-cash.png" alt="Collect repayment pane for Otieno Brian Ochieng beside the route: step 1 evidence, step 2 amount and channel with CASH chosen, step 3 confirm" loading="lazy">
+                            <img class="sf-inset" src="img/products/sacco/payment-successful.png" alt="Payment Successful dialog: collected KES 1,430.00, account Otieno Brian Ochieng, method cash, with DONE and PRINT RECEIPT" loading="lazy">
+                        </div>
+                        <span class="sf-time">10:15</span>
+                        <div class="sf-text">
+                            <span class="sf-kicker">A stall, in cash</span>
+                            <h3 class="sf-h3">Three steps, then a receipt</h3>
+                            <p class="sf-body">Evidence, amount and channel, confirm. The officer carries the cash; the tablet records who paid, how much, where and when. <em>Payment Successful</em> appears only once the ledger has taken it and the tablet has read it back &mdash; and the receipt can be shared from the same dialog.</p>
+                        </div>
+                    </div>
+
+                    <div class="sf-stop flip" data-animate="fadeInUp">
+                        <div class="sf-shot">
+                            <img src="img/products/sacco/push-sent.png" alt="PUSH SENT! dialog: an M-Pesa request of KES 1,000.00 on its way to Wanjiku's phone, awaiting client confirmation" loading="lazy">
+                            <img class="sf-inset" src="img/products/sacco/already-on-phone.png" alt="Daniel's loan page opened again: the pane shows the push already on his phone, not a second form" loading="lazy">
+                        </div>
+                        <span class="sf-time">11:00</span>
+                        <div class="sf-text">
+                            <span class="sf-kicker">An M-Pesa push</span>
+                            <h3 class="sf-h3">"Sent" is not "paid"</h3>
+                            <p class="sf-body">An STK push is a request the member has to accept on their own phone. So the tablet says <em>PUSH SENT!</em> and <em>Awaiting client confirmation</em>, and the member's row stays <em>Waiting to sync</em> until M-Pesa answers. Open that loan again from anywhere &mdash; the route, the picker, the loan page &mdash; and the tablet shows the prompt already on the phone instead of inviting a second one.</p>
+                        </div>
+                    </div>
+
+                    <div class="sf-stop" data-animate="fadeInUp">
+                        <div class="sf-shot">
+                            <img src="img/products/sacco/loan.png" alt="A loan page: outstanding balance, account number, interest rate, product, next instalment and due date, with Pay full amount" loading="lazy">
+                            <img class="sf-inset" src="img/products/sacco/member.png" alt="The member's file on the Client Info tab, with tabs for accounts, identification, charges, guarantors, next of kin, collateral and pinpoint location" loading="lazy">
+                        </div>
+                        <span class="sf-time">12:30</span>
+                        <div class="sf-text">
+                            <span class="sf-kicker">A member's file</span>
+                            <h3 class="sf-h3">Everything about a member, in one place</h3>
+                            <p class="sf-body">Client info, accounts, identification, charges, guarantors, next of kin, collateral and a pinpoint of where the business is. From a loan, <em>Pay full amount</em> opens the collect pane on the loan's total outstanding, with the member's M-Pesa number already filled in.</p>
+                        </div>
+                    </div>
+
+                    <div class="sf-stop flip" data-animate="fadeInUp">
+                        <div class="sf-shot"><img src="img/products/sacco/deposit.png" alt="Deposit pane beside the meeting: Passbook Savings 000005203, balance KES 2,160.00, amount, payment type M-Pesa and the member's phone number" loading="lazy"></div>
+                        <span class="sf-time">14:00</span>
+                        <div class="sf-text">
+                            <span class="sf-kicker">A deposit</span>
+                            <h3 class="sf-h3">Into the passbook, at the meeting</h3>
+                            <p class="sf-body">From the meeting's <strong>+</strong> button: Deposit, then the member. The pane names the savings account and its balance, and the new balance is read back from the ledger after the deposit posts. An account the branch has not activated yet says so, and takes no amount.</p>
+                            <p class="sf-quote">Money out is always a withdrawal request the branch approves. The tablet never pays out.</p>
+                        </div>
+                    </div>
+
+                    <div class="sf-stop" data-animate="fadeInUp">
+                        <div class="sf-shot"><img src="img/products/sacco/sync-centre.png" alt="Sync centre: three M-Pesa pushes waiting to sync, the morning's five payments posted, each with its OB reference, time and amount" loading="lazy"></div>
+                        <span class="sf-time">16:45</span>
+                        <div class="sf-text">
+                            <span class="sf-kicker">Back in signal</span>
+                            <h3 class="sf-h3">Saved first, sent when it can be</h3>
+                            <p class="sf-body">The Sync centre lists everything the tablet holds: what failed first, with the server's own reason, then what is waiting, then what is done, kept for thirty days. Sync runs by itself every fifteen minutes and whenever the connection returns; <em>Sync now</em> sends it straight away.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── 4 · Four words ──────────────────────── -->
+        <section class="section-white section-pad" id="honest">
+            <div class="container">
+                <div class="sf-head">
+                    <span class="sf-kicker">The rule the whole app keeps</span>
+                    <h2 class="sf-h2">Four words. Never a fifth.</h2>
+                    <p class="sf-lead">A field app that says <em>paid</em> when it means <em>sent</em> teaches officers to tell members something the ledger will contradict tomorrow. Sacco Field has four words for where money is, and uses no others.</p>
+                </div>
+                <div class="sf-words" data-animate="fadeInUp">
+                    <span class="sf-word w-wait">Waiting to sync</span>
+                    <span class="sf-word w-posted">Posted</span>
+                    <span class="sf-word w-failed">Failed</span>
+                    <span class="sf-word w-disc">Discarded</span>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4" data-animate="fadeInUp"><div class="sf-state"><img src="img/products/sacco/state-waiting.png" alt="Saved, waiting to sync: not yet in the ledger, with the local reference" loading="lazy"><div><h5>Saved &middot; Waiting to sync</h5><p>On the tablet, with a reference, and plainly <em>not yet in the ledger</em>.</p></div></div></div>
+                    <div class="col-lg-3 col-md-6 mb-4" data-animate="fadeInUp" data-delay=".05"><div class="sf-state"><img src="img/products/sacco/state-push-sent.png" alt="PUSH SENT: the M-Pesa request is on its way to the member's phone" loading="lazy"><div><h5>Push sent</h5><p>A request on the member's phone. Nothing is collected until they accept it.</p></div></div></div>
+                    <div class="col-lg-3 col-md-6 mb-4" data-animate="fadeInUp" data-delay=".1"><div class="sf-state"><img src="img/products/sacco/state-successful.png" alt="Payment Successful: collected, account, method and location, with a receipt" loading="lazy"><div><h5>Payment Successful</h5><p>Only after the server has taken it and the tablet has read it back.</p></div></div></div>
+                    <div class="col-lg-3 col-md-6 mb-4" data-animate="fadeInUp" data-delay=".15"><div class="sf-state"><img src="img/products/sacco/state-failed.png" alt="Failed: the server's own reason, with Edit and retry or Discard" loading="lazy"><div><h5>Failed</h5><p>The server's own words. <em>Edit &amp; retry</em>, or <em>Discard</em> by typing the amount back.</p></div></div></div>
+                </div>
+                <p class="sf-body text-center" style="max-width:760px;margin:10px auto 0;">When the connection drops mid-send and the server will not say whether the money arrived, the tablet does not guess: it names the reference to look for on the account and asks the branch before anything is sent again. Rendered from the app's screenshot tests.</p>
+            </div>
+        </section>
+
+        <!-- ── 5 · Try the screens ─────────────────── -->
+        <section class="sf-warm section-pad" id="try">
+            <div class="container">
+                <div class="sf-head">
+                    <span class="sf-kicker">Try it</span>
+                    <h2 class="sf-h2">Pick a screen.</h2>
+                </div>
+                <div class="sf-try">
+                    <div class="sf-try-tabs" role="tablist" aria-label="Sacco Field screens">
+                        <button type="button" role="tab" aria-selected="true" aria-controls="sf-try-screen" data-i="0"><i class="fas fa-home"></i> Home</button>
+                        <button type="button" role="tab" aria-selected="false" aria-controls="sf-try-screen" data-i="1"><i class="fas fa-route"></i> Today's route</button>
+                        <button type="button" role="tab" aria-selected="false" aria-controls="sf-try-screen" data-i="2"><i class="fas fa-users"></i> Group meeting</button>
+                        <button type="button" role="tab" aria-selected="false" aria-controls="sf-try-screen" data-i="3"><i class="fas fa-search"></i> Who is paying?</button>
+                        <button type="button" role="tab" aria-selected="false" aria-controls="sf-try-screen" data-i="4"><i class="fas fa-id-card"></i> A member</button>
+                        <button type="button" role="tab" aria-selected="false" aria-controls="sf-try-screen" data-i="5"><i class="fas fa-file-invoice-dollar"></i> A loan</button>
+                        <button type="button" role="tab" aria-selected="false" aria-controls="sf-try-screen" data-i="6"><i class="fas fa-sync-alt"></i> Sync centre</button>
+                    </div>
+                    <div class="sf-try-screen" id="sf-try-screen" role="tabpanel">
+                        <div class="sf-tablet">
+                            <div class="sf-try-stack">
+                                <img class="on" src="img/products/sacco/home.png" alt="Home: greeting, today's route count, pending pushes, eight quick actions and today's figures" data-caption="Home. The officer's day at a glance: fourteen stops, three M-Pesa pushes still waiting for members to accept, eight quick actions and today's collections." loading="lazy">
+                                <img src="img/products/sacco/route.png" alt="Today's route, overdue stops worst first" data-caption="Today's route. Overdue, upcoming and paid, worst first. Overdue stops show the outstanding balance; upcoming ones, what is due." loading="lazy">
+                                <img src="img/products/sacco/meeting.png" alt="Group meeting mode for the Umoja Self-Help Group" data-caption="Group meeting. Every member with the loan the money goes to, what is still due today, and a Collect repayment button, Waiting to sync, or Paid." loading="lazy">
+                                <img src="img/products/sacco/picker.png" alt="Who is paying: a search for Otieno, the stop he has paid in full shows Paid" data-caption="Who is paying? Today's stops, searchable by name or loan number. A member who has paid today in full says Paid and is listed last." loading="lazy">
+                                <img src="img/products/sacco/member.png" alt="A member's client info tab" data-caption="A member. Client info, accounts, identification, charges, guarantors, next of kin, collateral and a pinpoint of the business." loading="lazy">
+                                <img src="img/products/sacco/loan.png" alt="A loan page with outstanding balance, next instalment and Pay full amount" data-caption="A loan. Outstanding balance, the next instalment from the schedule, and Pay full amount, which opens the collect pane on the total outstanding." loading="lazy">
+                                <img src="img/products/sacco/sync-centre.png" alt="The Sync centre" data-caption="Sync centre. Failed first, then waiting, then done, each with its OB reference. Nothing here says Posted until the server has confirmed it." loading="lazy">
+                            </div>
+                        </div>
+                        <p class="sf-try-caption" aria-live="polite">Home. The officer's day at a glance: fourteen stops, three M-Pesa pushes still waiting for members to accept, eight quick actions and today's collections.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── 6 · Also built in ───────────────────── -->
+        <section class="section-white section-pad">
+            <div class="container">
+                <div class="sf-head">
+                    <span class="sf-kicker">Also built in</span>
+                    <h2 class="sf-h2">The small things a field day needs.</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6"><div class="sf-mini"><div class="sf-mini-icon"><i class="fas fa-flask"></i></div><div><h5>Demo data mode</h5><p>A whole realistic day on the tablet with no server: a route, two meetings, a morning of payments. Try it before you connect a tenant.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="sf-mini"><div class="sf-mini-icon"><i class="fas fa-user-check"></i></div><div><h5>Attendance</h5><p>Present, absent or late, a long-press on the member, kept on the tablet with the meeting.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="sf-mini"><div class="sf-mini-icon"><i class="fas fa-receipt"></i></div><div><h5>Receipts</h5><p>Share a receipt from the success dialog, built from what the ledger read back, not from what was typed.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="sf-mini"><div class="sf-mini-icon"><i class="fas fa-map-marker-alt"></i></div><div><h5>Visit location</h5><p>Where each capture was taken, with its accuracy, or "not recorded" when the tablet could not tell.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="sf-mini"><div class="sf-mini-icon"><i class="fas fa-building"></i></div><div><h5>Centres and groups</h5><p>Every centre and group with its members, signatories, documents and meeting calendar.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="sf-mini"><div class="sf-mini-icon"><i class="fas fa-chart-line"></i></div><div><h5>My performance</h5><p>Today's collections against the sheet, from the figures on the tablet, never an estimate.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="sf-mini"><div class="sf-mini-icon"><i class="fas fa-tablet-alt"></i></div><div><h5>Landscape and portrait</h5><p>List and detail side by side on a tablet held either way; the screens are checked at both.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="sf-mini"><div class="sf-mini-icon"><i class="fas fa-palette"></i></div><div><h5>Two themes</h5><p>Emerald by default, Savanna for SACCOs that already know it, switched in Settings.</p></div></div></div>
+                    <div class="col-lg-4 col-md-6"><div class="sf-mini"><div class="sf-mini-icon"><i class="fas fa-mobile-alt"></i></div><div><h5>Pending pushes on Home</h5><p>The M-Pesa prompts still waiting for members to accept, counted on Home and one tap away.</p></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── 7 · Under the hood ──────────────────── -->
+        <section class="sf-canvas section-pad" id="architecture">
+            <div class="container">
+                <div class="sf-head">
+                    <span class="sf-kicker">Under the hood</span>
+                    <h2 class="sf-h2">A native app, and the core it posts to.</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4"><div class="sf-card"><i class="fas fa-tablet-alt"></i><h5>The tablet app</h5><p>Native Android in Kotlin and Jetpack Compose, with an on-device database that every capture is written to first.</p></div></div>
+                    <div class="col-lg-3 col-md-6 mb-4"><div class="sf-card"><i class="fas fa-inbox"></i><h5>The outbox</h5><p>Every capture carries one idempotency key, sent three ways. A retry after a dropped connection is checked against the ledger before anything is sent again.</p></div></div>
+                    <div class="col-lg-3 col-md-6 mb-4"><div class="sf-card"><i class="fas fa-university"></i><h5>Apache Fineract</h5><p>The ledger, with the Sacco custom modules for mobile money and the collection sheet. The tablet reads back what it posted before it says so.</p></div></div>
+                    <div class="col-lg-3 col-md-6 mb-4"><div class="sf-card"><i class="fas fa-mobile-alt"></i><h5>Payment Hub</h5><p>M-Pesa and Airtel collection for the branch. The tablet's STK push goes through the Sacco mobile-money module on the same core.</p></div></div>
+                </div>
+                <div class="sf-tags">
+                    <span>Kotlin</span><span>Jetpack Compose</span><span>Room</span><span>WorkManager</span><span>Hilt</span><span>Apache Fineract</span><span>Payment Hub EE</span><span>Docker / K8s</span><span>REST API</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── 8 · Where the build stands ─────────── -->
+        <section class="section-white section-pad" id="status">
+            <div class="container">
+                <div class="sf-head">
+                    <span class="sf-kicker">Where it stands &middot; September 2026</span>
+                    <h2 class="sf-h2">The branch is live. The tablet is three phases in.</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="sf-status">
+                            <h4><span class="sf-status-dot built"></span>Built</h4>
+                            <ul>
+                                <li><strong>Sacco at the branch</strong>, deployed: loans, savings, accounting, mobile money, reports.</li>
+                                <li><strong>The tablet's shell</strong>: five tabs, list beside detail, two themes, both orientations.</li>
+                                <li><strong>Home and the route</strong>: today at a glance, overdue worst first, group meetings.</li>
+                                <li><strong>Collecting money</strong>: cash, M-Pesa push, paybill and passbook deposits, through the outbox to Fineract. Tested against the API; a live tenant is the pilot's first step.</li>
+                                <li><strong>Member files</strong>, centres and groups, the Sync centre, a full demo day.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="sf-status">
+                            <h4><span class="sf-status-dot next"></span>Next</h4>
+                            <ul>
+                                <li><strong>Client quick view</strong>: "what do I owe" in one glance, from the ledger.</li>
+                                <li><strong>Loan and savings applications</strong>, submitted from a panel beside the member.</li>
+                                <li><strong>Verification</strong>: storefront photos with a GPS line, captured offline.</li>
+                                <li><strong>Registration</strong>: a new member with ID photos, consent and a signature.</li>
+                                <li><strong>A pilot</strong> with one SACCO's field team.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="sf-proof">
+                    <div><strong>1,359</strong><span>automated tests on every change</span></div>
+                    <div><strong>2 sizes</strong><span>screens checked against baselines, landscape and portrait</span></div>
+                    <div><strong>1 rule</strong><span>nothing says Posted before the ledger does</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── 9 · Designed in the open ────────────── -->
+        <section class="sf-canvas section-pad-sm">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 mb-4 mb-lg-0">
+                        <span class="sf-kicker">Designed in the open</span>
+                        <h2 class="sf-h2">Every screen, every state, every open question.</h2>
+                        <p class="sf-body">Sacco Field is designed in the open, on Mifos Fineract: each screen drawn before it is built, each state named, and the questions we have not answered written down beside them. Ask us for the walkthrough.</p>
+                        <a class="btn-orange" href="mailto:info@qsoftwares.org?subject=Sacco%20Field%20%E2%80%94%20design%20walkthrough">Ask for the design walkthrough</a>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="sf-open"><img src="img/products/sacco/designed-in-public.png" alt="Six Sacco Field tablet screens from the design canvas: Home, route, registration, loan application, passbook savings and a group meeting" loading="lazy"><p>Frames from the design canvas, not captures of the app.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── 10 · Work with us ───────────────────── -->
+        <section class="sf-warm section-pad" id="work-with-us">
+            <div class="container">
+                <div class="sf-head">
+                    <span class="sf-kicker">Work with us</span>
+                    <h2 class="sf-h2">Three ways in.</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <div class="sf-ask">
+                            <div class="sf-ask-icon"><i class="fas fa-tablet-alt"></i></div>
+                            <h3>See it on a tablet</h3>
+                            <p>A walkthrough of the branch software and Sacco Field together, on the demo day or on your own tenant.</p>
+                            <a class="btn-orange" href="mailto:info@qsoftwares.org?subject=Sacco%20%E2%80%94%20demo%20request">Request a demo</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="sf-ask">
+                            <div class="sf-ask-icon"><i class="fas fa-walking"></i></div>
+                            <h3>Walk a day with us</h3>
+                            <p>We are looking for SACCO field teams to shadow for a day: the route, the meetings, the cash count at the end. Everything the app does comes from days like that.</p>
+                            <a class="btn-orange" href="https://wa.me/254101609998?text=FIELD%20DAY%20%E2%80%94%20Sacco%20Field">Message us on WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="sf-ask">
+                            <div class="sf-ask-icon"><i class="fas fa-code-branch"></i></div>
+                            <h3>Implementers</h3>
+                            <p>Running Fineract for a SACCO or MFI? Bring a tenant and we bring the tablet. We would rather hear what we have wrong now than after the pilot.</p>
+                            <a class="btn-orange" href="mailto:info@qsoftwares.org?subject=Sacco%20Field%20%E2%80%94%20implementer">Talk to the team</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Footer ───────────────────────────── -->
+        <footer class="main-footer main-footer--2 text-white footer-gradient mt-0">
+            <div class="top-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="footer-widget">
+                                <div class="widget-title" data-animate="fadeInUp" data-delay=".0">
+                                    <img src="img/logo-q.png" data-rjs="2" alt="">
+                                </div>
+                                <div class="footer-about">
+                                    <p>QSOFTWARES Ltd designs, deploys, and maintains scalable digital platforms for NGOs, enterprises, and startups. Experts in DevOps, AI infrastructure, and open-source enterprise systems.</p>
+                                </div>
+                                <div class="social-links">
+                                    <ul class="list-unstyled list-inline">
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="footer-widget">
+                                <h3 class="widget-title" data-animate="fadeInUp" data-delay=".15">Contact Us</h3>
+                                <div class="footer-posts footer-posts--2">
+                                    <ul class="list-unstyled">
+                                        <li data-animate="fadeInUp" data-delay=".05">
+                                            <p><i class="fab fa-whatsapp"></i> WhatsApp</p>
+                                            <h4><a href="https://wa.me/254101609998">+254 101 609 998</a></h4>
+                                        </li>
+                                        <li data-animate="fadeInUp" data-delay=".1">
+                                            <p><i class="fas fa-envelope"></i> Email</p>
+                                            <h4><a href="mailto:info@qsoftwares.org">info@qsoftwares.org</a></h4>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="footer-widget">
+                                <h3 class="widget-title" data-animate="fadeInUp" data-delay=".4">Quick Links</h3>
+                                <div class="footer-posts footer-posts--2">
+                                    <ul class="list-unstyled">
+                                        <li><h4><a href="sacco.html">Sacco</a></h4></li>
+                                        <li><h4><a href="carbon-field.html">Carbon Field</a></h4></li>
+                                        <li><h4><a href="products.html">Products &amp; portfolio</a></h4></li>
+                                        <li><h4><a href="services.html">Services</a></h4></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-footer position-relative karla">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 order-last order-md-first">
+                            <span class="copyright-text" data-animate="fadeInDown" data-delay=".7">&copy; 2026 QSOFTWARES Ltd. All rights reserved.</span>
+                        </div>
+                        <div class="col-md-7 order-first order-md-last">
+                            <ul class="footer-menu text-md-right list-inline footer-menu--2">
+                                <li data-animate="fadeInDown" data-delay=".75"><a href="index.html">Home</a></li>
+                                <li data-animate="fadeInDown" data-delay=".8"><a href="#">About Us</a></li>
+                                <li data-animate="fadeInDown" data-delay=".85"><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a class="back-to-top back-top--2" href="#" data-animate="fadeInDown" data-delay=".95">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+        </footer>
+        <!-- ── End Footer ─────────────────────────── -->
+
+    </div><!-- /.wrapper -->
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="plugins/retinajs/retina.min.js"></script>
+    <script src="plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script src="plugins/waypoints/sticky.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        // Try the screens: seven buttons, one tablet. Arrow keys move between tabs, as a tablist should.
+        (function () {
+            var tabs = Array.prototype.slice.call(document.querySelectorAll('.sf-try-tabs [role="tab"]'));
+            var shots = Array.prototype.slice.call(document.querySelectorAll('.sf-try-stack img'));
+            var caption = document.querySelector('.sf-try-caption');
+            if (!tabs.length || !shots.length) return;
+            function show(i, focus) {
+                tabs.forEach(function (t, n) {
+                    t.setAttribute('aria-selected', n === i ? 'true' : 'false');
+                    t.tabIndex = n === i ? 0 : -1;
+                });
+                shots.forEach(function (s, n) {
+                    s.classList.toggle('on', n === i);
+                    if (n === i) s.loading = 'eager';
+                });
+                caption.textContent = shots[i].getAttribute('data-caption');
+                if (focus) tabs[i].focus();
+            }
+            tabs.forEach(function (t, n) {
+                t.tabIndex = n === 0 ? 0 : -1;
+                t.addEventListener('click', function () { show(n, false); });
+                t.addEventListener('keydown', function (e) {
+                    var k = e.key, next = null;
+                    if (k === 'ArrowDown' || k === 'ArrowRight') next = (n + 1) % tabs.length;
+                    if (k === 'ArrowUp' || k === 'ArrowLeft') next = (n - 1 + tabs.length) % tabs.length;
+                    if (k === 'Home') next = 0;
+                    if (k === 'End') next = tabs.length - 1;
+                    if (next !== null) { e.preventDefault(); show(next, true); }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

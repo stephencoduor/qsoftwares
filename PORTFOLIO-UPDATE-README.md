@@ -17,7 +17,7 @@ http://127.0.0.1:8089/
 | `http://127.0.0.1:8089/` | Home page · scroll to **"Recent Work · 10 PROJECTS · 5 VERTICALS"** teaser between "What We Do" and "Why QSOFTWARES" · team section now shows 3 members (Stephen, Andrew, Ambros) |
 | `http://127.0.0.1:8089/products.html` | Products page · **portfolio section now at TOP** (dark teal gradient background, white headline, 10 cards in maturity order) · 3-card Platform Products section below |
 | `http://127.0.0.1:8089/products.html#prodr-iq` | Anchor jump · ProdR-IQ card (Live · uses discovery-home screenshot) |
-| `http://127.0.0.1:8089/products.html#msacco` | Anchor jump · Msacco card (Deployed) |
+| `http://127.0.0.1:8089/sacco.html` | Sacco product page (was Msacco) · `products.html#msacco` still lands on the card |
 | `http://127.0.0.1:8089/products.html#pulseiq` | Anchor jump · PulseIQ card (Beta) |
 
 ### If the server isn't running
@@ -67,7 +67,7 @@ Palette: `#015055` teal-dark · `#0a7a7f` teal-mid · `#1cbf8a` green · `#f5a62
 | `commitbot.png` | `D:\Commit-Bot\screenshots\02-heatmap.png` | CommitBot · **Pre-launch** |
 | `gcipay.png` | `D:\gcipay-bank\screenshots\03-dashboard.png` | GCIPay Bank · **Deployed** |
 | `neobank.png` | `D:\neobank\screenshots\04-dashboard.png` | NeoBank · **Deployed** |
-| `msacco.png` | `D:\msacco\msacco-screenshots\03-dashboard.png` | Msacco · **Deployed** |
+| `sacco/` | `msacco-field` device captures (see `SACCO-SITE-PLAN.md` §4); `sacco/desktop.png` was `msacco.png` | Sacco · **Deployed** |
 | `pulseiq.png` | `D:\PulseIQ\screenshots\03-pulse-home.png` | PulseIQ · **Beta** |
 | `kalkuli.png` | `D:\kalkuli\screenshots\02-dashboard.png` | Kalkuli · **Beta** |
 | `disbursepro.png` | `D:\disbursement-platform\screenshots\20-reports.png` | DisbursePro · **Prototype** |
@@ -77,7 +77,7 @@ Palette: `#015055` teal-dark · `#0a7a7f` teal-mid · `#1cbf8a` green · `#f5a62
 
 | File | Changes |
 |---|---|
-| `products.html` | Portfolio section moved to **top** (above Platform Products); section now has dark teal gradient background; eyebrow updated to `RECENT PORTFOLIO · 10 PROJECTS · 5 VERTICALS`; 10 cards in maturity order (Live → Deployed → Beta → Pre-launch → Prototype); each card shows stack chips for Frontend/Backend/Live status; Platform Products reduced to 3 cards (Msacco moved into portfolio section) |
+| `products.html` | Portfolio section moved to **top** (above Platform Products); section now has dark teal gradient background; eyebrow updated to `RECENT PORTFOLIO · 10 PROJECTS · 5 VERTICALS`; 10 cards in maturity order (Live → Deployed → Beta → Pre-launch → Prototype); each card shows stack chips for Frontend/Backend/Live status; Platform Products reduced to 3 cards (Msacco — now Sacco — moved into portfolio section) |
 | `index.html` | Recent-Work teaser updated: `RECENT WORK · 10 PROJECTS · 5 VERTICALS`; CTA copy `View full portfolio · 10 projects`; team section reduced to 3 members (Bonface Nyakundi removed) |
 
 ### Portfolio order (top-to-bottom on products.html)
@@ -87,7 +87,7 @@ Palette: `#015055` teal-dark · `#0a7a7f` teal-mid · `#1cbf8a` green · `#f5a62
 3. **CommitBot** (Pre-launch) — Closed-loop meeting agent for eng teams
 4. **GCIPay Bank** (Deployed) — Private banking + BaaS on Fineract
 5. **NeoBank** (Deployed) — Digital banking for Kenya & EAC
-6. **Msacco** (Deployed) — SACCO management platform
+6. **Sacco** (Deployed; was Msacco) — SACCO core banking + the Sacco Field tablet · `sacco.html`
 7. **PulseIQ** (Beta) — Workforce pulse & insights
 8. **Kalkuli** (Beta) — Construction estimation
 9. **DisbursePro** (Prototype) — Disbursement orchestration

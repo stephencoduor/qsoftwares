@@ -55,7 +55,7 @@
                                             <li class="active">
                                                 <a href='products.html'>Products <i class="fas fa-caret-down"></i></a>
                                                 <ul>
-                                                    <li><a href="products.html#msacco">Msacco</a></li>
+                                                    <li><a href="sacco.html">Sacco</a></li>
                                                     <li><a href="products.html#fpayroll">F-Payroll</a></li>
                                                     <li><a href="products.html#enterprise-rag">Enterprise-RAG</a></li>
                                                     <li><a href="products.html#kobo-automation">Kobo Automation Suite</a></li>
@@ -281,35 +281,38 @@
                     </div>
                 </div>
 
-                <!-- 6 · Msacco (Deployed · Fineract SACCO product) -->
-                <div class="col-lg-6" id="msacco-portfolio" data-animate="fadeInUp" data-delay=".10">
+                <!-- 6 · Sacco (Deployed · Fineract core banking + the Sacco Field tablet). Was "Msacco" until Sep 2026;
+                     the old products.html#msacco anchor still lands here. Full page: sacco.html -->
+                <div class="col-lg-6" id="sacco" data-animate="fadeInUp" data-delay=".10">
+                    <span id="msacco"></span>
                     <div class="q-portfolio-card">
                         <div class="portfolio-screenshot">
-                            <img src="img/products/msacco.png" alt="Msacco · Digital microfinance platform for SACCOs and MFIs">
+                            <img src="img/products/sacco/home.png" alt="Sacco Field Home screen on a tablet: today's route, pending M-Pesa pushes and eight quick actions">
                             <span class="portfolio-status deployed">Deployed</span>
                         </div>
                         <div class="portfolio-body">
-                            <span class="portfolio-vertical">Fintech · Microfinance · SACCOs</span>
-                            <h3>Msacco</h3>
-                            <p class="portfolio-desc">Digital microfinance platform built on Apache Fineract — designed for SACCOs, MFIs, and community-finance organisations. Loan origination, appraisal &amp; disbursement, savings &amp; fixed deposits, mobile-money collection/disbursement, M-Pesa &amp; Airtel integration, custom reporting.</p>
+                            <span class="portfolio-vertical">Fintech · SACCOs · Field app</span>
+                            <h3>Sacco</h3>
+                            <p class="portfolio-desc">Core banking for SACCOs and MFIs on Apache Fineract &mdash; loans, savings, accounting, M-Pesa &amp; Airtel &mdash; and <strong>Sacco Field</strong>, the offline-first tablet app field officers carry: today's route, group meetings, cash and M-Pesa collection, into the same ledger. Nothing on the tablet says <em>Posted</em> before the ledger does.</p>
                             <ul class="portfolio-stats">
                                 <li><strong>Loan</strong>full lifecycle</li>
                                 <li><strong>M-Pesa</strong>+ Airtel</li>
-                                <li><strong>Savings</strong>+ deposits</li>
+                                <li><strong>Tablet</strong>offline-first</li>
                                 <li><strong>Multi-tenant</strong>SACCO</li>
                             </ul>
                             <div class="portfolio-stack">
                                 <span class="stack-item">Frontend</span>
                                 <span class="stack-item">Backend</span>
                                 <span class="stack-item beta">Deployed</span>
+                                <span class="stack-item todo">Field app in development</span>
                             </div>
                             <div class="prod-tech">
                                 <span class="prod-tech-tag">Apache Fineract</span>
                                 <span class="prod-tech-tag">Payment Hub</span>
+                                <span class="prod-tech-tag">Kotlin / Compose</span>
                                 <span class="prod-tech-tag">Docker / K8s</span>
-                                <span class="prod-tech-tag">REST API</span>
                             </div>
-                            <a href="#contact" class="btn-orange">Request Demo</a>
+                            <a href="sacco.html" class="btn-orange">See Sacco <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -469,7 +472,7 @@
             <div class="text-center mb-40" data-animate="fadeInUp">
                 <span class="eyebrow" style="font-family:'Karla',sans-serif;color:#7ecdc8;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;display:inline-block;margin-bottom:12px;">PLATFORM PRODUCTS · 3 PRODUCTS</span>
                 <h2 style="font-family:'Poppins',sans-serif;color:#015055;font-size:32px;font-weight:700;margin:0;">Three productized platforms — deploy &amp; customise.</h2>
-                <p style="color:#666;margin-top:14px;max-width:680px;margin-left:auto;margin-right:auto;font-size:14px;line-height:1.6;">Open-source-grounded productized offerings deployable to your organisation with full support and customisation. (Msacco — also part of the SACCO portfolio above — is included in the portfolio section for screenshots and stack details.)</p>
+                <p style="color:#666;margin-top:14px;max-width:680px;margin-left:auto;margin-right:auto;font-size:14px;line-height:1.6;">Open-source-grounded productized offerings deployable to your organisation with full support and customisation. (Sacco, our SACCO core banking and field app, is in the portfolio above and has <a href="sacco.html">its own page</a>.)</p>
             </div>
         </div>
     </section>
@@ -601,7 +604,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <div class="footer-widget">
+                        <div class="footer-widget" id="contact">
                             <h3 class="widget-title" data-animate="fadeInUp" data-delay=".15">Contact Us</h3>
                             <div class="footer-posts footer-posts--2">
                                 <ul class="list-unstyled">
@@ -622,7 +625,7 @@
                             <h3 class="widget-title" data-animate="fadeInUp" data-delay=".4">Our Products</h3>
                             <div class="footer-posts footer-posts--2">
                                 <ul class="list-unstyled">
-                                    <li><h4><a href="products.html#msacco">Msacco</a></h4></li>
+                                    <li><h4><a href="sacco.html">Sacco</a></h4></li>
                                     <li><h4><a href="products.html#fpayroll">F-Payroll</a></h4></li>
                                     <li><h4><a href="products.html#enterprise-rag">Enterprise-RAG</a></h4></li>
                                     <li><h4><a href="products.html#kobo-automation">Kobo Automation Suite</a></h4></li>
