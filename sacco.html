@@ -50,9 +50,9 @@
         .sf-btn-ghost:hover { background: rgba(255,255,255,0.12); text-decoration: none; }
 
         /* the tablet: a CSS bezel round a real capture */
-        .sf-tablet { position: relative; background: #0d1512; border-radius: 30px; padding: 18px; box-shadow: 0 40px 90px rgba(0,0,0,0.45), inset 0 0 0 2px #26322d; }
-        .sf-tablet::before { content: ""; position: absolute; top: 50%; left: 7px; width: 5px; height: 5px; margin-top: -2px; border-radius: 50%; background: #26322d; }
-        .sf-tablet img { display: block; width: 100%; border-radius: 12px; }
+        .sf-tablet { position: relative; background: #f7f7f5; border-radius: 30px; padding: 18px 26px; box-shadow: 0 40px 90px rgba(0,0,0,0.45), inset 0 0 0 2px #fff, 0 0 0 2px #d5d7d3; }
+        .sf-tablet::before { content: ""; position: absolute; top: 50%; left: 10px; width: 6px; height: 6px; margin-top: -3px; border-radius: 50%; background: #2b2f2d; }
+        .sf-tablet img { display: block; width: 100%; border-radius: 4px; border: 1px solid #1d2420; }
         .sf-hero .sf-tablet { margin-bottom: -120px; }
         .sf-hero-note { font-size: 12.5px; color: rgba(255,255,255,0.6); margin-top: 14px; text-align: center; }
 
@@ -165,7 +165,7 @@
         }
         @media (max-width: 575px) {
             .sf-hero h1 { font-size: 34px; }
-            .sf-tablet { padding: 9px; border-radius: 18px; }
+            .sf-tablet { padding: 9px 18px; border-radius: 18px; }
             .sf-shot .sf-inset { width: 60%; margin-top: -30px; }
         }
         @media (prefers-reduced-motion: reduce) { .sf-try-stack img { transition: none; } }
@@ -261,7 +261,7 @@
                     </div>
                     <div class="col-lg-7" data-animate="fadeInUp" data-delay=".3">
                         <div class="sf-tablet">
-                            <img src="img/products/sacco/home.png" alt="Sacco Field Home screen on a tablet: a greeting for field officer Alice Wanjiru, 14 stops on today's route, three M-Pesa pushes pending, eight quick actions and today's collections of KES 9,340">
+                            <img src="img/products/sacco/home-launchpad.png" alt="Sacco Field Home screen on a tablet: a greeting for the field officer, 14 stops on today's route, three M-Pesa pushes pending, eight quick actions and today's collections" width="1445" height="1020">
                         </div>
                     </div>
                 </div>
@@ -332,7 +332,7 @@
                     </div>
 
                     <div class="sf-stop flip" data-animate="fadeInUp">
-                        <div class="sf-shot"><img src="img/products/sacco/meeting-keypad.png" alt="Umoja Self-Help Group meeting: members listed with their loan and what is still due, Otieno's pane open with 1430 — the rest of his instalment — typed on a numeric keypad and SEND M-PESA PUSH directly above the keys" loading="lazy"></div>
+                        <div class="sf-shot"><img src="img/products/sacco/meeting-keypad.png" alt="Umoja Self-Help Group meeting: members listed with their loan and what is still due, Wanjiku's pane open with 1000 typed on a numeric keypad and SEND M-PESA PUSH directly above the keys" loading="lazy"></div>
                         <span class="sf-time">08:30</span>
                         <div class="sf-text">
                             <span class="sf-kicker">The group meeting</span>
