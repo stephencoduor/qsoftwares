@@ -9,7 +9,7 @@
     <meta property="og:description" content="The branch runs Sacco on Apache Fineract. The field runs Sacco Field: routes, meetings, cash and M-Pesa collection, offline first, into the same ledger.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://qsoftwares.org/sacco.html">
-    <meta property="og:image" content="https://qsoftwares.org/img/products/sacco/og.png">
+    <meta property="og:image" content="https://qsoftwares.org/img/products/sacco/og.png?v=3">
     <link rel="canonical" href="https://qsoftwares.org/sacco.html">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400%7CPoppins:400,400i,500,700">
@@ -35,16 +35,17 @@
             --sf-body:   #4B5563;
             --sf-line:   #D6E0D9;
         }
-        .sf-hero { background: linear-gradient(135deg, var(--sf-forest) 0%, var(--sf-green) 100%); padding: 150px 0 0; color: #fff; position: relative; z-index: 2; }
+        .sf-hero { background: var(--sf-green); padding: 150px 0 0; color: #fff; position: relative; z-index: 2; }
         .sf-hero .container { position: relative; }
         .sf-brand { display: inline-flex; align-items: center; gap: 14px; margin-bottom: 26px; }
         .sf-brand img { width: 64px; height: 64px; }
         .sf-brand span { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -0.5px; }
-        .sf-eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px; margin-bottom: 22px; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(216,243,220,0.45); color: var(--sf-mint); font-size: 12.5px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; }
+        .sf-eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px; margin-bottom: 22px; border-radius: 999px; background: var(--sf-forest); border: 1px solid var(--sf-forest); color: #fff; font-size: 12.5px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; }
         .sf-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sf-gold); display: inline-block; }
         .sf-hero h1 { font-family: 'Poppins', sans-serif; font-size: 58px; font-weight: 700; line-height: 1.05; letter-spacing: -1.5px; color: #fff; margin-bottom: 20px; }
         .sf-hero h1 em { font-style: normal; color: var(--sf-mint); }
-        .sf-hero p.sf-sub { font-size: 18px; line-height: 1.65; color: rgba(255,255,255,0.86); max-width: 620px; margin-bottom: 30px; }
+        .sf-hero .sf-tablet { box-shadow: 0 40px 90px rgba(7,60,28,0.45), inset 0 0 0 2px #fff, 0 0 0 2px #d5d7d3; }
+        .sf-hero p.sf-sub { font-size: 19px; line-height: 1.6; font-weight: 600; color: #fff; max-width: 620px; margin-bottom: 30px; }
         .sf-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 64px; }
         .sf-btn-ghost { display: inline-flex; align-items: center; gap: 10px; padding: 12px 28px; border-radius: 9px; border: 2px solid rgba(255,255,255,0.7); color: #fff !important; font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
         .sf-btn-ghost:hover { background: rgba(255,255,255,0.12); text-decoration: none; }
@@ -247,7 +248,7 @@
                 <div class="row align-items-end">
                     <div class="col-lg-5">
                         <div class="sf-brand" data-animate="fadeInUp">
-                            <img src="img/products/sacco/emblem-white.png" alt="">
+                            <img src="img/products/sacco/emblem-white.png?v=3" alt="">
                             <span>Sacco</span>
                         </div>
                         <br>
@@ -262,7 +263,7 @@
                     </div>
                     <div class="col-lg-7" data-animate="fadeInUp" data-delay=".3">
                         <div class="sf-tablet">
-                            <img src="img/products/sacco/home-launchpad.png" alt="Sacco Field Home screen on a tablet: a greeting for the field officer, 14 stops on today's route, three M-Pesa pushes pending, eight quick actions and today's collections" width="1445" height="1020">
+                            <img src="img/products/sacco/home-launchpad.png?v=3" alt="Sacco Field Home screen on a tablet: a greeting for the field officer, 14 stops on today's route, three M-Pesa pushes pending, eight quick actions and today's collections" width="1445" height="1020">
                         </div>
                     </div>
                 </div>
@@ -280,7 +281,7 @@
                 <div class="row">
                     <div class="col-lg-6 mb-4" data-animate="fadeInUp">
                         <div class="sf-surface">
-                            <img src="img/products/sacco/desktop.png" alt="Sacco at the branch: the overview dashboard with total portfolio, active loans, savings deposits and collections today (sample data)" loading="lazy" style="margin-bottom:6px;">
+                            <img src="img/products/sacco/desktop.png?v=3" alt="Sacco at the branch: the overview dashboard with total portfolio, active loans, savings deposits and collections today (sample data)" loading="lazy" style="margin-bottom:6px;">
                             <small style="display:block;font-size:12px;color:#6B7280;margin-bottom:18px;">The branch overview, with sample data.</small>
                             <span><span class="sf-pill deployed">Deployed</span></span>
                             <h3 class="sf-h3">Sacco at the branch</h3>
@@ -295,7 +296,7 @@
                     </div>
                     <div class="col-lg-6 mb-4" data-animate="fadeInUp" data-delay=".1">
                         <div class="sf-surface">
-                            <img src="img/products/sacco/route.png" alt="Sacco Field: today's route, overdue stops listed worst first with the loan, the amount and the days overdue" loading="lazy">
+                            <img src="img/products/sacco/route.png?v=3" alt="Sacco Field: today's route, overdue stops listed worst first with the loan, the amount and the days overdue" loading="lazy">
                             <span><span class="sf-pill dev">In development</span></span>
                             <h3 class="sf-h3">Sacco Field, in the field</h3>
                             <p class="sf-body">A tablet app for the field officer, built for a market with no signal. Everything is saved on the tablet first and sent when it can be.</p>
@@ -323,7 +324,7 @@
 
                 <div class="sf-day">
                     <div class="sf-stop" data-animate="fadeInUp">
-                        <div class="sf-shot"><img src="img/products/sacco/route.png" alt="Today's route with Overdue (worst first) 5, Upcoming 5 and Paid tabs; Daniel Mutua Kioko 12 days overdue at the top" loading="lazy"></div>
+                        <div class="sf-shot"><img src="img/products/sacco/route.png?v=3" alt="Today's route with Overdue (worst first) 5, Upcoming 5 and Paid tabs; Daniel Mutua Kioko 12 days overdue at the top" loading="lazy"></div>
                         <span class="sf-time">07:40</span>
                         <div class="sf-text">
                             <span class="sf-kicker">The route</span>
@@ -333,7 +334,7 @@
                     </div>
 
                     <div class="sf-stop flip" data-animate="fadeInUp">
-                        <div class="sf-shot"><img src="img/products/sacco/meeting-keypad.png" alt="Umoja Self-Help Group meeting: members listed with their loan and what is still due, Wanjiku's pane open with 1000 typed on a numeric keypad and SEND M-PESA PUSH directly above the keys" loading="lazy"></div>
+                        <div class="sf-shot"><img src="img/products/sacco/meeting-keypad.png?v=3" alt="Umoja Self-Help Group meeting: members listed with their loan and what is still due, Wanjiku's pane open with 1000 typed on a numeric keypad and SEND M-PESA PUSH directly above the keys" loading="lazy"></div>
                         <span class="sf-time">08:30</span>
                         <div class="sf-text">
                             <span class="sf-kicker">The group meeting</span>
@@ -345,8 +346,8 @@
 
                     <div class="sf-stop" data-animate="fadeInUp">
                         <div class="sf-shot">
-                            <img src="img/products/sacco/collect-cash.png" alt="Collect repayment pane for Otieno Brian Ochieng beside the route: step 1 evidence, step 2 amount and channel with CASH chosen, step 3 confirm" loading="lazy">
-                            <img class="sf-inset" src="img/products/sacco/payment-successful.png" alt="Payment Successful dialog: collected KES 1,430.00, account Otieno Brian Ochieng, method cash, with DONE and PRINT RECEIPT" loading="lazy">
+                            <img src="img/products/sacco/collect-cash.png?v=3" alt="Collect repayment pane for Otieno Brian Ochieng beside the route: step 1 evidence, step 2 amount and channel with CASH chosen, step 3 confirm" loading="lazy">
+                            <img class="sf-inset" src="img/products/sacco/payment-successful.png?v=3" alt="Payment Successful dialog: collected KES 1,430.00, account Otieno Brian Ochieng, method cash, with DONE and PRINT RECEIPT" loading="lazy">
                         </div>
                         <span class="sf-time">10:15</span>
                         <div class="sf-text">
@@ -358,8 +359,8 @@
 
                     <div class="sf-stop flip" data-animate="fadeInUp">
                         <div class="sf-shot">
-                            <img src="img/products/sacco/push-sent.png" alt="PUSH SENT! dialog: an M-Pesa request of KES 1,000.00 on its way to Wanjiku's phone, awaiting client confirmation" loading="lazy">
-                            <img class="sf-inset" src="img/products/sacco/already-on-phone.png" alt="Daniel's loan page opened again: the pane shows the push already on his phone, not a second form" loading="lazy">
+                            <img src="img/products/sacco/push-sent.png?v=3" alt="PUSH SENT! dialog: an M-Pesa request of KES 1,000.00 on its way to Wanjiku's phone, awaiting client confirmation" loading="lazy">
+                            <img class="sf-inset" src="img/products/sacco/already-on-phone.png?v=3" alt="Daniel's loan page opened again: the pane shows the push already on his phone, not a second form" loading="lazy">
                         </div>
                         <span class="sf-time">11:00</span>
                         <div class="sf-text">
@@ -371,8 +372,8 @@
 
                     <div class="sf-stop" data-animate="fadeInUp">
                         <div class="sf-shot">
-                            <img src="img/products/sacco/loan.png" alt="A loan page: outstanding balance, account number, interest rate, product, next instalment and due date, with Pay full amount" loading="lazy">
-                            <img class="sf-inset" src="img/products/sacco/member.png" alt="The member's file on the Client Info tab, with tabs for accounts, identification, charges, guarantors, next of kin, collateral and pinpoint location" loading="lazy">
+                            <img src="img/products/sacco/loan.png?v=3" alt="A loan page: outstanding balance, account number, interest rate, product, next instalment and due date, with Pay full amount" loading="lazy">
+                            <img class="sf-inset" src="img/products/sacco/member.png?v=3" alt="The member's file on the Client Info tab, with tabs for accounts, identification, charges, guarantors, next of kin, collateral and pinpoint location" loading="lazy">
                         </div>
                         <span class="sf-time">12:30</span>
                         <div class="sf-text">
@@ -383,7 +384,7 @@
                     </div>
 
                     <div class="sf-stop flip" data-animate="fadeInUp">
-                        <div class="sf-shot"><img src="img/products/sacco/deposit.png" alt="Deposit pane beside the meeting: Passbook Savings 000005203, balance KES 2,160.00, amount, payment type M-Pesa and the member's phone number" loading="lazy"></div>
+                        <div class="sf-shot"><img src="img/products/sacco/deposit.png?v=3" alt="Deposit pane beside the meeting: Passbook Savings 000005203, balance KES 2,160.00, amount, payment type M-Pesa and the member's phone number" loading="lazy"></div>
                         <span class="sf-time">14:00</span>
                         <div class="sf-text">
                             <span class="sf-kicker">A deposit</span>
@@ -394,7 +395,7 @@
                     </div>
 
                     <div class="sf-stop" data-animate="fadeInUp">
-                        <div class="sf-shot"><img src="img/products/sacco/sync-centre.png" alt="Sync centre: three M-Pesa pushes waiting to sync, the morning's five payments posted, each with its OB reference, time and amount" loading="lazy"></div>
+                        <div class="sf-shot"><img src="img/products/sacco/sync-centre.png?v=3" alt="Sync centre: three M-Pesa pushes waiting to sync, the morning's five payments posted, each with its OB reference, time and amount" loading="lazy"></div>
                         <span class="sf-time">16:45</span>
                         <div class="sf-text">
                             <span class="sf-kicker">Back in signal</span>
@@ -421,10 +422,10 @@
                     <span class="sf-word w-disc">Discarded</span>
                 </div>
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 mb-4" data-animate="fadeInUp"><div class="sf-state"><img src="img/products/sacco/state-waiting.png" alt="Saved, waiting to sync: not yet in the ledger, with the local reference" loading="lazy"><div><h5>Saved &middot; Waiting to sync</h5><p>On the tablet, with a reference, and plainly <em>not yet in the ledger</em>.</p></div></div></div>
-                    <div class="col-lg-3 col-md-6 mb-4" data-animate="fadeInUp" data-delay=".05"><div class="sf-state"><img src="img/products/sacco/state-push-sent.png" alt="PUSH SENT: the M-Pesa request is on its way to the member's phone" loading="lazy"><div><h5>Push sent</h5><p>A request on the member's phone. Nothing is collected until they accept it.</p></div></div></div>
-                    <div class="col-lg-3 col-md-6 mb-4" data-animate="fadeInUp" data-delay=".1"><div class="sf-state"><img src="img/products/sacco/state-successful.png" alt="Payment Successful: collected, account, method and location, with a receipt" loading="lazy"><div><h5>Payment Successful</h5><p>Only after the server has taken it and the tablet has read it back.</p></div></div></div>
-                    <div class="col-lg-3 col-md-6 mb-4" data-animate="fadeInUp" data-delay=".15"><div class="sf-state"><img src="img/products/sacco/state-failed.png" alt="Failed: the server's own reason, with Edit and retry or Discard" loading="lazy"><div><h5>Failed</h5><p>The server's own words. <em>Edit &amp; retry</em>, or <em>Discard</em> by typing the amount back.</p></div></div></div>
+                    <div class="col-lg-3 col-md-6 mb-4" data-animate="fadeInUp"><div class="sf-state"><img src="img/products/sacco/state-waiting.png?v=3" alt="Saved, waiting to sync: not yet in the ledger, with the local reference" loading="lazy"><div><h5>Saved &middot; Waiting to sync</h5><p>On the tablet, with a reference, and plainly <em>not yet in the ledger</em>.</p></div></div></div>
+                    <div class="col-lg-3 col-md-6 mb-4" data-animate="fadeInUp" data-delay=".05"><div class="sf-state"><img src="img/products/sacco/state-push-sent.png?v=3" alt="PUSH SENT: the M-Pesa request is on its way to the member's phone" loading="lazy"><div><h5>Push sent</h5><p>A request on the member's phone. Nothing is collected until they accept it.</p></div></div></div>
+                    <div class="col-lg-3 col-md-6 mb-4" data-animate="fadeInUp" data-delay=".1"><div class="sf-state"><img src="img/products/sacco/state-successful.png?v=3" alt="Payment Successful: collected, account, method and location, with a receipt" loading="lazy"><div><h5>Payment Successful</h5><p>Only after the server has taken it and the tablet has read it back.</p></div></div></div>
+                    <div class="col-lg-3 col-md-6 mb-4" data-animate="fadeInUp" data-delay=".15"><div class="sf-state"><img src="img/products/sacco/state-failed.png?v=3" alt="Failed: the server's own reason, with Edit and retry or Discard" loading="lazy"><div><h5>Failed</h5><p>The server's own words. <em>Edit &amp; retry</em>, or <em>Discard</em> by typing the amount back.</p></div></div></div>
                 </div>
                 <p class="sf-body text-center" style="max-width:760px;margin:10px auto 0;">When the connection drops mid-send and the server will not say whether the money arrived, the tablet does not guess: it names the reference to look for on the account and asks the branch before anything is sent again. Rendered from the app's screenshot tests.</p>
             </div>
@@ -450,13 +451,13 @@
                     <div class="sf-try-screen" id="sf-try-screen" role="tabpanel">
                         <div class="sf-tablet">
                             <div class="sf-try-stack">
-                                <img class="on" src="img/products/sacco/home.png" alt="Home: greeting, today's route count, pending pushes, eight quick actions and today's figures" data-caption="Home. The officer's day at a glance: fourteen stops, three M-Pesa pushes still waiting for members to accept, eight quick actions and today's collections." loading="lazy">
-                                <img src="img/products/sacco/route.png" alt="Today's route, overdue stops worst first" data-caption="Today's route. Overdue, upcoming and paid, worst first. Overdue stops show the outstanding balance; upcoming ones, what is due." loading="lazy">
-                                <img src="img/products/sacco/meeting.png" alt="Group meeting mode for the Umoja Self-Help Group" data-caption="Group meeting. Every member with the loan the money goes to, what is still due today, and a Collect repayment button, Waiting to sync, or Paid." loading="lazy">
-                                <img src="img/products/sacco/picker.png" alt="Who is paying: a search for Otieno, the stop he has paid in full shows Paid" data-caption="Who is paying? Today's stops, searchable by name or loan number. A member who has paid today in full says Paid and is listed last." loading="lazy">
-                                <img src="img/products/sacco/member.png" alt="A member's client info tab" data-caption="A member. Client info, accounts, identification, charges, guarantors, next of kin, collateral and a pinpoint of the business." loading="lazy">
-                                <img src="img/products/sacco/loan.png" alt="A loan page with outstanding balance, next instalment and Pay full amount" data-caption="A loan. Outstanding balance, the next instalment from the schedule, and Pay full amount, which opens the collect pane on the total outstanding." loading="lazy">
-                                <img src="img/products/sacco/sync-centre.png" alt="The Sync centre" data-caption="Sync centre. Failed first, then waiting, then done, each with its OB reference. Nothing here says Posted until the server has confirmed it." loading="lazy">
+                                <img class="on" src="img/products/sacco/home.png?v=3" alt="Home: greeting, today's route count, pending pushes, eight quick actions and today's figures" data-caption="Home. The officer's day at a glance: fourteen stops, three M-Pesa pushes still waiting for members to accept, eight quick actions and today's collections." loading="lazy">
+                                <img src="img/products/sacco/route.png?v=3" alt="Today's route, overdue stops worst first" data-caption="Today's route. Overdue, upcoming and paid, worst first. Overdue stops show the outstanding balance; upcoming ones, what is due." loading="lazy">
+                                <img src="img/products/sacco/meeting.png?v=3" alt="Group meeting mode for the Umoja Self-Help Group" data-caption="Group meeting. Every member with the loan the money goes to, what is still due today, and a Collect repayment button, Waiting to sync, or Paid." loading="lazy">
+                                <img src="img/products/sacco/picker.png?v=3" alt="Who is paying: a search for Otieno, the stop he has paid in full shows Paid" data-caption="Who is paying? Today's stops, searchable by name or loan number. A member who has paid today in full says Paid and is listed last." loading="lazy">
+                                <img src="img/products/sacco/member.png?v=3" alt="A member's client info tab" data-caption="A member. Client info, accounts, identification, charges, guarantors, next of kin, collateral and a pinpoint of the business." loading="lazy">
+                                <img src="img/products/sacco/loan.png?v=3" alt="A loan page with outstanding balance, next instalment and Pay full amount" data-caption="A loan. Outstanding balance, the next instalment from the schedule, and Pay full amount, which opens the collect pane on the total outstanding." loading="lazy">
+                                <img src="img/products/sacco/sync-centre.png?v=3" alt="The Sync centre" data-caption="Sync centre. Failed first, then waiting, then done, each with its OB reference. Nothing here says Posted until the server has confirmed it." loading="lazy">
                             </div>
                         </div>
                         <p class="sf-try-caption" aria-live="polite">Home. The officer's day at a glance: fourteen stops, three M-Pesa pushes still waiting for members to accept, eight quick actions and today's collections.</p>
@@ -558,7 +559,7 @@
                         <a class="btn-orange" href="mailto:info@qsoftwares.org?subject=Sacco%20Field%20%E2%80%94%20design%20walkthrough">Ask for the design walkthrough</a>
                     </div>
                     <div class="col-lg-7">
-                        <div class="sf-open"><img src="img/products/sacco/designed-in-public.png" alt="Six Sacco Field tablet screens from the design canvas: Home, route, registration, loan application, passbook savings and a group meeting" loading="lazy"><p>Frames from the design canvas, not captures of the app.</p></div>
+                        <div class="sf-open"><img src="img/products/sacco/designed-in-public.png?v=3" alt="Six Sacco Field tablet screens: Home, today's route, a group meeting, cash collection, a member's file and the Sync centre" loading="lazy"><p>Captures of the app on its demo day.</p></div>
                     </div>
                 </div>
             </div>
