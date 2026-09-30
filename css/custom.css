@@ -951,3 +951,17 @@
 .portfolio-section-dark .portfolio-legend .lgn-item {
     color: #e8f3f2;
 }
+
+/* ── Home: release hero, trusted strip, footer links ───── */
+.release-tag { display: inline-block; margin-bottom: 16px; padding: 6px 14px; border-radius: 999px; background: #015055; color: #fff; font-family: 'Karla', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+.home-tablet { position: relative; background: #f7f7f5; border: 2px solid #d5d7d3; border-radius: 30px; padding: 16px 34px; box-shadow: 0 30px 70px rgba(1,80,85,0.28), inset 0 0 0 2px #fff; }
+.home-tablet::before { content: ""; position: absolute; top: 50%; left: 13px; width: 7px; height: 7px; margin-top: -3px; border-radius: 50%; background: #2b2f2d; }
+.home-tablet::after { content: ""; position: absolute; top: 50%; right: 8px; width: 16px; height: 16px; margin-top: -9px; border-radius: 50%; border: 1.5px solid #c9cbc7; }
+.home-tablet img { display: block; width: 100%; border: 1px solid #1d2420; }
+.trusted-strip { background: #fff; padding: 28px 0; border-bottom: 1px solid #e3eef0; }
+.trusted-strip .trusted-label { font-family: 'Karla', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #4a6568; margin-right: 8px; }
+.trusted-strip .client-badge { background: #eef8f7; border-color: #cfe6e4; color: #015055; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a { color: rgba(255,255,255,0.85); }
+.footer-links a:hover { color: #f5a623; }
+@media (max-width: 767px) { .home-tablet { padding: 9px 20px; border-radius: 18px; } .home-tablet::after { width: 10px; height: 10px; margin-top: -6px; right: 5px; } .home-tablet::before { left: 7px; width: 5px; height: 5px; } }

@@ -19,15 +19,10 @@
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/style.css?v=3">
     <link rel="stylesheet" href="css/responsive.css?v=3">
-    <link rel="stylesheet" href="css/custom.css?v=3">
+    <link rel="stylesheet" href="css/custom.css?v=4">
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div class="preLoader">
-        <span class="spin"></span>
-    </div>
-
     <!-- Wrapper -->
     <div class="wrapper body-gradient">
         <!-- Main header -->
@@ -111,21 +106,21 @@
                     <div class="col-lg-6 col-12">
                         <!-- Banner content -->
                         <div class="banner-content text-green">
-                            <h2 data-animate="fadeInUp" data-delay="1.4">We Deliver Software Solutions with DevOps and AI MLOps for your workflows </h2>
-                            <p data-animate="fadeInUp" data-delay="1.5">Our consultancy combines Software Engineering, DevOps, and MLOps to streamline workflows and build efficient, cloud-ready solutions..</p>
-                            <ul class="list-inline" data-animate="fadeInUp" data-delay="1.6">
-                                <li><a class="btn-orange" href="services.html"><i class="fas fa-arrow-right"></i> Explore Services</a></li>
-                                <li><a class="btn-orange-outline" href="https://wa.me/254101609998" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp Us</a></li>
+                            <span class="release-tag" data-animate="fadeInUp" data-delay=".1">New release &middot; Sacco Field</span>
+                            <h2 data-animate="fadeInUp" data-delay=".2">The field officer's tablet for SACCOs is here.</h2>
+                            <p data-animate="fadeInUp" data-delay=".3">Sacco Field collects repayments by cash and M-Pesa on the route, keeps working offline, and never says Posted before the ledger has confirmed it. Built by QSOFTWARES on Apache Fineract.</p>
+                            <ul class="list-inline" data-animate="fadeInUp" data-delay=".4">
+                                <li><a class="btn-orange" href="sacco.html"><i class="fas fa-arrow-right"></i> See Sacco Field</a></li>
+                                <li><a class="btn-orange-outline" href="services.html"><i class="fas fa-th-list"></i> Explore Services</a></li>
                             </ul>
                         </div>
                         <!-- End of Banner content -->
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="banner-image">
-                            <img data-rjs="2" src="img/home-3/banner--3.png" alt="">
-                            <!-- <img data-rjs="2" class="animate-icon animate-icon_1" src="img/home-3/animated.png" alt="">
-                            <img data-rjs="2" class="animate-icon animate-icon_2" src="img/home-3/animated.png" alt="">
-                            <img data-rjs="2" class="animate-icon animate-icon_3" src="img/home-3/animated.png" alt=""> -->
+                            <div class="home-tablet" data-animate="fadeInUp" data-delay=".3">
+                                <img src="img/products/sacco/home.png" alt="Sacco Field Home screen on a tablet: the day's route, pending M-Pesa pushes, eight quick actions and today's collections">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -133,22 +128,28 @@
         </section>
         <!-- End of Banner -->
 
+        <!-- Trusted By -->
+        <section class="trusted-strip">
+            <div class="container">
+                <div class="client-badges">
+                    <span class="trusted-label">Trusted by</span>
+                    <span class="client-badge">Christian Aid</span>
+                    <span class="client-badge">Untold Global</span>
+                    <span class="client-badge">Amref Kenya</span>
+                    <span class="client-badge">IOGT-NTO Movement</span>
+                    <span class="client-badge">Reforest Action</span>
+                </div>
+            </div>
+        </section>
+
         <!-- What We Do -->
         <section class="section-dark-green section-pad-top">
             <div class="container">
                 <div class="section-heading-dark" data-animate="fadeInUp">
                     <h2>What We Do</h2>
-                    <p>End-to-end digital solutions &mdash; from infrastructure and automation to AI-powered platforms and enterprise systems.</p>
+                    <p>End-to-end digital solutions &mdash; from infrastructure to AI-powered platforms and enterprise systems.</p>
                 </div>
-                <div class="row g-4 card-grid">
-                    <div class="col-lg-4 col-md-6" data-animate="fadeInUp" data-delay=".1">
-                        <div class="q-card q-card-center">
-                            <div class="card-icon"><i class="fas fa-robot"></i></div>
-                            <h4>n8n &amp; Workflow Automation</h4>
-                            <p>Production-ready n8n deployments on Docker &amp; Kubernetes &mdash; backed by Supabase, Redis, and enterprise-grade security.</p>
-                            <a href="services.html#n8n" class="btn-orange-sm">Explore <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
+                <div class="row g-4 card-grid justify-content-center">
                     <div class="col-lg-4 col-md-6" data-animate="fadeInUp" data-delay=".2">
                         <div class="q-card q-card-center">
                             <div class="card-icon"><i class="fas fa-server"></i></div>
@@ -355,7 +356,7 @@
                     <h2>Industries We Serve</h2>
                     <p>Delivering tailored digital solutions to organisations across multiple sectors &mdash; from NGOs and financial institutions to government agencies and enterprises.</p>
                 </div>
-                <div class="row g-4 card-grid">
+                <div class="row g-4 card-grid justify-content-center">
                     <div class="col-lg-4 col-md-6" data-animate="fadeInUp" data-delay=".1">
                         <div class="q-card">
                             <div class="card-icon"><i class="fas fa-globe-africa"></i></div>
@@ -396,31 +397,6 @@
                             <a href="services.html#custom" class="link-orange">Learn more <i class="fas fa-angle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6" data-animate="fadeInUp" data-delay=".3">
-                        <div class="q-card">
-                            <div class="card-icon"><i class="fas fa-headset"></i></div>
-                            <h4>System Support &amp; SLA</h4>
-                            <p>24/7 infrastructure monitoring, security patching, backup management, performance optimisation, and incident response for production systems.</p>
-                            <a href="services.html#sla" class="link-orange">Learn more <i class="fas fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Trusted By -->
-        <section class="section-dark-green section-pad-xs">
-            <div class="container">
-                <div class="section-heading-dark" data-animate="fadeInUp">
-                    <h2>Trusted By</h2>
-                    <p>Delivering reliable digital solutions to leading NGOs and international organisations.</p>
-                </div>
-                <div class="client-badges" data-animate="fadeInUp" data-delay=".2">
-                    <span class="client-badge">Christian Aid</span>
-                    <span class="client-badge">Untold Global</span>
-                    <span class="client-badge">Amref Kenya</span>
-                    <span class="client-badge">IOGT-NTO Movement</span>
-                    <span class="client-badge">Reforest Action</span>
                 </div>
             </div>
         </section>
@@ -443,51 +419,6 @@
             </div>
         </section>
 
-
-        <!-- ── Our Team ──────────────────────────── -->
-        <section class="section-light-blue section-pad">
-            <div class="container">
-                <div class="section-heading" data-animate="fadeInUp" data-delay=".1">
-                    <h2>Meet Our Team</h2>
-                    <p>The engineers and specialists behind QSOFTWARES &mdash; passionate about building reliable digital infrastructure for organisations across Africa.</p>
-                </div>
-                <div class="row g-4 justify-content-center">
-                    <div class="col-lg-3 col-md-6 col-sm-6" data-animate="fadeInUp" data-delay=".1">
-                        <div class="team-card">
-                            <img class="team-avatar" src="https://ui-avatars.com/api/?name=Stephen+Oduor&background=015055&color=fff&size=240&font-size=0.38&bold=true" alt="Stephen Oduor">
-                            <h5>Stephen Oduor</h5>
-                            <p class="team-role">DevOps, Software &amp; AI Engineer</p>
-                            <div class="team-socials">
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6" data-animate="fadeInUp" data-delay=".2">
-                        <div class="team-card">
-                            <img class="team-avatar" src="https://ui-avatars.com/api/?name=Andrew+Sergon&background=015055&color=fff&size=240&font-size=0.38&bold=true" alt="Andrew Kiptum Sergon">
-                            <h5>Andrew Kiptum Sergon</h5>
-                            <p class="team-role">MEAL &amp; Research Specialist</p>
-                            <div class="team-socials">
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6" data-animate="fadeInUp" data-delay=".3">
-                        <div class="team-card">
-                            <img class="team-avatar" src="https://ui-avatars.com/api/?name=Ambros+Olela&background=015055&color=fff&size=240&font-size=0.38&bold=true" alt="Ambros Olela">
-                            <h5>Ambrose Olela</h5>
-                            <p class="team-role">Operations &amp; Strategy Lead</p>
-                            <div class="team-socials">
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Footer -->
         <footer class="main-footer main-footer--2 text-white footer-gradient mt-0">
@@ -543,16 +474,13 @@
                         <!-- Footer form -->
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="footer-widget">
-                                <h3 class="widget-title" data-animate="fadeInUp" data-delay=".4">Subscribe Newsletter</h3>
-                                <div class="subscribe-form form-style--2">
-                                    <form class="position-relative subscribe-form" action="https://themelooks.us13.list-manage.com/subscribe/post?u=79f0b132ec25ee223bb41835f&amp;id=f4e0e93d1d" method="post" name="mc-embedded-subscribe-form" target="_blank">
-                                        <input type="email" name="EMAIL" autocomplete="off" placeholder="Your E-mail Address" required>
-                                        <button type="submit" value="Subscribe"><img src="img/home-3/icon/rocket.svg" alt=""></button>
-                                    </form>
-                                </div>
-                                <div class="subscribe-text ">
-                                    <p>Stay updated with our latest solutions, product releases, and insights on DevOps, AI, and open-source platforms.</p>
-                                </div>
+                                <h3 class="widget-title" data-animate="fadeInUp" data-delay=".4">Products</h3>
+                                <ul class="list-unstyled footer-links">
+                                    <li><a href="sacco.html">Sacco &amp; Sacco Field</a></li>
+                                    <li><a href="carbon-field.html">Carbon Field</a></li>
+                                    <li><a href="products.html">Products &amp; portfolio</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                </ul>
                             </div>
                         </div>
                         <!-- End of Footer form -->
@@ -566,7 +494,7 @@
                     <div class="row align-items-center">
                         <!-- Copyright -->
                         <div class="col-md-5 order-last order-md-first">
-                            <span class="copyright-text" data-animate="fadeInDown" data-delay=".7">&copy; 2025 QSOFTWARES Ltd. All rights reserved.</span>
+                            <span class="copyright-text" data-animate="fadeInDown" data-delay=".7">&copy; 2026 QSOFTWARES Ltd. All rights reserved.</span>
                         </div>
                         <!-- End of Copyright -->
 
