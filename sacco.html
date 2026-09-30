@@ -71,7 +71,7 @@
         .sf-surface { background: #fff; border: 1px solid var(--sf-line); border-radius: 20px; padding: 28px; height: 100%; display: flex; flex-direction: column; }
         .sf-surface img { width: 100%; border-radius: 12px; border: 1px solid var(--sf-line); margin-bottom: 22px; }
         .sf-pill { display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; padding: 4px 11px; border-radius: 999px; margin-bottom: 12px; }
-        .sf-pill.deployed { background: var(--sf-forest); color: #fff; }
+        .sf-pill.deployed { background: var(--sf-green); color: #fff; }
         .sf-pill.dev { background: #FEF3C7; color: #854D0E; }
         .sf-ticks { list-style: none; padding: 0; margin: 6px 0 0; }
         .sf-ticks li { display: flex; gap: 12px; padding: 5px 0; font-size: 14.5px; line-height: 1.6; color: #333; }
@@ -86,7 +86,7 @@
         .sf-stop:last-child { margin-bottom: 0; }
         .sf-stop.flip { flex-direction: row-reverse; }
         .sf-stop > .sf-shot, .sf-stop > .sf-text { flex: 1 1 0; min-width: 0; }
-        .sf-time { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2; background: var(--sf-forest); color: #fff; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 13px; padding: 7px 12px; border-radius: 999px; box-shadow: 0 0 0 6px var(--sf-canvas); white-space: nowrap; }
+        .sf-time { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2; background: var(--sf-green); color: #fff; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 13px; padding: 7px 12px; border-radius: 999px; box-shadow: 0 0 0 6px var(--sf-canvas); white-space: nowrap; }
         .sf-shot img { width: 100%; display: block; border-radius: 14px; border: 7px solid #fff; box-shadow: 0 18px 50px rgba(27,67,50,0.20); }
         .sf-shot .sf-inset { width: 46%; margin: -60px 0 0 auto; position: relative; border-width: 5px; }
         .sf-text .sf-quote { border-left: 3px solid var(--sf-gold); padding: 2px 0 2px 14px; margin: 14px 0 0; font-size: 14.5px; color: var(--sf-forest); font-weight: 500; }
@@ -109,7 +109,7 @@
         .sf-try-tabs { flex: 0 0 250px; display: flex; flex-direction: column; gap: 8px; }
         .sf-try-tabs button { text-align: left; background: #fff; border: 1px solid var(--sf-line); border-radius: 12px; padding: 13px 16px; font-family: 'Poppins', sans-serif; font-size: 14.5px; font-weight: 600; color: var(--sf-forest); cursor: pointer; display: flex; gap: 12px; align-items: center; transition: background 0.15s, border-color 0.15s; }
         .sf-try-tabs button:hover { border-color: var(--sf-green); }
-        .sf-try-tabs button[aria-selected="true"] { background: var(--sf-forest); border-color: var(--sf-forest); color: #fff; }
+        .sf-try-tabs button[aria-selected="true"] { background: var(--sf-green); border-color: var(--sf-green); color: #fff; font-weight: 700; }
         .sf-try-tabs button:focus-visible { outline: 3px solid var(--sf-gold); outline-offset: 2px; }
         .sf-try-screen { flex: 1; min-width: 0; }
         .sf-try-stack { position: relative; aspect-ratio: 1600 / 960; }
@@ -502,48 +502,6 @@
                 </div>
                 <div class="sf-tags">
                     <span>Kotlin</span><span>Jetpack Compose</span><span>Room</span><span>WorkManager</span><span>Hilt</span><span>Apache Fineract</span><span>Payment Hub EE</span><span>Docker / K8s</span><span>REST API</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- ── 8 · Where the build stands ─────────── -->
-        <section class="section-white section-pad" id="status">
-            <div class="container">
-                <div class="sf-head">
-                    <span class="sf-kicker">Where it stands &middot; September 2026</span>
-                    <h2 class="sf-h2">The branch is live. The tablet collects and takes loan applications.</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 mb-4">
-                        <div class="sf-status">
-                            <h4><span class="sf-status-dot built"></span>Built</h4>
-                            <ul>
-                                <li><strong>Sacco at the branch</strong>, deployed: loans, savings, accounting, mobile money, reports.</li>
-                                <li><strong>The tablet's shell</strong>: five tabs, list beside detail, two themes, both orientations.</li>
-                                <li><strong>Home and the route</strong>: today at a glance, overdue worst first, group meetings.</li>
-                                <li><strong>Collecting money</strong>: cash, M-Pesa push, paybill and passbook deposits, through the outbox to Fineract. Tested against the API; a live tenant is the pilot's first step.</li>
-                                <li><strong>Client quick view</strong>: loans, savings and recent activity in one glance, from the ledger.</li>
-                                <li><strong>Loan applications</strong>, started from a panel beside the member.</li>
-                                <li><strong>Member files</strong>, centres and groups, the Sync centre, a full demo day.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <div class="sf-status">
-                            <h4><span class="sf-status-dot next"></span>Next</h4>
-                            <ul>
-                                <li><strong>Savings applications</strong>, from the same panel beside the member.</li>
-                                <li><strong>Verification</strong>: storefront photos with a GPS line, captured offline.</li>
-                                <li><strong>Registration</strong>: a new member with ID photos, consent and a signature.</li>
-                                <li><strong>A pilot</strong> with one SACCO's field team.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="sf-proof">
-                    <div><strong>1,616</strong><span>automated tests on every change</span></div>
-                    <div><strong>2 sizes</strong><span>screens checked against baselines, landscape and portrait</span></div>
-                    <div><strong>1 rule</strong><span>nothing says Posted before the ledger does</span></div>
                 </div>
             </div>
         </section>
