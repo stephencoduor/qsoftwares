@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/style.css?v=3">
     <link rel="stylesheet" href="css/responsive.css?v=3">
-    <link rel="stylesheet" href="css/custom.css?v=4">
+    <link rel="stylesheet" href="css/custom.css?v=5">
 </head>
 
 <body>
@@ -106,20 +106,25 @@
                     <div class="col-lg-6 col-12">
                         <!-- Banner content -->
                         <div class="banner-content text-green">
-                            <span class="release-tag" data-animate="fadeInUp" data-delay=".1">New release &middot; Sacco Field</span>
-                            <h2 data-animate="fadeInUp" data-delay=".2">The field officer's tablet for SACCOs is here.</h2>
-                            <p data-animate="fadeInUp" data-delay=".3">Sacco Field collects repayments by cash and M-Pesa on the route, keeps working offline, and never says Posted before the ledger has confirmed it. Built by QSOFTWARES on Apache Fineract.</p>
+                            <span class="release-tag" data-animate="fadeInUp" data-delay=".1">Two field apps &middot; built to work offline</span>
+                            <h2 data-animate="fadeInUp" data-delay=".2">Software for the people who do the work in the field.</h2>
+                            <p data-animate="fadeInUp" data-delay=".3"><strong>Sacco Field</strong> is the tablet SACCO field officers carry: routes, group meetings, cash and M-Pesa collection. <strong>Carbon Field</strong> is the app carbon project surveyors carry: farmers, consent, parcels and monitoring rounds. Both keep working with no signal.</p>
                             <ul class="list-inline" data-animate="fadeInUp" data-delay=".4">
                                 <li><a class="btn-orange" href="sacco.html"><i class="fas fa-arrow-right"></i> See Sacco Field</a></li>
-                                <li><a class="btn-orange-outline" href="services.html"><i class="fas fa-th-list"></i> Explore Services</a></li>
+                                <li><a class="btn-orange-outline" href="carbon-field.html"><i class="fas fa-seedling"></i> See Carbon Field</a></li>
                             </ul>
                         </div>
                         <!-- End of Banner content -->
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="banner-image">
-                            <div class="home-tablet" data-animate="fadeInUp" data-delay=".3">
-                                <img src="img/products/sacco/home-launchpad.png" alt="Sacco Field Home screen on a tablet: a greeting for the field officer, 14 stops on today's route, three M-Pesa pushes pending, eight quick actions and today's collections" width="1445" height="1020">
+                            <div class="home-duo" data-animate="fadeInUp" data-delay=".3">
+                                <a class="home-tablet duo-sacco" href="sacco.html" aria-label="Sacco Field">
+                                    <img src="img/products/sacco/home.png" alt="Sacco Field Home screen on a tablet: the officer's greeting, pending M-Pesa pushes and eight quick actions" width="1600" height="960">
+                                </a>
+                                <a class="home-tablet duo-carbon" href="carbon-field.html" aria-label="Carbon Field">
+                                    <img src="img/products/carbon-field/home.png" alt="Carbon Field home screen on a tablet: today's route of farmers, rework first, and quick actions" width="1536" height="1152">
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -142,27 +147,71 @@
             </div>
         </section>
 
+        <!-- Our field apps -->
+        <section class="section-white section-pad" id="field-apps">
+            <div class="container">
+                <div class="section-heading" data-animate="fadeInUp">
+                    <h2>Our field apps</h2>
+                    <p>Two products of our own, designed in the open and built for places where the network is not.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6 mb-4" data-animate="fadeInUp" data-delay=".1">
+                        <a class="field-app field-app-sacco" href="sacco.html">
+                            <div class="field-app-shot"><div class="home-tablet"><img src="img/products/sacco/route.png" alt="Sacco Field: today's route, overdue stops first" loading="lazy"></div></div>
+                            <div class="field-app-body">
+                                <span class="field-app-tag">New release</span>
+                                <h3>Sacco Field</h3>
+                                <p>The tablet for SACCO and MFI field officers, on the same ledger the branch runs.</p>
+                                <ul>
+                                    <li>Today's route, worst first, and whole group meetings on one screen</li>
+                                    <li>Cash and M-Pesa collection; "sent" is never shown as "paid"</li>
+                                    <li>Built on Apache Fineract</li>
+                                </ul>
+                                <span class="field-app-link">See Sacco Field <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-6 mb-4" data-animate="fadeInUp" data-delay=".2">
+                        <a class="field-app field-app-carbon" href="carbon-field.html">
+                            <div class="field-app-shot"><div class="home-tablet"><img src="img/products/carbon-field/boundary.png" alt="Carbon Field: a parcel boundary drawn on a map with area and perimeter" loading="lazy"></div></div>
+                            <div class="field-app-body">
+                                <span class="field-app-tag">In development</span>
+                                <h3>Carbon Field</h3>
+                                <p>Offline-first field data for carbon projects, with one record per farmer from baseline to the last monitoring round.</p>
+                                <ul>
+                                    <li>Register farmers, capture consent and map parcels with no signal</li>
+                                    <li>Evidence checked at capture, while the surveyor is still on the farm</li>
+                                    <li>Supervisors review every record before it counts</li>
+                                </ul>
+                                <span class="field-app-link">See Carbon Field <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- What We Do -->
         <section class="section-dark-green section-pad-top">
             <div class="container">
                 <div class="section-heading-dark" data-animate="fadeInUp">
                     <h2>What We Do</h2>
-                    <p>End-to-end digital solutions &mdash; from infrastructure to AI-powered platforms and enterprise systems.</p>
+                    <p>End-to-end digital solutions &mdash; from MLOps and AI infrastructure to enterprise systems.</p>
                 </div>
                 <div class="row g-4 card-grid justify-content-center">
                     <div class="col-lg-4 col-md-6" data-animate="fadeInUp" data-delay=".2">
                         <div class="q-card q-card-center">
-                            <div class="card-icon"><i class="fas fa-server"></i></div>
-                            <h4>DevOps &amp; Cloud Infrastructure</h4>
-                            <p>Kubernetes, Docker, CI/CD, Terraform &mdash; secure, scalable infrastructure on AWS, GCP, and Azure with GitOps at the core.</p>
-                            <a href="services.html#devops" class="btn-orange-sm">Explore <i class="fas fa-arrow-right"></i></a>
+                            <div class="card-icon"><i class="fas fa-microchip"></i></div>
+                            <h4>MLOps &amp; Model Infrastructure</h4>
+                            <p>LLM hosting, GPU infrastructure and AI pipeline orchestration &mdash; taking models from a notebook to production and keeping them there.</p>
+                            <a href="services.html#ai-mlops" class="btn-orange-sm">Explore <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6" data-animate="fadeInUp" data-delay=".3">
                         <div class="q-card q-card-center">
                             <div class="card-icon"><i class="fas fa-brain"></i></div>
-                            <h4>AI Infrastructure &amp; RAG Systems</h4>
-                            <p>Enterprise AI platforms &mdash; from RAG knowledge systems and LLM hosting to full AI pipeline orchestration with LangChain &amp; Qdrant.</p>
+                            <h4>RAG &amp; AI Systems</h4>
+                            <p>Enterprise RAG knowledge systems with LangChain &amp; Qdrant, FastAPI services, and OpenAI / Claude API integrations.</p>
                             <a href="services.html#ai-mlops" class="btn-orange-sm">Explore <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
@@ -286,7 +335,7 @@
                     <div class="col-lg-6 mb-4 mb-lg-0" data-animate="fadeInLeft">
                         <span class="section-label"><i class="fas fa-award"></i>&nbsp; Why QSOFTWARES</span>
                         <h2 class="why-title">9+ Years Delivering Enterprise-Grade Digital Solutions</h2>
-                        <p class="why-desc">We combine deep DevOps engineering, AI/MLOps expertise, and proven open-source experience to build reliable, scalable platforms trusted by NGOs, governments, and enterprises across Africa and beyond.</p>
+                        <p class="why-desc">We combine MLOps and AI engineering with proven open-source experience to build reliable, scalable platforms trusted by NGOs, governments, and enterprises across Africa and beyond.</p>
                         <div class="row g-4 mb-4">
                             <div class="col-6">
                                 <div class="stat-box">
@@ -321,8 +370,8 @@
                                     <i class="fas fa-cloud"></i>
                                 </div>
                                 <div>
-                                    <h5>DevOps + AI Expertise</h5>
-                                    <p>Combining cloud infrastructure engineering with AI/MLOps to deliver intelligent, production-ready systems that scale with your organisation.</p>
+                                    <h5>MLOps + AI Expertise</h5>
+                                    <p>Model hosting, GPU infrastructure and pipeline orchestration, so AI systems reach production and keep running as your organisation grows.</p>
                                 </div>
                             </div>
                             <div class="feature-card">
@@ -432,7 +481,7 @@
                                     <img src="img/logo-q.png" data-rjs="2" alt="">
                                 </div>
                                 <div class="footer-about">
-                                    <p>QSOFTWARES Ltd designs, deploys, and maintains scalable digital platforms for NGOs, enterprises, and startups. Experts in DevOps, AI infrastructure, and open-source enterprise systems.</p>
+                                    <p>QSOFTWARES Ltd designs, deploys, and maintains scalable digital platforms for NGOs, enterprises, and startups. Experts in MLOps, AI infrastructure, and open-source enterprise systems.</p>
                                 </div>
                                 <div class="social-links">
                                     <ul class="list-unstyled list-inline">

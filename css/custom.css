@@ -965,3 +965,24 @@
 .footer-links a { color: rgba(255,255,255,0.85); }
 .footer-links a:hover { color: #f5a623; }
 @media (max-width: 767px) { .home-tablet { padding: 9px 20px; border-radius: 18px; } .home-tablet::after { width: 10px; height: 10px; margin-top: -6px; right: 5px; } .home-tablet::before { left: 7px; width: 5px; height: 5px; } }
+
+/* ── Home: two field apps ─────────────────── */
+.home-duo { position: relative; padding: 0 0 22% 0; }
+.home-duo .home-tablet { display: block; transition: transform .25s ease; }
+.home-duo .home-tablet:hover { transform: translateY(-6px); }
+.home-duo .duo-sacco { width: 86%; }
+.home-duo .duo-carbon { position: absolute; right: 0; bottom: 0; width: 54%; padding: 12px 24px; border-radius: 24px; }
+.field-app { display: flex; flex-direction: column; height: 100%; border-radius: 18px; overflow: hidden; border: 1px solid #dfe9e6; background: #fff; text-decoration: none !important; transition: transform .2s ease, box-shadow .2s ease; }
+.field-app:hover { transform: translateY(-4px); box-shadow: 0 18px 44px rgba(1,80,85,0.14); }
+.field-app-shot { padding: 34px 40px 0; }
+.field-app-sacco .field-app-shot { background: linear-gradient(135deg, #0E6E35, #17944A); }
+.field-app-carbon .field-app-shot { background: linear-gradient(135deg, #123528, #1F5A43); }
+.field-app-shot .home-tablet { margin-bottom: -18px; box-shadow: 0 18px 40px rgba(0,0,0,0.3), inset 0 0 0 2px #fff; }
+.field-app-carbon .field-app-shot .home-tablet { max-width: 78%; margin-left: auto; margin-right: auto; }
+.field-app-body { padding: 40px 32px 30px; display: flex; flex-direction: column; flex: 1; }
+.field-app-tag { align-self: flex-start; padding: 4px 12px; border-radius: 999px; background: #eef8f7; color: #015055; font-family: 'Karla', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+.field-app h3 { font-family: 'Poppins', sans-serif; font-size: 26px; font-weight: 700; color: #015055; margin-bottom: 8px; }
+.field-app p { color: #444; font-size: 15.5px; line-height: 1.65; margin-bottom: 14px; }
+.field-app ul { padding-left: 18px; margin: 0 0 20px; color: #555; font-size: 14.5px; line-height: 1.7; }
+.field-app-link { margin-top: auto; color: #b26f00; font-weight: 700; font-size: 15px; }
+@media (max-width: 767px) { .home-duo .duo-carbon { padding: 7px 14px; border-radius: 14px; } .field-app-shot { padding: 22px 22px 0; } .field-app-body { padding: 34px 22px 24px; } }
