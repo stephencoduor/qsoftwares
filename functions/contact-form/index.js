@@ -78,7 +78,8 @@ async function contactForm(req, res) {
   // Honeypot: bots fill the hidden field; pretend it worked.
   if (body.website_url) return respond(res, 'success', 'Thank you. Your message has been sent.');
 
-  const ip = String(req.get('x-forwarded-for') || req.ip || 'unknown').split(',')[0].trim();
+  // Google's front end appends the real client address last; earlier entries can be forged.
+  const ip = String(req.get('x-forwarded-for') || req.ip || 'unknown').split(',').pop().trim();
   if (!withinRateLimit(ip)) return respond(res, 'error', 'Too many requests. Please try again later.', 429);
 
   const name = stripTags(body.contactName);
