@@ -2,19 +2,25 @@
 // Adapts the function-URL event to the small req/res surface core.js uses.
 //
 // Extra config (environment):
-//   SMTP_PASSWORD_PARAM  SSM Parameter Store SecureString holding the Zoho app password,
-//                        read once per cold start (the AWS SDK ships with the Node runtime).
+//   SMTP_PASSWORD_PARAM     SSM Parameter Store SecureString holding the Zoho app password
+//   TURNSTILE_SECRET_PARAM  SecureString holding the Cloudflare Turnstile secret (optional)
+// Both are read once per cold start (the AWS SDK ships with the Node runtime).
 const { contactForm } = require('./core');
 
-let passwordLoaded = false;
-async function loadPassword() {
-  if (passwordLoaded || process.env.SMTP_PASSWORD || !process.env.SMTP_PASSWORD_PARAM) return;
-  const { SSMClient, GetParameterCommand } = require('@aws-sdk/client-ssm');
-  const out = await new SSMClient({}).send(new GetParameterCommand({
-    Name: process.env.SMTP_PASSWORD_PARAM, WithDecryption: true,
-  }));
-  process.env.SMTP_PASSWORD = out.Parameter.Value;
-  passwordLoaded = true;
+let secretsLoaded = false;
+async function loadSecrets() {
+  if (secretsLoaded) return;
+  const wanted = [['SMTP_PASSWORD_PARAM', 'SMTP_PASSWORD'], ['TURNSTILE_SECRET_PARAM', 'TURNSTILE_SECRET']]
+    .filter(([param, target]) => process.env[param] && !process.env[target]);
+  if (wanted.length) {
+    const { SSMClient, GetParameterCommand } = require('@aws-sdk/client-ssm');
+    const ssm = new SSMClient({});
+    for (const [param, target] of wanted) {
+      const out = await ssm.send(new GetParameterCommand({ Name: process.env[param], WithDecryption: true }));
+      process.env[target] = out.Parameter.Value;
+    }
+  }
+  secretsLoaded = true;
 }
 
 function parseBody(event) {
@@ -55,7 +61,7 @@ exports.handler = async (event) => {
     send(text) { result.body = String(text); return res; },
   };
 
-  if (req.method === 'POST') await loadPassword();
+  if (req.method === 'POST') await loadSecrets();
   await contactForm(req, res);
   return result;
 };

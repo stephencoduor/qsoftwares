@@ -13,6 +13,10 @@ Run `./deploy-aws.sh` on a machine where the AWS CLI is signed in. On the first 
 
 Lambda's always-free allowance is 1 million requests and 400,000 GB-seconds a month. Function URLs cost nothing extra. Reserved concurrency is capped at 2 where the account allows it. Run with `RESET_PASSWORD=1` to change the password.
 
+It also sets up a free usage alarm that emails info@qsoftwares.org (`ALERT_EMAIL`) when the function runs more than 500 times in a day (`ALERT_DAILY`). AWS sends a confirmation email on the first run; click its link once.
+
+To turn on Cloudflare Turnstile, create a widget for qsoftwares.org and www.qsoftwares.org in the Cloudflare dashboard, put its site key in `js/contact-endpoint.js`, and run `SET_TURNSTILE=1 ./deploy-aws.sh` to type the secret key. Until the secret exists the function skips the check, so the forms keep working.
+
 # Google Cloud Run functions (alternative)
 
 ## Quickest setup: one link
@@ -55,7 +59,7 @@ To change the Zoho password later, update `SMTP_PASSWORD` and run the workflow a
 
 ## Protection
 
-The function answers only requests from https://qsoftwares.org and https://www.qsoftwares.org. It rejects filled-in honeypot fields (`website_url`), allows 5 submissions per IP per hour, validates name and email, strips HTML, and caps messages at 5,000 characters.
+The function answers only requests from https://qsoftwares.org and https://www.qsoftwares.org. It rejects filled-in honeypot fields (`website_url`), ignores submissions sent less than 3 seconds after the page loaded (`form_elapsed_ms`, set by `js/form-guard.js`), allows 5 submissions per IP per hour, validates name and email, strips HTML, and caps messages at 5,000 characters. With a Turnstile secret configured, it also checks every submission's Turnstile token with Cloudflare before sending.
 
 ## Local test
 
@@ -63,4 +67,4 @@ The function answers only requests from https://qsoftwares.org and https://www.q
 cd functions/contact-form && npm ci && npm test
 ```
 
-The tests run the function against a local SMTP server and check sending, CORS, origin rejection, validation, the honeypot and the rate limit.
+The tests run the function against a local SMTP server and check sending, CORS, origin rejection, validation, the honeypot, the timing check, Turnstile and the rate limit.

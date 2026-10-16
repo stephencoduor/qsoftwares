@@ -6,11 +6,16 @@
 # Parameter Store as a SecureString; later runs reuse it unless RESET_PASSWORD=1.
 # Prints CONTACT_ENDPOINT=<url> on success.
 #
+# Run with SET_TURNSTILE=1 to type the Cloudflare Turnstile secret key (hidden); the
+# function then requires a valid Turnstile token on every submission.
+#
 # Environment (all optional):
 #   AWS_REGION   default eu-central-1
 #   SMTP_USER    default info@qsoftwares.org
 #   SMTP_HOST    default smtp.zoho.com (smtppro.zoho.com for paid Zoho Mail)
 #   MAIL_TO      default info@qsoftwares.org
+#   ALERT_EMAIL  default info@qsoftwares.org; gets the usage alarm (confirm AWS's first email)
+#   ALERT_DAILY  default 500; alarm when the function runs more often than this in a day
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -18,6 +23,7 @@ REGION="${AWS_REGION:-eu-central-1}"
 FUNCTION="qsoftwares-contact-form"
 ROLE="qsoftwares-contact-form"
 PARAM="/qsoftwares/contact/smtp-password"
+TURNSTILE_PARAM="/qsoftwares/contact/turnstile-secret"
 SMTP_USER="${SMTP_USER:-info@qsoftwares.org}"
 export AWS_REGION="$REGION" AWS_PAGER=""
 
@@ -32,6 +38,14 @@ if [ "${RESET_PASSWORD:-0}" = 1 ] || ! aws ssm get-parameter --name "$PARAM" >/d
     --overwrite --value file:///dev/stdin >/dev/null
   unset SMTP_PASSWORD
   echo "Stored the password in Parameter Store ($PARAM)."
+fi
+
+if [ "${SET_TURNSTILE:-0}" = 1 ]; then
+  read -rsp "Cloudflare Turnstile secret key (typing is hidden): " TURNSTILE_SECRET; echo
+  printf '%s' "$TURNSTILE_SECRET" | aws ssm put-parameter --name "$TURNSTILE_PARAM" --type SecureString \
+    --overwrite --value file:///dev/stdin >/dev/null
+  unset TURNSTILE_SECRET
+  echo "Stored the Turnstile secret in Parameter Store ($TURNSTILE_PARAM)."
 fi
 
 # Execution role: CloudWatch logs plus reading that one parameter.
@@ -61,7 +75,15 @@ NODEMAILER_VERSION="$(node -p "require('./package.json').dependencies.nodemailer
 npm install --prefix "$BUILD" --no-save --no-audit --no-fund "nodemailer@$NODEMAILER_VERSION" >/dev/null
 (cd "$BUILD" && rm -f package.json package-lock.json && zip -qr function.zip .)
 
-ENV="Variables={SMTP_USER=$SMTP_USER,SMTP_HOST=${SMTP_HOST:-smtp.zoho.com},MAIL_TO=${MAIL_TO:-info@qsoftwares.org},SMTP_PASSWORD_PARAM=$PARAM}"
+ENV="SMTP_USER=$SMTP_USER,SMTP_HOST=${SMTP_HOST:-smtp.zoho.com},MAIL_TO=${MAIL_TO:-info@qsoftwares.org},SMTP_PASSWORD_PARAM=$PARAM"
+# Turnstile is enforced only once its secret exists.
+if aws ssm get-parameter --name "$TURNSTILE_PARAM" >/dev/null 2>&1; then
+  ENV="$ENV,TURNSTILE_SECRET_PARAM=$TURNSTILE_PARAM"
+  echo "Turnstile check: on"
+else
+  echo "Turnstile check: off (run with SET_TURNSTILE=1 to turn it on)"
+fi
+ENV="Variables={$ENV}"
 if aws lambda get-function --function-name "$FUNCTION" >/dev/null 2>&1; then
   aws lambda update-function-code --function-name "$FUNCTION" --zip-file "fileb://$BUILD/function.zip" >/dev/null
   aws lambda wait function-updated --function-name "$FUNCTION"
@@ -90,6 +112,22 @@ aws lambda add-permission --function-name "$FUNCTION" --statement-id public-url 
 # Newer accounts also require lambda:InvokeFunction for public function URLs.
 aws lambda add-permission --function-name "$FUNCTION" --statement-id public-url-invoke \
   --action lambda:InvokeFunction --principal "*" --invoked-via-function-url >/dev/null 2>&1 || true
+
+# Usage alarm: email when the function runs more than ALERT_DAILY times in a day, which
+# means someone is flooding the form. Alarms and email notifications are free at this size.
+ALERT_EMAIL="${ALERT_EMAIL:-info@qsoftwares.org}"
+TOPIC_ARN="$(aws sns create-topic --name "$FUNCTION-alerts" --query TopicArn --output text)"
+if [ "$(aws sns list-subscriptions-by-topic --topic-arn "$TOPIC_ARN" \
+    --query "length(Subscriptions[?Endpoint=='$ALERT_EMAIL'])" --output text)" = 0 ]; then
+  aws sns subscribe --topic-arn "$TOPIC_ARN" --protocol email --notification-endpoint "$ALERT_EMAIL" >/dev/null
+  echo "AWS will email $ALERT_EMAIL a link to confirm the usage alarm; click it once."
+fi
+aws cloudwatch put-metric-alarm --alarm-name "$FUNCTION-high-usage" \
+  --alarm-description "Contact form function ran more than ${ALERT_DAILY:-500} times in a day" \
+  --namespace AWS/Lambda --metric-name Invocations --dimensions "Name=FunctionName,Value=$FUNCTION" \
+  --statistic Sum --period 86400 --evaluation-periods 1 --threshold "${ALERT_DAILY:-500}" \
+  --comparison-operator GreaterThanThreshold --treat-missing-data notBreaching \
+  --alarm-actions "$TOPIC_ARN"
 
 URL="$(aws lambda get-function-url-config --function-name "$FUNCTION" --query FunctionUrl --output text)"
 echo "CONTACT_ENDPOINT=${URL%/}"

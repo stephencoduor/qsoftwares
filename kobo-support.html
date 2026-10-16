@@ -590,7 +590,7 @@
                         <h2>Submit a Support Request</h2>
                         <p class="tc-subtitle">Describe your server issue and we'll get back to you. Free tier requests are handled on a first-come, first-served basis.</p>
 
-                        <form id="koboSupportForm" novalidate>
+                        <form id="koboSupportForm" novalidate data-qs-guard>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
@@ -800,6 +800,7 @@
     <script src="js/menu.js"></script>
     <script src="js/scripts.js"></script>
     <script src="js/contact-endpoint.js"></script>
+    <script src="js/form-guard.js"></script>
     <script>
         $('#koboSupportForm').on('submit', function (e) {
             e.preventDefault();
@@ -817,6 +818,7 @@
                 return;
             }
 
+            var form = this;
             var btn = $(this).find('.btn-tc-submit');
             btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Sending\u2026');
 
@@ -837,6 +839,7 @@
                     msg
                 ].join('\n')
             };
+            $.extend(data, qsGuardFields(form));
 
             $.ajax({
                 url: window.QS_CONTACT_ENDPOINT,
@@ -855,17 +858,19 @@
                         }
                     } catch (ex) { showError(); }
                 },
-                error: showError,
+                error: function (xhr) { showError(qsErrorText(xhr)); },
                 complete: function () {
+                    qsGuardReset(form);
                     btn.prop('disabled', false).html(
                         '<i class="fas fa-paper-plane"></i> Submit Support Request'
                     );
                 }
             });
 
-            function showError() {
+            function showError(reason) {
                 $('#koboFormMsg').html(
-                    '<div class="alert alert-danger mt-2">Something went wrong. Please email us directly at <a href="mailto:info@qsoftwares.org">info@qsoftwares.org</a></div>'
+                    '<div class="alert alert-danger mt-2">' + (reason || 'Something went wrong.') +
+                    ' You can also email us directly at <a href="mailto:info@qsoftwares.org">info@qsoftwares.org</a></div>'
                 );
             }
         });

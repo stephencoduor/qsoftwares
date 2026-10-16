@@ -29,7 +29,7 @@ const post = (fields, origin = 'https://qsoftwares.org') => fetch(base, {
   headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', Origin: origin },
   body: new URLSearchParams(fields),
 });
-const good = { contactName: 'Jane Wanjiru', contactEmail: 'jane@example.org', contactMessage: '[KoboToolbox Support Request]\nServer down <b>now</b>' };
+const good = { contactName: 'Jane Wanjiru', contactEmail: 'jane@example.org', contactMessage: '[KoboToolbox Support Request]\nServer down <b>now</b>', form_elapsed_ms: '8000' };
 
 test('sends a valid form through SMTP', async () => {
   const r = await post(good);
@@ -63,6 +63,51 @@ test('honeypot looks like success but sends nothing', async () => {
   const r = await post({ ...good, website_url: 'http://spam' });
   assert.deepStrictEqual(await r.json(), ['success', 'Thank you. Your message has been sent.']);
   assert.strictEqual(received.length, before);
+});
+
+test('ignores sends made too fast or without the page timer', async () => {
+  const before = received.length;
+  for (const form_elapsed_ms of ['900', undefined]) {
+    const fields = { ...good, contactName: 'Speedy Bot', form_elapsed_ms };
+    if (form_elapsed_ms === undefined) delete fields.form_elapsed_ms;
+    const r = await post(fields);
+    assert.deepStrictEqual(await r.json(), ['success', 'Thank you. Your message has been sent.']);
+  }
+  assert.strictEqual(received.length, before);
+});
+
+test('requires a valid Turnstile token once a secret is set', async () => {
+  const http = require('node:http');
+  const checks = [];
+  const cf = http.createServer((q, s) => {
+    let d = ''; q.on('data', (c) => (d += c)); q.on('end', () => {
+      const f = new URLSearchParams(d);
+      checks.push(f.get('secret'));
+      s.setHeader('Content-Type', 'application/json');
+      s.end(JSON.stringify(f.get('response') === 'good-token'
+        ? { success: true, hostname: 'qsoftwares.org' } : { success: false }));
+    });
+  });
+  await new Promise((r) => cf.listen(0, '127.0.0.1', r));
+  process.env.TURNSTILE_SECRET = 'cf-secret';
+  process.env.TURNSTILE_VERIFY_URL = `http://127.0.0.1:${cf.address().port}/`;
+  try {
+    const { handler } = require('../lambda.js');
+    const send = (extra, ip) => handler({
+      requestContext: { http: { method: 'POST', sourceIp: ip } },
+      headers: { origin: 'https://qsoftwares.org', 'content-type': 'application/json' },
+      body: JSON.stringify({ ...good, contactName: 'Turnstile Test', ...extra }),
+    });
+    const before = received.length;
+    assert.strictEqual((await send({}, '203.0.113.20')).statusCode, 403);
+    assert.strictEqual((await send({ 'cf-turnstile-response': 'forged' }, '203.0.113.21')).statusCode, 403);
+    assert.strictEqual((await send({ 'cf-turnstile-response': 'good-token' }, '203.0.113.22')).statusCode, 200);
+    assert.strictEqual(received.length, before + 1);
+    assert.deepStrictEqual(checks, ['cf-secret', 'cf-secret']);
+  } finally {
+    delete process.env.TURNSTILE_SECRET;
+    cf.close();
+  }
 });
 
 test('rate limits after 5 per hour', async () => {

@@ -12,6 +12,8 @@
  *   SMTP_PORT, SMTP_SECURE    default 465 / true
  *   MAIL_TO                   default info@qsoftwares.org
  *   ALLOWED_ORIGINS           comma-separated, default qsoftwares.org and www
+ *   TURNSTILE_SECRET          Cloudflare Turnstile secret key; when set, every
+ *                             submission must carry a valid widget token
  */
 const nodemailer = require('nodemailer');
 
@@ -22,6 +24,7 @@ const MAIL_TO = process.env.MAIL_TO || 'info@qsoftwares.org';
 const RATE_LIMIT_MAX = 5;               // submissions
 const RATE_LIMIT_WINDOW_MS = 3600 * 1000; // per hour, per IP, per instance
 const MAX_MESSAGE_LENGTH = 5000;
+const MIN_FILL_MS = 3000;               // faster than this is a script, not a person
 
 let transporter;
 function getTransporter() {
@@ -54,6 +57,25 @@ const escapeHtml = (s) => s.replace(/[&<>"']/g, (c) => ({
 }[c]));
 const stripTags = (s) => String(s || '').replace(/<[^>]*>/g, '').trim();
 
+// Asks Cloudflare whether the Turnstile token is genuine, unused and issued on our site.
+async function turnstileOk(token, ip) {
+  if (!token) return false;
+  try {
+    const url = process.env.TURNSTILE_VERIFY_URL || 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+    const r = await fetch(url, {
+      method: 'POST',
+      body: new URLSearchParams({ secret: process.env.TURNSTILE_SECRET, response: token, remoteip: ip }),
+      signal: AbortSignal.timeout(5000),
+    });
+    const out = await r.json();
+    const hosts = ALLOWED_ORIGINS.map((o) => new URL(o).hostname);
+    return out.success === true && hosts.includes(out.hostname);
+  } catch (err) {
+    console.error('Turnstile check failed:', err.message);
+    return false;
+  }
+}
+
 function respond(res, status, message, http = 200) {
   res.status(http).json([status, message]);
 }
@@ -77,6 +99,10 @@ async function contactForm(req, res) {
 
   // Honeypot: bots fill the hidden field; pretend it worked.
   if (body.website_url) return respond(res, 'success', 'Thank you. Your message has been sent.');
+  // The page reports how long it was open before sending. Scripts post at once or omit it.
+  if (!(Number(body.form_elapsed_ms) >= MIN_FILL_MS)) {
+    return respond(res, 'success', 'Thank you. Your message has been sent.');
+  }
 
   // Google's front end appends the real client address last; earlier entries can be forged.
   const ip = String(req.get('x-forwarded-for') || req.ip || 'unknown').split(',').pop().trim();
@@ -93,6 +119,10 @@ async function contactForm(req, res) {
   }
   if (message.length > MAX_MESSAGE_LENGTH) {
     return respond(res, 'error', 'Message is too long (max 5 000 characters).', 422);
+  }
+
+  if (process.env.TURNSTILE_SECRET && !(await turnstileOk(body['cf-turnstile-response'], ip))) {
+    return respond(res, 'error', 'Please complete the verification check and try again.', 403);
   }
 
   let subject = 'New Contact Form Submission';
