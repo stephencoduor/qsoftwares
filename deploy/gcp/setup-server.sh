@@ -59,6 +59,28 @@ fi
 chown root:www-data "$CONF_DIR/smtp.ini"
 chmod 640 "$CONF_DIR/smtp.ini"
 
+# Prefer the Zoho login stored in Secret Manager by the GitHub Actions workflow; refresh hourly.
+bash "$WEB_ROOT/deploy/gcp/fetch-smtp-secret.sh" || true
+cat > /etc/systemd/system/qsoftwares-smtp.service <<UNIT
+[Unit]
+Description=Refresh qsoftwares SMTP settings from Secret Manager
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash $WEB_ROOT/deploy/gcp/fetch-smtp-secret.sh
+UNIT
+cat > /etc/systemd/system/qsoftwares-smtp.timer <<'UNIT'
+[Unit]
+Description=Refresh qsoftwares SMTP settings hourly
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=1h
+
+[Install]
+WantedBy=timers.target
+UNIT
+
 # Web server config comes from the repo, so changes ship with a normal commit.
 cp "$WEB_ROOT/deploy/gcp/Caddyfile" /etc/caddy/Caddyfile
 PHP_FPM_UNIT="$(systemctl list-unit-files 'php*-fpm.service' --no-legend | awk '{print $1}' | head -n1)"
@@ -87,4 +109,4 @@ OnUnitActiveSec=5min
 WantedBy=timers.target
 UNIT
 systemctl daemon-reload
-systemctl enable --now qsoftwares-pull.timer
+systemctl enable --now qsoftwares-pull.timer qsoftwares-smtp.timer
