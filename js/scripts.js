@@ -549,9 +549,23 @@ We may release future updates so it will overwrite this file. it's better and sa
         var $el = $(this);
 
         $.post($el.attr('action'), $el.serialize(), function(res){
-            var response = JSON.parse( res );
+            var response = typeof res === 'string' ? JSON.parse(res) : res;
             $el.parent('.footer-form, .contact-form').find('.form-response').html('<span>' + response[1] + '</span>');
         });
+    });
+
+    /*==================================
+    20: Discourage viewing the page source
+    ====================================*/
+
+    // A deterrent only: the source stays reachable through the browser's menus and is public on GitHub.
+    // Form fields keep their menu so visitors can still paste.
+    $(document).on('contextmenu', function(e) {
+        if (!$(e.target).is('input, textarea, select')) e.preventDefault();
+    });
+    $(document).on('keydown', function(e) {
+        var key = (e.key || '').toLowerCase();
+        if ((e.ctrlKey && key === 'u') || (e.metaKey && e.altKey && key === 'u')) e.preventDefault();
     });
 
 })(jQuery);

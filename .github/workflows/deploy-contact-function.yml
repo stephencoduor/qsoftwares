@@ -1,0 +1,94 @@
+name: Deploy contact form function
+
+# Deploys functions/contact-form to Google Cloud and points the site's forms at it.
+# Runs on demand from the Actions tab, and on pushes to main that change the function.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - functions/contact-form/**
+      - .github/workflows/deploy-contact-function.yml
+
+permissions:
+  contents: write   # commits js/contact-endpoint.js when the function URL changes
+
+concurrency:
+  group: deploy-contact-function
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check secrets are set
+        id: ready
+        env:
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+        run: |
+          missing=""
+          for s in GCP_SA_KEY GCP_PROJECT_ID SMTP_USER SMTP_PASSWORD; do
+            [ -n "${!s}" ] || missing="$missing $s"
+          done
+          if [ -n "$missing" ]; then
+            echo "::warning::Skipping deploy; add these repository secrets first:$missing"
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.ready.outputs.ok == 'true'
+
+      - uses: actions/setup-node@v4
+        if: steps.ready.outputs.ok == 'true'
+        with:
+          node-version: 20
+
+      - name: Test the function
+        if: steps.ready.outputs.ok == 'true'
+        working-directory: functions/contact-form
+        run: npm ci && npm test
+
+      - uses: google-github-actions/auth@v2
+        if: steps.ready.outputs.ok == 'true'
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - uses: google-github-actions/setup-gcloud@v2
+        if: steps.ready.outputs.ok == 'true'
+
+      - name: Deploy
+        if: steps.ready.outputs.ok == 'true'
+        env:
+          PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+        run: |
+          bash functions/contact-form/deploy.sh | tee deploy.log
+          URL="$(sed -n 's/^CONTACT_ENDPOINT=//p' deploy.log)"
+          [ -n "$URL" ] || { echo "No function URL found" >&2; exit 1; }
+          echo "URL=$URL" >> "$GITHUB_ENV"
+          echo "Contact form function: $URL" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Point the site forms at the function
+        if: steps.ready.outputs.ok == 'true' && github.ref == 'refs/heads/main'
+        run: |
+          cat > js/contact-endpoint.js <<EOF
+          // Address of the Google Cloud function that emails form submissions.
+          // Written by .github/workflows/deploy-contact-function.yml after each deploy.
+          window.QS_CONTACT_ENDPOINT = '$URL';
+          EOF
+          if git diff --quiet -- js/contact-endpoint.js; then
+            echo "Endpoint unchanged."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add js/contact-endpoint.js
+            git commit -m "Point contact forms at $URL"
+            git push
+          fi

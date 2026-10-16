@@ -1,0 +1,17 @@
+{
+  "name": "qsoftwares-contact-form",
+  "private": true,
+  "main": "index.js",
+  "engines": { "node": "20" },
+  "scripts": {
+    "start": "functions-framework --target=contactForm",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.4.0",
+    "nodemailer": "^6.9.14"
+  },
+  "devDependencies": {
+    "smtp-server": "^3.13.4"
+  }
+}
