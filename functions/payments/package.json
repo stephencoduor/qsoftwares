@@ -1,0 +1,13 @@
+{
+  "name": "qsoftwares-payments",
+  "private": true,
+  "main": "lambda.js",
+  "engines": { "node": "20" },
+  "scripts": { "test": "node --test" },
+  "dependencies": {
+    "nodemailer": "^6.9.14"
+  },
+  "devDependencies": {
+    "smtp-server": "^3.13.4"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "_comment": "Fixed-price items people can pay for on qsoftwares.org/pay. Amounts are whole KES. Edit, then redeploy with deploy-aws.sh.",
+  "plans": []
+}
