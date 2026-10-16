@@ -2,7 +2,13 @@
 
 The website stays on GitHub Pages. The Kobo support and training forms POST to this function, which sends the message to info@qsoftwares.org through Zoho SMTP (port 465). Google Cloud blocks outbound port 25 but allows 465.
 
-## One-time setup (clicks only)
+## Quickest setup: one link
+
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://shell.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fstephencoduor%2Fqsoftwares&cloudshell_git_branch=deploy%2Fgcp-e2-micro&cloudshell_tutorial=functions%2Fcontact-form%2FTUTORIAL.md&show=terminal)
+
+The link opens Google Cloud Shell with this repo and a short guide. Click the copy button on the one command and press Enter, then type your Zoho mailbox and app password when asked. It creates a project, links billing, and deploys the function. Nothing goes into GitHub secrets.
+
+## Alternative: deploy from GitHub Actions
 
 1. **Google Cloud project.** In the [console](https://console.cloud.google.com), create a project (for example `qsoftwares-web`) and link a billing account. Note the project ID. Billing must be linked, but this stays inside the free tier.
 2. **Deploy key.** Go to IAM & Admin → Service Accounts → Create service account. Name it `github-deployer` and give it the **Owner** role on this project. Then open it → Keys → Add key → JSON and download the file.
