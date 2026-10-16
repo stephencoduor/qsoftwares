@@ -15,7 +15,7 @@ Lambda's always-free allowance is 1 million requests and 400,000 GB-seconds a mo
 
 It also sets up a free usage alarm that emails info@qsoftwares.org (`ALERT_EMAIL`) when the function runs more than 500 times in a day (`ALERT_DAILY`). AWS sends a confirmation email on the first run; click its link once.
 
-To turn on Cloudflare Turnstile, create a widget for qsoftwares.org and www.qsoftwares.org in the Cloudflare dashboard, put its site key in `js/contact-endpoint.js`, and run `SET_TURNSTILE=1 ./deploy-aws.sh` to type the secret key. Until the secret exists the function skips the check, so the forms keep working.
+To turn on Cloudflare Turnstile, create a widget for qsoftwares.org and www.qsoftwares.org in the Cloudflare dashboard, run `SET_TURNSTILE=1 ./deploy-aws.sh` to type both keys, then put the site key it prints into `js/contact-endpoint.js`. Until the secret exists the function skips the check, so the forms keep working.
 
 # Google Cloud Run functions (alternative)
 

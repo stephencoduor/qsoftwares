@@ -6,7 +6,7 @@
 # Parameter Store as a SecureString; later runs reuse it unless RESET_PASSWORD=1.
 # Prints CONTACT_ENDPOINT=<url> on success.
 #
-# Run with SET_TURNSTILE=1 to type the Cloudflare Turnstile secret key (hidden); the
+# Run with SET_TURNSTILE=1 to type the Cloudflare Turnstile site key and secret key (hidden); the
 # function then requires a valid Turnstile token on every submission.
 #
 # Environment (all optional):
@@ -41,6 +41,9 @@ if [ "${RESET_PASSWORD:-0}" = 1 ] || ! aws ssm get-parameter --name "$PARAM" >/d
 fi
 
 if [ "${SET_TURNSTILE:-0}" = 1 ]; then
+  read -rp "Cloudflare Turnstile site key (public): " TURNSTILE_SITEKEY
+  aws ssm put-parameter --name "/qsoftwares/contact/turnstile-sitekey" --type String \
+    --overwrite --value "$TURNSTILE_SITEKEY" >/dev/null
   read -rsp "Cloudflare Turnstile secret key (typing is hidden): " TURNSTILE_SECRET; echo
   printf '%s' "$TURNSTILE_SECRET" | aws ssm put-parameter --name "$TURNSTILE_PARAM" --type SecureString \
     --overwrite --value file:///dev/stdin >/dev/null
@@ -131,3 +134,5 @@ aws cloudwatch put-metric-alarm --alarm-name "$FUNCTION-high-usage" \
 
 URL="$(aws lambda get-function-url-config --function-name "$FUNCTION" --query FunctionUrl --output text)"
 echo "CONTACT_ENDPOINT=${URL%/}"
+SITEKEY="$(aws ssm get-parameter --name /qsoftwares/contact/turnstile-sitekey --query Parameter.Value --output text 2>/dev/null || true)"
+[ -n "$SITEKEY" ] && echo "TURNSTILE_SITEKEY=$SITEKEY (goes in js/contact-endpoint.js)"
