@@ -1,6 +1,19 @@
-# Contact form mailer (Google Cloud Run function)
+# Contact form mailer
 
-The website stays on GitHub Pages. The Kobo support and training forms POST to this function, which sends the message to info@qsoftwares.org through Zoho SMTP (port 465). Google Cloud blocks outbound port 25 but allows 465.
+The website stays on GitHub Pages. The Kobo support and training forms POST to this function, which sends the message to info@qsoftwares.org through Zoho SMTP on port 465. The shared logic is in `core.js`. `lambda.js` runs it on AWS Lambda, which is the live setup, and `index.js` runs it on Google Cloud Run functions.
+
+## AWS Lambda (live)
+
+Run `./deploy-aws.sh` on a machine where the AWS CLI is signed in. On the first run it asks for the Zoho app password; typing is hidden. It then:
+
+- stores the password in SSM Parameter Store as a free SecureString;
+- creates a role that can read only that parameter and write logs;
+- deploys `qsoftwares-contact-form` (Node 20, eu-central-1) with a public function URL;
+- prints `CONTACT_ENDPOINT=...`, which goes into `js/contact-endpoint.js`.
+
+Lambda's always-free allowance is 1 million requests and 400,000 GB-seconds a month. Function URLs cost nothing extra. Reserved concurrency is capped at 2 where the account allows it. Run with `RESET_PASSWORD=1` to change the password.
+
+# Google Cloud Run functions (alternative)
 
 ## Quickest setup: one link
 

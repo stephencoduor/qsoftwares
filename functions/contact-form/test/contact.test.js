@@ -70,3 +70,27 @@ test('rate limits after 5 per hour', async () => {
   for (let i = 0; i < 6; i++) statuses.push((await post({ ...good, contactName: 'Rate Test' }, 'https://qsoftwares.org')).status);
   assert.ok(statuses.includes(429));
 });
+
+test('lambda handler sends via a function URL event', async () => {
+  const { handler } = require('../lambda.js');
+  const event = {
+    requestContext: { http: { method: 'POST', sourceIp: '203.0.113.9' } },
+    headers: { origin: 'https://qsoftwares.org', 'content-type': 'application/x-www-form-urlencoded' },
+    body: Buffer.from(new URLSearchParams({ ...good, contactName: 'Lambda Test' }).toString()).toString('base64'),
+    isBase64Encoded: true,
+  };
+  const before = received.length;
+  const r = await handler(event);
+  assert.strictEqual(r.statusCode, 200);
+  assert.strictEqual(r.headers['Access-Control-Allow-Origin'], 'https://qsoftwares.org');
+  assert.deepStrictEqual(JSON.parse(r.body), ['success', 'Thank you. Your message has been sent.']);
+  assert.strictEqual(received.length, before + 1);
+});
+
+test('lambda handler answers preflight and rejects foreign origins', async () => {
+  const { handler } = require('../lambda.js');
+  const pre = await handler({ requestContext: { http: { method: 'OPTIONS', sourceIp: '203.0.113.10' } }, headers: { origin: 'https://www.qsoftwares.org' } });
+  assert.strictEqual(pre.statusCode, 204);
+  const bad = await handler({ requestContext: { http: { method: 'POST', sourceIp: '203.0.113.11' } }, headers: { origin: 'https://evil.example' }, body: '' });
+  assert.strictEqual(bad.statusCode, 403);
+});
