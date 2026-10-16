@@ -17,7 +17,7 @@ cd "$(dirname "$0")"
 REGION="${AWS_REGION:-eu-central-1}"
 FUNCTION="qsoftwares-contact-form"
 ROLE="qsoftwares-contact-form"
-PARAM="/qsoftwares/contact-form/smtp-password"
+PARAM="/qsoftwares/contact/smtp-password"
 SMTP_USER="${SMTP_USER:-info@qsoftwares.org}"
 export AWS_REGION="$REGION" AWS_PAGER=""
 
@@ -48,7 +48,7 @@ fi
 aws iam put-role-policy --role-name "$ROLE" --policy-name read-smtp-password --policy-document "{
   \"Version\": \"2012-10-17\",
   \"Statement\": [
-    {\"Effect\": \"Allow\", \"Action\": \"ssm:GetParameter\", \"Resource\": \"arn:aws:ssm:$REGION:$ACCOUNT:parameter$PARAM\"},
+    {\"Effect\": \"Allow\", \"Action\": \"ssm:GetParameter\", \"Resource\": \"arn:aws:ssm:$REGION:$ACCOUNT:parameter/qsoftwares/contact/*\"},
     {\"Effect\": \"Allow\", \"Action\": \"kms:Decrypt\", \"Resource\": \"*\", \"Condition\": {\"StringEquals\": {\"kms:ViaService\": \"ssm.$REGION.amazonaws.com\"}}}
   ]
 }"
