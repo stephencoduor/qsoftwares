@@ -549,6 +549,7 @@
     <script src="plugins/waypoints/sticky.min.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/contact-endpoint.js"></script>
     <script>
         $('#tcForm').on('submit', function (e) {
             e.preventDefault();
@@ -585,7 +586,7 @@
             };
 
             $.ajax({
-                url: 'phpmailer/contact_form.php',
+                url: window.QS_CONTACT_ENDPOINT,
                 method: 'POST',
                 data: data,
                 success: function (res) {
