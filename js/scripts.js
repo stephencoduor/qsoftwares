@@ -549,7 +549,7 @@ We may release future updates so it will overwrite this file. it's better and sa
         var $el = $(this);
 
         $.post($el.attr('action'), $el.serialize(), function(res){
-            var response = JSON.parse( res );
+            var response = typeof res === 'string' ? JSON.parse(res) : res;
             $el.parent('.footer-form, .contact-form').find('.form-response').html('<span>' + response[1] + '</span>');
         });
     });

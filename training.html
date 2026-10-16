@@ -590,7 +590,7 @@
                 data: data,
                 success: function (res) {
                     try {
-                        var r = JSON.parse(res);
+                        var r = typeof res === 'string' ? JSON.parse(res) : res;
                         if (r[0] === 'success') {
                             $('#tcFormMsg').html(
                                 '<div class="alert alert-success mt-2">Thank you! Your training request has been received. We\'ll be in touch within 24 hours.</div>'

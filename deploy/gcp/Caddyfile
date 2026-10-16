@@ -1,0 +1,34 @@
+# qsoftwares.org on the GCP free-tier e2-micro.
+# Caddy fetches and renews the Let's Encrypt certificate on its own once DNS points here.
+
+qsoftwares.org {
+	root * /var/www/qsoftwares
+	encode gzip
+
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		-Server
+	}
+
+	# Repo internals and working files are never served.
+	@hidden path /.* /deploy/* /tools/* /backup/* /private/* /tmp/* *.md
+	respond @hidden 404
+
+	# Only the contact form handler runs as PHP; the PHPMailer library files stay private.
+	@phplib {
+		path /phpmailer/*
+		not path /phpmailer/contact_form.php
+	}
+	respond @phplib 404
+
+	@contact path /phpmailer/contact_form.php
+	php_fastcgi @contact unix//run/php/php-fpm.sock
+
+	file_server
+}
+
+www.qsoftwares.org {
+	redir https://qsoftwares.org{uri} permanent
+}

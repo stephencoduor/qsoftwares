@@ -15,7 +15,10 @@ define('RECIPIENT_EMAIL', 'info@qsoftwares.org');
 define('RECIPIENT_NAME',  'QSOFTWARES Support');
 define('RATE_LIMIT_MAX',  5);          // max submissions
 define('RATE_LIMIT_WINDOW', 3600);     // per this many seconds (1 hour)
-define('RATE_LIMIT_DIR',  __DIR__ . '/../tmp/rate_limits');
+// SMTP login and server paths live outside the web root (see deploy/gcp/set-smtp.sh).
+define('SMTP_CONFIG_FILE', '/etc/qsoftwares/smtp.ini');
+$smtp = is_readable(SMTP_CONFIG_FILE) ? (parse_ini_file(SMTP_CONFIG_FILE, false, INI_SCANNER_RAW) ?: []) : [];
+define('RATE_LIMIT_DIR',  $smtp['rate_limit_dir'] ?? (__DIR__ . '/../tmp/rate_limits'));
 
 // ── HEADERS ─────────────────────────────────────────
 header('Content-Type: application/json; charset=utf-8');
@@ -148,6 +151,7 @@ if (stripos($message, '[KoboToolbox Support Request]') !== false) {
 // ── SEND via PHPMailer ──────────────────────────────
 require __DIR__ . '/Exception.php';
 require __DIR__ . '/PHPMailer.php';
+require __DIR__ . '/SMTP.php';
 
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
@@ -155,18 +159,22 @@ use PHPMailer\PHPMailer\PHPMailer;
 $mail = new PHPMailer(true);
 
 try {
-    // Server settings — uses PHP mail() by default.
-    // To use SMTP instead, uncomment below and set credentials:
-    // $mail->isSMTP();
-    // $mail->Host       = 'smtp.example.com';
-    // $mail->SMTPAuth   = true;
-    // $mail->Username   = 'user@example.com';
-    // $mail->Password   = 'secret';
-    // $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    // $mail->Port       = 587;
+    // SMTP when /etc/qsoftwares/smtp.ini has a login, otherwise PHP mail().
+    // Zoho only accepts a From address that matches the mailbox you log in with.
+    $from = 'noreply@qsoftwares.org';
+    if (!empty($smtp['username']) && !empty($smtp['password'])) {
+        $mail->isSMTP();
+        $mail->Host       = $smtp['host'] ?? 'smtp.zoho.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = $smtp['username'];
+        $mail->Password   = $smtp['password'];
+        $mail->SMTPSecure = ($smtp['secure'] ?? 'ssl') === 'tls' ? 'tls' : 'ssl';
+        $mail->Port       = (int) ($smtp['port'] ?? 465);
+        $from = $smtp['from'] ?? $smtp['username'];
+    }
 
     // Sender & recipient
-    $mail->setFrom('noreply@qsoftwares.org', 'QSOFTWARES Website');
+    $mail->setFrom($from, $smtp['from_name'] ?? 'QSOFTWARES Website');
     $mail->addReplyTo($email, $name);
     $mail->addAddress(RECIPIENT_EMAIL, RECIPIENT_NAME);
 

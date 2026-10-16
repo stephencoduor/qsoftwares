@@ -843,7 +843,7 @@
                 data: data,
                 success: function (res) {
                     try {
-                        var r = JSON.parse(res);
+                        var r = typeof res === 'string' ? JSON.parse(res) : res;
                         if (r[0] === 'success') {
                             $('#koboFormMsg').html(
                                 '<div class="alert alert-success mt-2">Thank you! Your support request has been received. We\'ll review it and get back to you shortly.</div>'
