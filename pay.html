@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pay QSOFTWARES | Self-Hosted KoboToolbox Support</title>
+    <meta name="robots" content="noindex">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400%7CPoppins:400,400i,500,700">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="css/responsive.css?v=3">
+    <link rel="stylesheet" href="css/custom.css?v=3">
+    <style>
+        /* ── Tier cards ──────────────────────────────── */
+        .tier-cards { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+        .tier-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 40px 32px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            flex: 1 1 300px;
+            max-width: 340px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .tier-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+        .tier-card.recommended {
+            border: 2px solid #7ecdc8;
+        }
+        .tier-card.recommended::before {
+            content: "Recommended";
+            position: absolute;
+            top: 18px;
+            right: -32px;
+            background: #f5a623;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 44px;
+            transform: rotate(45deg);
+            letter-spacing: 0.5px;
+        }
+        .tier-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #eef8f7 0%, #d0ede9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .tier-icon i { color: #015055; font-size: 24px; }
+        .tier-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #015055;
+            margin-bottom: 6px;
+        }
+        .tier-price {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #015055;
+            margin-bottom: 6px;
+        }
+        .tier-price-sub {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 22px;
+        }
+        .tier-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px;
+            text-align: left;
+        }
+        .tier-features li {
+            font-size: 14px;
+            color: #444;
+            padding: 6px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .tier-features li i {
+            color: #7ecdc8;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        .tier-cta {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .tier-cta-orange {
+            background: #f5a623;
+            color: #fff;
+        }
+        .tier-cta-orange:hover { background: #e09315; color: #fff; transform: translateY(-1px); }
+        .tier-cta-outline {
+            background: transparent;
+            color: #015055;
+            border: 2px solid #015055;
+        }
+        .tier-cta-outline:hover { background: #015055; color: #fff; transform: translateY(-1px); }
+
+        /* ── What's covered grid ─────────────────────── */
+        .covered-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+        .covered-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #eef8f7 0%, #d0ede9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .covered-icon i { color: #015055; font-size: 17px; }
+        .covered-item h5 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #015055;
+            margin-bottom: 3px;
+        }
+        .covered-item p {
+            font-size: 13px;
+            color: #666;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* ── Reuse training split-panel styles ────────── */
+        .support-page-bg {
+            background: linear-gradient(135deg, #cce9ef 0%, #dff4f8 60%, #b8dfe8 100%);
+            padding: 70px 0 80px;
+        }
+        .training-card {
+            display: flex;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 24px 72px rgba(0,0,0,0.18);
+            max-width: 1060px;
+            margin: 0 auto;
+        }
+        .tc-left {
+            background-color: #015055;
+            color: #fff;
+            padding: 56px 44px;
+            flex: 0 0 44%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .tc-left .tc-label {
+            color: #7ecdc8;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        .tc-left h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.25;
+            color: #fff;
+            margin-bottom: 40px;
+        }
+        .tc-benefit {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 26px;
+        }
+        .tc-benefit .tc-icon {
+            width: 42px;
+            height: 42px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+        .tc-benefit .tc-icon i { color: #7ecdc8; font-size: 17px; }
+        .tc-benefit h4 { font-size: 14px; font-weight: 600; margin-bottom: 3px; color: #fff; }
+        .tc-benefit p { font-size: 12.5px; color: rgba(255,255,255,0.72); margin: 0; line-height: 1.55; }
+        .tc-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255,255,255,0.13);
+            border-radius: 30px;
+            padding: 9px 18px;
+            margin-bottom: 22px;
+            font-size: 12.5px;
+            color: #fff;
+            font-weight: 500;
+        }
+        .tc-badge i { color: #f5a623; margin-right: 8px; }
+        .tc-clients { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tc-clients span {
+            font-size: 11px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.45);
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+        .tc-right {
+            background: #fff;
+            padding: 56px 44px;
+            flex: 1;
+            overflow-y: auto;
+        }
+        .tc-right h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #015055;
+            margin-bottom: 6px;
+        }
+        .tc-right .tc-subtitle {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 28px;
+            line-height: 1.5;
+        }
+        .tc-right .form-group { margin-bottom: 16px; }
+        .tc-right label {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .tc-right .form-control {
+            border: 1.5px solid #e2e8e8;
+            border-radius: 8px;
+            padding: 9px 13px;
+            font-size: 13.5px;
+            color: #333;
+            background: #fafafa;
+            transition: border-color 0.2s, background 0.2s;
+            width: 100%;
+        }
+        .tc-right .form-control:focus {
+            border-color: #015055;
+            background: #fff;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(1,80,85,0.09);
+        }
+        .tc-right textarea.form-control { resize: vertical; }
+        .btn-tc-submit {
+            background: #f5a623;
+            color: #fff;
+            border: none;
+            border-radius: 9px;
+            padding: 14px 24px;
+            font-size: 14px;
+            font-weight: 700;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+            margin-top: 4px;
+        }
+        .btn-tc-submit:hover { background: #e09315; transform: translateY(-1px); }
+        .btn-tc-submit i { font-size: 15px; }
+        #koboFormMsg { margin-top: 14px; font-size: 13px; }
+
+        /* ── Responsive ──────────────────────────────── */
+        @media (max-width: 900px) {
+            .training-card { flex-direction: column; }
+            .tc-left { flex: none; padding: 40px 28px; }
+            .tc-right { padding: 40px 28px; }
+            .tc-left h1 { font-size: 26px; }
+        }
+        @media (max-width: 768px) {
+            .tier-card { max-width: 100%; }
+        }
+        @media (max-width: 576px) {
+            .support-page-bg { padding: 40px 0 60px; }
+            .training-card { border-radius: 12px; }
+            .tc-left, .tc-right { padding: 32px 20px; }
+            .tier-card { padding: 32px 22px; border-radius: 14px; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preLoader"><span class="spin"></span></div>
+
+    <div class="wrapper body-gradient">
+
+        <!-- ── Header ───────────────────────────────── -->
+        <header class="header">
+            <div class="header-absoulate">
+                <div class="main-header header--2">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-xl-3 col-lg-2 col-md-3 col-sm-5 col-7">
+                                <div class="logo" data-animate="fadeInDown" data-delay=".5">
+                                    <a href="/">
+                                        <img data-rjs="2" src="img/logo-q.png" alt="QSOFTWARES Limited">
+                                        <img data-rjs="2" src="img/logo-q.png" alt="QSOFTWARES Limited">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-7 col-lg-8 col-md-6 col-sm-3 col-2">
+                                <nav data-animate="fadeInDown" data-delay=".75">
+                                    <div class='header-menu'>
+                                        <ul>
+                                            <li>
+                                                <a href='/'>Home</a>
+                                            </li>
+                                            <li>
+                                                <a href='services'>Services <i class="fas fa-caret-down"></i></a>
+                                                <ul>
+                                                    <li><a href="services#n8n">n8n Automation</a></li>
+                                                    <li><a href="services#devops">DevOps &amp; Cloud</a></li>
+                                                    <li><a href="services#ai-mlops">AI / MLOps</a></li>
+                                                    <li><a href="services#kobotoolbox">KoboToolbox</a></li>
+                                                    <li><a href="services#erp">ERP Systems</a></li>
+                                                    <li><a href="services#financial">Financial Systems</a></li>
+                                                    <li><a href="services#custom">Custom Software</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href='products'>Products <i class="fas fa-caret-down"></i></a>
+                                                <ul>
+                                                    <li><a href="sacco">Sacco</a></li>
+                                                    <li><a href="products#fpayroll">F-Payroll</a></li>
+                                                    <li><a href="products#enterprise-rag">Enterprise-RAG</a></li>
+                                                    <li><a href="products#kobo-automation">Kobo Automation Suite</a></li>
+                                                    <li><a href="carbon-field">Carbon Field</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="training">Training</a></li>
+                                            <li class="active"><a href="kobo-support">Kobo Support</a></li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-3">
+                                <div class="register-button" data-animate="fadeInDown" data-delay="1">
+                                    <a class="btn btn-primary no-border btn-block btn-square" href="training">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <span>Training</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- ── End Header ─────────────────────────── -->
+
+        <!-- ── Hero ────────────────────────────────── -->
+
+        <!-- ── Hero ────────────────────────────────── -->
+        <section class="page-hero-light">
+            <div class="container">
+                <h1 data-animate="fadeInUp" data-delay=".1">Pay QSOFTWARES</h1>
+                <p data-animate="fadeInUp" data-delay=".2">Pay for self-hosted KoboToolbox support, maintenance and training securely with M-Pesa.</p>
+            </div>
+        </section>
+
+        <!-- ── Payment ───────────────────────────── -->
+        <section class="support-page-bg" id="payment">
+            <div class="container">
+                <div class="training-card">
+
+                    <!-- LEFT panel -->
+                    <div class="tc-left">
+                        <div>
+                            <p class="tc-label">
+                                <i class="fas fa-lock"></i>&nbsp;&nbsp;Secure M-Pesa payment
+                            </p>
+                            <h1>How it works</h1>
+
+                            <div class="tc-benefit">
+                                <div class="tc-icon"><i class="fas fa-file-invoice"></i></div>
+                                <div>
+                                    <h4>1. Choose what you are paying for</h4>
+                                    <p>A self-hosted KoboToolbox support plan, or an invoice we have sent you.</p>
+                                </div>
+                            </div>
+                            <div class="tc-benefit">
+                                <div class="tc-icon"><i class="fas fa-mobile-alt"></i></div>
+                                <div>
+                                    <h4>2. Approve on your phone</h4>
+                                    <p>We send an M-Pesa prompt to your phone. Enter your M-Pesa PIN to pay through KCB paybill 522522.</p>
+                                </div>
+                            </div>
+                            <div class="tc-benefit">
+                                <div class="tc-icon"><i class="fas fa-envelope-open-text"></i></div>
+                                <div>
+                                    <h4>3. Get your receipt</h4>
+                                    <p>This page confirms the payment and we email you a receipt with your M-Pesa reference.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="tc-badge">
+                                <i class="fas fa-question-circle"></i>
+                                Questions? Call or WhatsApp +254 101 609 998
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end LEFT -->
+
+                    <!-- RIGHT form panel -->
+                    <div class="tc-right">
+                        <h2>Make a payment</h2>
+                        <p class="tc-subtitle">Amounts are in Kenya shillings (KES).</p>
+
+                        <form id="payForm" novalidate data-qs-guard>
+                            <div class="form-group">
+                                <label>What are you paying for? *</label>
+                                <select name="plan" class="form-control" required>
+                                    <option value="invoice">An invoice from QSOFTWARES</option>
+                                </select>
+                            </div>
+                            <div class="row pay-invoice">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Invoice number *</label>
+                                        <input type="text" name="invoice" class="form-control" placeholder="e.g. QS-2027-014" maxlength="40">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Amount (KES) *</label>
+                                        <input type="number" name="amount" class="form-control" min="100" step="1" inputmode="numeric">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Full Name *</label>
+                                        <input type="text" name="name" class="form-control" placeholder="e.g. Jane Wanjiku" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Email (for your receipt) *</label>
+                                        <input type="email" name="email" class="form-control" placeholder="you@organisation.org" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>M-Pesa phone number *</label>
+                                <input type="tel" name="phone" class="form-control" placeholder="e.g. 0712 345 678" required>
+                            </div>
+
+                            <!-- Honeypot — hidden from humans, catches bots -->
+                            <div style="position:absolute;left:-9999px;" aria-hidden="true">
+                                <input type="text" name="website_url" tabindex="-1" autocomplete="off">
+                            </div>
+
+                            <button type="submit" class="btn-tc-submit">
+                                <i class="fas fa-mobile-alt"></i>
+                                Pay with M-Pesa
+                            </button>
+                        </form>
+
+                        <div id="payMsg" aria-live="polite"></div>
+                    </div>
+                    <!-- end RIGHT -->
+
+                </div><!-- /.training-card -->
+            </div>
+        </section>
+        <!-- ── End Payment section ───────────────── -->
+
+        <!-- ── End Support Form section ──────────── -->
+
+        <!-- ── Footer ───────────────────────────── -->
+        <footer class="main-footer main-footer--2 text-white footer-gradient mt-0">
+            <div class="top-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="footer-widget">
+                                <div class="widget-title" data-animate="fadeInUp" data-delay=".0">
+                                    <img src="img/logo-q.png" data-rjs="2" alt="">
+                                </div>
+                                <div class="footer-about">
+                                    <p>QSOFTWARES Ltd designs, deploys, and maintains scalable digital platforms for NGOs, enterprises, and startups. Experts in DevOps, AI infrastructure, and open-source enterprise systems.</p>
+                                </div>
+                                <div class="social-links">
+                                    <ul class="list-unstyled list-inline">
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="footer-widget">
+                                <h3 class="widget-title" data-animate="fadeInUp" data-delay=".15">Contact Us</h3>
+                                <div class="footer-posts footer-posts--2">
+                                    <ul class="list-unstyled">
+                                        <li data-animate="fadeInUp" data-delay=".05">
+                                            <p><i class="fab fa-whatsapp"></i> WhatsApp</p>
+                                            <h4><a href="https://wa.me/254101609998">+254 101 609 998</a></h4>
+                                        </li>
+                                        <li data-animate="fadeInUp" data-delay=".1">
+                                            <p><i class="fas fa-envelope"></i> Email</p>
+                                            <h4><a href="mailto:info@qsoftwares.org">info@qsoftwares.org</a></h4>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="footer-widget">
+                                <h3 class="widget-title" data-animate="fadeInUp" data-delay=".4">Quick Links</h3>
+                                <div class="footer-posts footer-posts--2">
+                                    <ul class="list-unstyled">
+                                        <li><h4><a href="services#kobotoolbox">KoboToolbox Services</a></h4></li>
+                                        <li><h4><a href="training">Technical Training</a></h4></li>
+                                        <li><h4><a href="products#kobo-automation">Kobo Automation Suite</a></h4></li>
+                                        <li><h4><a href="services#devops">DevOps &amp; Cloud</a></h4></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-footer position-relative karla">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 order-last order-md-first">
+                            <span class="copyright-text" data-animate="fadeInDown" data-delay=".7">&copy; 2025 QSOFTWARES Ltd. All rights reserved.</span>
+                        </div>
+                        <div class="col-md-7 order-first order-md-last">
+                            <ul class="footer-menu text-md-right list-inline footer-menu--2">
+                                <li data-animate="fadeInDown" data-delay=".75"><a href="/">Home</a></li>
+                                <li data-animate="fadeInDown" data-delay=".8"><a href="#">About Us</a></li>
+                                <li data-animate="fadeInDown" data-delay=".85"><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a class="back-to-top back-top--2" href="#" data-animate="fadeInDown" data-delay=".95">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+        </footer>
+        <!-- ── End Footer ─────────────────────────── -->
+
+    </div><!-- /.wrapper -->
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="plugins/retinajs/retina.min.js"></script>
+    <script src="plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script src="plugins/waypoints/sticky.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/contact-endpoint.js"></script>
+    <script src="js/form-guard.js"></script>
+    <script src="js/payments.js"></script>
+</body>
+</html>
